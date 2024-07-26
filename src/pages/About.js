@@ -10,7 +10,7 @@ const About = () => {
   };
 
   return (
-    <>
+    <div className="about-container">
     <div className="stats-container">
         <div className="stat">
           <h2>1000+</h2>
@@ -28,6 +28,7 @@ const About = () => {
 
       <div className="how-it-works-container">
         <h2>How It Works</h2>
+        <div className="main-step">
         <div className="step">
           <h3>Selection of Tutor</h3>
           <p>On the basis of student's learning profile and personality, we select best tutor who is qualified ,experienced and has proven track record of best result.</p>
@@ -39,6 +40,7 @@ const About = () => {
         <div className="step">
           <h3>Start Learning</h3>
           <p>Start learning and track your progress, Once perfect tutor is matched, schedule classes, start learning and track student’s progress.</p>
+        </div>
         </div>
       </div>
 
@@ -111,7 +113,7 @@ const About = () => {
       
 
 
-    </>
+    </div>
   );
 };
 
