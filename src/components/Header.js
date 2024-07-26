@@ -45,6 +45,12 @@ const Header = () => {
         <Link onClick={() => setIsMobileMenuOpen(false)} to={"/contact"}>
           CONTACT
         </Link>
+        <Link onClick={() => setIsMobileMenuOpen(false)} to={"/login"}>
+          LOGIN
+        </Link>
+        <Link onClick={() => setIsMobileMenuOpen(false)} to={"/signup"}>
+          SIGNUP
+        </Link>
       </div>
 
       {/* <div className="header-right">
