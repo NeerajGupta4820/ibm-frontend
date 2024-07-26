@@ -3,11 +3,14 @@ import image1 from '../assets/home/header/image1.webp';
 import image2 from '../assets/home/header/image2.webp';
 import image3 from '../assets/home/header/image3.jpg';
 import image4 from '../assets/home/header/image4.jpg';
+import image5 from '../assets/home/header/image5.jpg';
+import image6 from '../assets/home/header/image6.jpg';
+import image7 from '../assets/home/header/image7.jpg';
 import '../style/home.css';
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const images = [image1, image2, image3, image4];
+  const images = [image1, image2, image3, image4,image5,image6,image7];
 
   useEffect(() => {
     const interval = setInterval(() => {

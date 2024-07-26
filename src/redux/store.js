@@ -1,10 +1,20 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { userAPI } from './api/userApi';
+import { tutorAPI } from './api/tutorApi';
+import { tuitionCenterAPI } from './api/tuitioncenterApi';
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    [userAPI.reducerPath]: userAPI.reducer,
+    [tutorAPI.reducerPath]: tutorAPI.reducer,
+    [tuitionCenterAPI.reducerPath]: tuitionCenterAPI.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(
+      userAPI.middleware,
+      tutorAPI.middleware,
+      tuitionCenterAPI.middleware 
+    ),
 });
 
 export default store;

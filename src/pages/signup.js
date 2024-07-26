@@ -1,93 +1,120 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "../style/signup.css"; // Import the CSS file
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useRegisterMutation } from '../redux/api/userApi'; // Adjust the import according to your setup
 
-const SignupPage = () => {
-  const navigate = useNavigate();
+const SignupUser = () => {
+  const dispatch = useDispatch();
+  const [registerUser, { isLoading, isError, isSuccess, error }] = useRegisterMutation();
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    role: "",
+    name: '',
+    email: '',
+    password: '',
     photo: null,
+    role: '',
+    profileInfo: ''
   });
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    if (name === "photo") {
-      setFormData({ ...formData, photo: files[0] });
+    const { name, value, type, files } = e.target;
+    if (type === 'file') {
+      setFormData((prevState) => ({ ...prevState, [name]: files[0] }));
     } else {
-      setFormData({ ...formData, [name]: value });
+      setFormData((prevState) => ({ ...prevState, [name]: value }));
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const formDataToSend = new FormData();
-    for (const key in formData) {
-      formDataToSend.append(key, formData[key]);
-    }
-
     try {
-      const response = await fetch("/api/register", {
-        method: "POST",
-        body: formDataToSend,
-      });
-      const data = await response.json();
-      if (response.ok) {
-        setSuccess(data.message);
-        setError("");
-        navigate("/login");
-      } else {
-        setError(data.message || "An error occurred");
-        setSuccess("");
+      const userFormData = new FormData();
+      for (const key in formData) {
+        userFormData.append(key, formData[key]);
       }
-    } catch (error) {
-      setError("An error occurred");
-      setSuccess("");
+      await registerUser(userFormData).unwrap();
+      alert('User registered successfully!');
+    } catch (err) {
+      console.error('Failed to register user:', err);
     }
   };
 
   return (
-    <div className="signup-container">
+    <div className="signup-user">
       <h2>Signup</h2>
-      {error && <p className="error">{error}</p>}
-      {success && <p className="success">{success}</p>}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handleChange}
-          required
-        />
-        <select name="role" onChange={handleChange} required>
-          <option value="">Select Role</option>
-          <option value="student">Student</option>
-          <option value="tutor">Tutor</option>
-        </select>
-        <input type="file" name="photo" onChange={handleChange} />
-        <button type="submit">Register</button>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
+        <div className="form-group">
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="photo">Photo</label>
+          <input
+            type="file"
+            id="photo"
+            name="photo"
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="role">Role</label>
+          <select
+            id="role"
+            name="role"
+            value={formData.role}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select Role</option>
+            <option value="Student">Student</option>
+            <option value="Admin">Admin</option>
+          </select>
+        </div>
+        <div className="form-group">
+          <label htmlFor="profileInfo">Profile Info</label>
+          <textarea
+            id="profileInfo"
+            name="profileInfo"
+            value={formData.profileInfo}
+            onChange={handleChange}
+          />
+        </div>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? 'Signing up...' : 'Signup'}
+        </button>
+        {isError && <p>Error: {error.message}</p>}
+        {isSuccess && <p>Registration successful!</p>}
       </form>
     </div>
   );
 };
 
-export default SignupPage;
+export default SignupUser;
