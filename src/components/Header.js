@@ -49,7 +49,7 @@ const Header = () => {
           LOGIN
         </Link>
         <Link onClick={() => setIsMobileMenuOpen(false)} to={"/signup"}>
-          SIGNUP
+          Join US
         </Link>
       </div>
 
