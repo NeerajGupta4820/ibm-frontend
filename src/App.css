@@ -1,7 +1,36 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* General styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  height: 100%;
 }
 
-  
+/* Layout styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #333;
+  color: #fff;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #333;
+  color: #fff;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 140px); /* Adjust height considering header and footer height */
+  padding: 20px;
+}
