@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* font-family: "Poppins", sans-serif; */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    font-family: 'Varela Round', sans-serif;
+    color: #fff;
+  }
+  
+  .logo h1 {
+    margin: 0;
+  }
+  
+  .search-bar {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .search-form {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-form input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem 0 0 0.25rem;
+    outline: none;
+  }
+  
+  .search-form button {
+    padding: 0.5rem;
+    border: none;
+    background-color: #555;
+    color: #fff;
+    border-radius: 0 0.25rem 0.25rem 0;
+    cursor: pointer;
+  }
+  
+  .search-form button:hover {
+    background-color: #777;
+  }
+  
+  .header-center {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .header-center a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .header-center a:hover {
+    text-decoration: underline;
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+  }
+  
+  .dropdown-menu option {
+    display: block;
+    color: #fff;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu option:hover {
+    background-color: #555;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    .header-center {
+      flex-direction: column;
+      display: none;
+    }
+  
+    .header-center.open {
+      display: flex;
+    }
+  
+    .mobile-menu-toggle {
+      display: block;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  }
+  
