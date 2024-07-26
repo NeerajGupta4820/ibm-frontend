@@ -36,7 +36,7 @@ export const userAPI = createApi({
 
 export const getUser = async (id) => {
   try {
-    const { data } = await axios.get(`${baseUrl}/api/users/${id}`); // Updated URL
+    const { data } = await axios.get(`${baseUrl}/api/users/${id}`); 
     return data;
   } catch (error) {
     throw error;

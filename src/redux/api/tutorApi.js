@@ -6,7 +6,6 @@ const baseUrl = process.env.REACT_APP_SERVER;
 export const tutorAPI = createApi({
   reducerPath: 'tutorApi',
   baseQuery: fetchBaseQuery({ baseUrl: `${baseUrl}/api/v1/tutor/` }),
-  tagTypes: ['tutors'],
   endpoints: (builder) => ({
     createTutorProfile: builder.mutation({
       query: (tutor) => ({
@@ -14,11 +13,9 @@ export const tutorAPI = createApi({
         method: 'POST',
         body: tutor,
       }),
-      invalidatesTags: ['tutors'],
     }),
     getTutorProfile: builder.query({
       query: (id) => `get-tutor/${id}`,
-      providesTags: ['tutors'],
     }),
     updateTutorProfile: builder.mutation({
       query: ({ id, ...tutor }) => ({
@@ -26,14 +23,12 @@ export const tutorAPI = createApi({
         method: 'PUT',
         body: tutor,
       }),
-      invalidatesTags: ['tutors'],
     }),
     deleteTutorProfile: builder.mutation({
       query: (id) => ({
         url: `delete/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['tutors'],
     }),
   }),
 });
