@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useGetAllTutorsQuery } from '../redux/api/tutorApi';
 import image1 from '../assets/home/header/image1.webp';
 import image2 from '../assets/home/header/image2.webp';
 import image3 from '../assets/home/header/image3.jpg';
@@ -10,7 +11,9 @@ import '../style/home.css';
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const images = [image1, image2, image3, image4,image5,image6,image7];
+  const images = [image1, image2, image3, image4, image5, image6, image7];
+  const { data, error, isLoading } = useGetAllTutorsQuery();
+  const tutors = data?.tutors || []; 
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -59,6 +62,19 @@ const Home = () => {
           <li>Verified reviews and ratings</li>
           <li>Affordable and flexible pricing options</li>
         </ul>
+      </section>
+      <section className="tutors-section">
+        <h2>Our Tutors</h2>
+        {isLoading && <p>Loading...</p>}
+        {error && <p>Error loading tutors</p>}
+        <div className="tutors-list">
+          {tutors.map((tutor) => (
+            <div key={tutor._id} className="tutor-card">
+              <h3>{tutor.name}</h3>
+              <p>{tutor.bio}</p>
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   );
