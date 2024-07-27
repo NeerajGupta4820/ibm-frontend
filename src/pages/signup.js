@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useRegisterMutation } from "../redux/api/userApi";
+import { useCreateTutorProfileMutation } from "../redux/api/tutorApi";
 
 const SignupUser = () => {
   const dispatch = useDispatch();
-  const [registerUser, { isLoading, isError, isSuccess, error }] =
-    useRegisterMutation();
+  const [registerUser, { isLoading, isError, isSuccess, error }] =useRegisterMutation();
+   const [createTutorProfile, { isLoading: isTutorLoading, isError: isTutorError, isSuccess: isTutorSuccess, error: tutorError }] =
+    useCreateTutorProfileMutation();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -44,8 +47,13 @@ const SignupUser = () => {
       for (const key in formData) {
         userFormData.append(key, formData[key]);
       }
-      await registerUser(userFormData).unwrap();
-      alert("User registered successfully!");
+      if (type === "Tutor") {
+        await createTutorProfile(userFormData).unwrap();
+        alert("Tutor registered successfully!");
+      } else {
+        await registerUser(userFormData).unwrap();
+        alert("User registered successfully!");
+      }
     } catch (err) {
       console.error("Failed to register user:", err);
     }

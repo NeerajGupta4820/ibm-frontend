@@ -3,6 +3,8 @@ import { userAPI } from './api/userApi';
 import { tutorAPI } from './api/tutorApi';
 import { tuitionCenterAPI } from './api/tuitioncenterApi';
 
+export const server = process.env.REACT_APP_SERVER;
+
 const store = configureStore({
   reducer: {
     [userAPI.reducerPath]: userAPI.reducer,

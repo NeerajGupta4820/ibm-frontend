@@ -35,7 +35,7 @@ export const userAPI = createApi({
 
 export const getUser = async (id) => {
   try {
-    const { data } = await axios.get(`${baseUrl}/api/users/${id}`); 
+    const { data } = await axios.get(`${baseUrl}/api/user/${id}`); 
     return data;
   } catch (error) {
     throw error;
