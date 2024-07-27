@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+.section-p1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #333;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .section-p1 .col {
+    flex: 1;
+    margin: 1rem;
+  }
+  
+  .logofooter {
+    width: 150px;
+    margin-bottom: 1rem;
+  }
+  
+  h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+  
+  p, a {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #ccc;
+    text-decoration: none;
+  }
+  
+  p strong {
+    color: #fff;
+  }
+  
+  a {
+    color: #ff6347; 
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .follow .icon {
+    margin-top: 1rem;
+  }
+  
+  .follow .icon i {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    color: #fff;
+  }
+  
+  .icon i:hover {
+    color: #ff6347; /* Change color on hover */
+  }
+  
+  #install .row img {
+    width: 120px;
+    margin-right: 0.5rem;
+  }
+  
+  #install img {
+    width: 150px;
+    margin-top: 1rem;
+  }
+  
+  .copyright {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: #ccc;
+  }
+  
