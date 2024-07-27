@@ -12,6 +12,9 @@
 // export default Footer
 
 import React from 'react';
+import { FaFacebookF, FaTwitter, FaInstagram, FaPinterestP, FaYoutube } from 'react-icons/fa';
+import { SiVisa, SiMastercard, SiPaypal } from 'react-icons/si'
+
 import '../style/footer.css'; 
 
 const Footer = () => {
@@ -26,11 +29,11 @@ const Footer = () => {
         <div className="follow">
           <h4>Follow Us</h4>
           <div className="icon">
-            <i className="fab fa-facebook-f"></i>
-            <i className="fab fa-twitter"></i>
-            <i className="fab fa-instagram"></i>
-            <i className="fab fa-pinterest"></i>
-            <i className="fab fa-youtube"></i>
+            <FaFacebookF />
+            <FaTwitter />
+            <FaInstagram />
+            <FaPinterestP />
+            <FaYoutube />
           </div>
         </div>
       </div>
@@ -54,12 +57,17 @@ const Footer = () => {
         <h4>Install app</h4>
         <p>From App Store or Google Play</p>
         <div className="row">
-          <img src="img/pay/app.jpg" alt="App Store" />
-          <img src="img/pay/play.jpg" alt="Google Play" />
+          <img src="../assets/app.png" alt="App Store" />
+          <img src="../assets/play.png" alt="Google Play" />
         </div>
         <p>Secured payment gateways</p>
-        <img id="install" src="img/pay/pay.png" alt="Payment Methods" />
+        <div className="payment-icons">
+         <SiVisa className="visa" />
+          <SiMastercard className="mastercard" />
+          <SiPaypal className="paypal" />
       </div>
+      </div>
+     
       <div className="copyright">
         <p>@ 2021, Tech2 etc - HTML CSS Ecommerce Template</p>
       </div>
