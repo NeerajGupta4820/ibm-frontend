@@ -2,7 +2,8 @@
   margin: 2rem;
 }
 .login-container {
-  margin: 1rem auto;
+  max-width: 400px;
+  margin: 6rem auto;
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -66,8 +67,9 @@
 /* Responsive styling */
 @media (max-width: 768px) {
   .login-container {
+    min-height:380px;
     padding: 1rem;
-    margin: 1rem;
+    margin: 4rem auto;
   }
 
   .login-container input {
