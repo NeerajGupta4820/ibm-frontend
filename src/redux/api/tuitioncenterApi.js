@@ -1,37 +1,32 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import axios from 'axios';
+// Signup.jsx
+import React, { useState } from "react";
+import SignupStudent from "../components/SignupStudent";
+import SignupTutor from "../components/SignupTutor";
+import SignupTuitionCenter from "../components/SignupTuitionCente.js";
 
-const baseUrl = process.env.REACT_APP_SERVER;
+const Signup = () => {
+  const [type, setType] = useState("Student");
 
-export const tuitionCenterAPI = createApi({
-  reducerPath: 'tuitionCenterApi',
-  baseQuery: fetchBaseQuery({ baseUrl: `${baseUrl}/api/tuition-centers/` }),
-  endpoints: (builder) => ({
-    createTuitionCenterProfile: builder.mutation({
-      query: (tuitionCenter) => ({
-        url: 'create',
-        method: 'POST',
-        body: tuitionCenter,
-      }),
-    }),
-    getTuitionCenterProfile: builder.query({
-      query: (id) => `get-profile/${id}`,
-    }),
-    updateTuitionCenterProfile: builder.mutation({
-      query: ({ id, ...tuitionCenter }) => ({
-        url: `update/${id}`,
-        method: 'PUT',
-        body: tuitionCenter,
-      }),
-    }),
-    deleteTuitionCenterProfile: builder.mutation({
-      query: (id) => ({
-        url: `delete/${id}`,
-        method: 'DELETE',
-      }),
-      invalidatesTags: ['tuitionCenters'],
-    }),
-  }),
-});
+  const handleSelectChange = (e) => {
+    setType(e.target.value);
+  };
 
-export const { useCreateTuitionCenterProfileMutation, useGetTuitionCenterProfileQuery, useUpdateTuitionCenterProfileMutation, useDeleteTuitionCenterProfileMutation } = tuitionCenterAPI;
+  return (
+    <div className="signup">
+      <h2>Signup</h2>
+      <div className="form-group">
+        <label htmlFor="signupType">Select Signup Type</label>
+        <select id="signupType" value={type} onChange={handleSelectChange}>
+          <option value="Student">Student</option>
+          <option value="Tutor">Tutor</option>
+          <option value="TuitionCenter">Tuition Center</option>
+        </select>
+      </div>
+      {type === "Student" && <SignupStudent />}
+      {type === "Tutor" && <SignupTutor />}
+      {type === "TuitionCenter" && <SignupTuitionCenter />}
+    </div>
+  );
+};
+
+export default Signup;
