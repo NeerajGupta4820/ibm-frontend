@@ -84,3 +84,38 @@
   font-size: 1rem;
   font-family: 'Poppins', sans-serif;
 }
+
+.semi{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80%;
+}
+.done{
+    padding: 0.75rem;
+  background-color: #14df5b;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 45%;
+  cursor: pointer;
+  transition: ease-in;
+}
+.cancel{
+    padding: 0.75rem;
+  background-color: #f81313;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 45%;
+  cursor: pointer;
+  transition: ease-in;
+}
+
+.done:hover, .cancel:hover{
+    scale: 1.1;
+}

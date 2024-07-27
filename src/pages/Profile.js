@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Profile = () => {
   const user = useSelector((state) => state.user.user);
   const [changing, setChanging] = useState(false);
+  const [pass,setPass] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleLogout = () => {
@@ -21,7 +22,16 @@ const Profile = () => {
     setChanging(true);
   };
   const handleSubmit = ()=>{
+    try {
+        if(pass.length < 8){
+            toast.warning("Password must be at least 8 characters");
+            return ;
+        }
 
+        
+    } catch (error) {
+        
+    }
   };
   useEffect(() => {
     if (user.user === null || user.user == undefined) {
@@ -46,13 +56,13 @@ const Profile = () => {
         </div>
         {changing && (
           <div className="doing">
-            <input className="field" placeholder="New Password"></input>
+            <input className="field" placeholder="New Password" value={pass} onChange={(e)=>setPass(e.target.value)}></input>
 
-            <div>
-              <button onClick={handleSubmit} className="pass">
-                ChangePassword
+            <div className="semi">
+              <button onClick={handleSubmit} className="done">
+                Confirm
               </button>
-              <button onClick={()=>setChanging(false)} className="pass">
+              <button onClick={()=>setChanging(false)} className="cancel">
                 Cancel
               </button>
             </div>
