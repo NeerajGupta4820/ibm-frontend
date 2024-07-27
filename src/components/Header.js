@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import { userNotExist } from '../redux/reducers/userReducer'; // Import the action
-import { logout } from '../redux/actions/userAction'; // Ensure you have an action for logout
+import { userNotExist } from '../redux/reducers/userReducer'; 
+import {toast} from "react-hot-toast";
 import "../style/header.css";
 
 const Header = () => {
@@ -12,8 +12,10 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); // Remove token from localStorage
-    dispatch(userNotExist()); // Update Redux store to reflect logout
+    localStorage.removeItem('token'); 
+    localStorage.removeItem('user');
+    dispatch(userNotExist()); 
+    toast.success("User logout successfully")
   };
 
   return (

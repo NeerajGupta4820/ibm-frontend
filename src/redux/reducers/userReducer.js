@@ -12,10 +12,14 @@ const userSlice = createSlice({
     userExist: (state, action) => {
       state.loading = false;
       state.user = action.payload;
+      localStorage.setItem('token', action.payload.token);
+      localStorage.setItem('user', JSON.stringify(action.payload.user));
     },
     userNotExist: (state) => {
       state.loading = false;
       state.user = null;
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
     },
   },
 });

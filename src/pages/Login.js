@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLoginMutation } from '../redux/api/userApi'; 
 import { useDispatch } from 'react-redux';
 import { userExist } from '../redux/reducers/userReducer'; 
+import {toast} from "react-hot-toast"
 import '../style/login.css'; 
 
 const LoginPage = () => {
@@ -23,10 +24,11 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const response = await login(formData).unwrap();
-      // Check if response and data are defined
       if (response && response.token) {
-        localStorage.setItem('token', response.token); // Store token in localStorage
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('user', JSON.stringify(response.user)); 
         dispatch(userExist({ user: response.user, token: response.token }));
+        toast.success("user Registered Successfully")
         navigate('/');
       } else {
         console.error('Login failed: No token received');
@@ -35,7 +37,7 @@ const LoginPage = () => {
       console.error('Login failed', error);
     }
   };
-
+  
   return (
     <div className="login-container">
       <h2>Login</h2>
