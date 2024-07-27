@@ -2,13 +2,13 @@
   margin: 2rem;
 }
 .login-container {
-  max-width: 400px;
-  margin: 6rem auto;
+  margin: 2rem auto;
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: 'Poppins', sans-serif;
   box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px #cbced1 ;
+  background: Linear-gradient(180deg, #7bafeb 26.71%,#063970 99.36%);
   display: flex;
   flex-direction: row;
 }

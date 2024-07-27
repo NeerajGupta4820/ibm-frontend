@@ -1,3 +1,4 @@
+/* Header section */
 .header-section {
   position: relative;
   height: 400px;
@@ -24,69 +25,70 @@
   opacity: 1;
 }
 
+/* Intro section */
 .intro-section {
   text-align: center;
   padding: 40px 20px;
   background-color: #f9f9f9;
 }
 
-.latest-products, .categories, .banner, .more-section {
-  padding: 40px 20px;
+.tutors-section {
+  padding: 2rem;
+  background: Linear-gradient(180deg, #4dbdd6 26.71%,#063970 99.36%);
+}
+.tutors-section h2{
+  display: flex;
+  justify-content: center;
+}
+.tutors-slider {
+  display: flex;
+  width: 100%;
+  padding-left: 1rem;
+  align-items: center;
 }
 
-.latest-products h2, .categories h2, .banner h2, .more-section h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  text-align: center;
+.slider-button {
+  background-color: #2b2a2a;
+  border: none;
+  color: white;
+  padding: 16px 20px;
+  border-radius: 80px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
-.more-section {
-  background-color: #f1f1f1;
-}
-
-.more-section ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.more-section ul li {
-  margin: 10px 0;
-  font-size: 1.2em;
-  text-align: center;
-}
-.tutors-section{
-  /* display: flex; */
+.tutors-list {
+  display: flex;
+  overflow: hidden;
+  /* width: 100%; */
   padding: 2rem;
 }
-.tutors-list{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
+
 .tutor-card {
   padding: 16px;
   min-width: 15rem;
-  background-color: #ddd;
-  border: 1px solid #ddd;
-  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+  height: 23rem;
+  background-color: #e7c8c8;
+  box-shadow: 7px 7px 10px #222222, -7px -7px 10px #252525;
   border-radius: 8px;
   margin: 16px;
   text-align: center;
 }
-.tutor-card .avaliability{
+
+.tutor-card .availability {
   color: green;
   font-weight: 800;
 }
-.tutor-card .ratings{
+
+.tutor-card .ratings {
   color: rgb(243, 181, 25);
-  font-size: 17px;
 }
+
 .tutor-photo {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 140px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 10px;
 }
 
 .tutor-fees {
