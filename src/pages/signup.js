@@ -1,31 +1,10 @@
+// Signup.jsx
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useRegisterMutation } from "../redux/api/userApi";
-import { useCreateTutorProfileMutation } from "../redux/api/tutorApi";
-import "../style/signup.css"
+import SignupStudent from "../components/SignupStudent";
+import SignupTutor from "../components/SignupTutor";
+import SignupTuitionCenter from "../components/SignupTuitionCente.js";
 
-const SignupUser = () => {
-  const dispatch = useDispatch();
-  const [registerUser, { isLoading, isError, isSuccess, error }] =useRegisterMutation();
-   const [createTutorProfile, { isLoading: isTutorLoading, isError: isTutorError, isSuccess: isTutorSuccess, error: tutorError }] =
-    useCreateTutorProfileMutation();
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    photo: null,
-    profileInfo: "",
-    bio: "",
-    subjects: "",
-    availability: "",
-    fees: "",
-    location: "",
-    courses: "",
-    description: "",
-    contactNumber: "",
-  });
-
+const Signup = () => {
   const [type, setType] = useState("Student");
 
   const handleChange = (e) => {
@@ -329,9 +308,8 @@ const SignupUser = () => {
           {isTutorError && <p className="error">Error: {tutorError.message}</p>}
           {isTutorSuccess && <p className="success">Registration successful!</p>}
         </form>
-      )}
     </div>
   );
 };
 
-export default SignupUser;
+export default Signup;
