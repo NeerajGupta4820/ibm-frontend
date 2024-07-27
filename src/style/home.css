@@ -54,3 +54,22 @@
   font-size: 1.2em;
   text-align: center;
 }
+
+.tutor-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  text-align: center;
+}
+
+.tutor-photo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.tutor-fees {
+  text-align: left;
+}

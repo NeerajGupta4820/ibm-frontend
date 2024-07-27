@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useGetAllTutorsQuery } from '../redux/api/tutorApi';
 import image1 from '../assets/home/header/image1.webp';
 import image2 from '../assets/home/header/image2.webp';
 import image3 from '../assets/home/header/image3.jpg';
@@ -6,11 +7,15 @@ import image4 from '../assets/home/header/image4.jpg';
 import image5 from '../assets/home/header/image5.jpg';
 import image6 from '../assets/home/header/image6.jpg';
 import image7 from '../assets/home/header/image7.jpg';
+import server from "../redux/store"
 import '../style/home.css';
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const images = [image1, image2, image3, image4,image5,image6,image7];
+  const images = [image1, image2, image3, image4, image5, image6, image7];
+  const { data, error, isLoading } = useGetAllTutorsQuery();
+  const tutors = data?.tutors || []; 
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,17 +43,35 @@ const Home = () => {
         <h1>Welcome to Our Platform</h1>
         <p>We provide detailed information about tuition centers and tutors. You can hire the best home tutors here.</p>
       </section>
-      <section className="latest-products">
-        <h2>Latest Products</h2>
-        {/* Add content for latest products */}
-      </section>
-      <section className="categories">
-        <h2>Categories</h2>
-        {/* Add content for categories */}
-      </section>
-      <section className="banner">
+      {/* <section className="banner">
         <h2>Special Offers</h2>
-        {/* Add content for the banner */}
+      </section> */}
+      <section className="tutors-section">
+        <h2>Our Tutors</h2>
+        {isLoading && <p>Loading...</p>}
+        {error && <p>Error loading tutors</p>}
+        <div className="tutors-list">
+          {tutors.map((tutor) => (
+            <div key={tutor._id} className="tutor-card">
+              {tutor.photo && (
+                <img src={`${process.env.REACT_APP_SERVER}/${tutor.photo}`} alt={`${tutor.name}'s photo`} className="tutor-photo" />
+                
+              )}
+              <h3>{tutor.name}</h3>
+              <p>{tutor.bio}</p>
+              <p><strong>Availability:</strong> {tutor.availability}</p>
+              <p><strong>Ratings:</strong> {tutor.ratings}</p>
+              <div className="tutor-fees">
+                <strong>Fees:</strong>
+                <ul>
+                  {Object.entries(tutor.fees).map(([subject, fee]) => (
+                    <li key={subject}>{subject}: ${fee}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
       <section className="more-section">
         <h2>More About Us</h2>

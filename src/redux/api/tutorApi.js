@@ -5,7 +5,7 @@ const baseUrl = process.env.REACT_APP_SERVER;
 
 export const tutorAPI = createApi({
   reducerPath: 'tutorApi',
-  baseQuery: fetchBaseQuery({ baseUrl: `${baseUrl}/api/v1/tutor/` }),
+  baseQuery: fetchBaseQuery({ baseUrl: `${baseUrl}/api/tutors/` }),
   endpoints: (builder) => ({
     createTutorProfile: builder.mutation({
       query: (tutor) => ({
@@ -30,7 +30,10 @@ export const tutorAPI = createApi({
         method: 'DELETE',
       }),
     }),
+    getAllTutors: builder.query({
+      query: () => 'all-tutors',
+    }),
   }),
 });
 
-export const { useCreateTutorProfileMutation, useGetTutorProfileQuery, useUpdateTutorProfileMutation, useDeleteTutorProfileMutation } = tutorAPI;
+export const { useCreateTutorProfileMutation, useGetTutorProfileQuery, useUpdateTutorProfileMutation, useDeleteTutorProfileMutation,useGetAllTutorsQuery  } = tutorAPI;

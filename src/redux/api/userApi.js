@@ -2,7 +2,6 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import axios from 'axios';
 
 const baseUrl = process.env.REACT_APP_SERVER;
-console.log('Base URL:', baseUrl);
 
 export const userAPI = createApi({
   reducerPath: 'userApi',
@@ -36,7 +35,7 @@ export const userAPI = createApi({
 
 export const getUser = async (id) => {
   try {
-    const { data } = await axios.get(`${baseUrl}/api/users/${id}`); 
+    const { data } = await axios.get(`${baseUrl}/api/user/${id}`); 
     return data;
   } catch (error) {
     throw error;
