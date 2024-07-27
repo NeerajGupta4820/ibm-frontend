@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useRegisterMutation } from "../redux/api/userApi";
 import { useCreateTutorProfileMutation } from "../redux/api/tutorApi";
+import "../style/signup.css"
 
 const SignupUser = () => {
   const dispatch = useDispatch();
@@ -111,7 +112,6 @@ const SignupUser = () => {
               id="photo"
               name="photo"
               onChange={handleChange}
-              
             />
           </div>
           <div className="form-group">
@@ -126,8 +126,8 @@ const SignupUser = () => {
           <button type="submit" disabled={isLoading}>
             {isLoading ? "Signing up..." : "Signup"}
           </button>
-          {isError && <p>Error: {error.message}</p>}
-          {isSuccess && <p>Registration successful!</p>}
+          {isError && <p className="error">Error: {error.message}</p>}
+          {isSuccess && <p className="success">Registration successful!</p>}
         </form>
       )}
       {type === "Tutor" && (
@@ -218,11 +218,11 @@ const SignupUser = () => {
               required
             />
           </div>
-          <button type="submit" disabled={isLoading}>
-            {isLoading ? "Signing up..." : "Signup"}
+          <button type="submit" disabled={isTutorLoading}>
+            {isTutorLoading ? "Signing up..." : "Signup"}
           </button>
-          {isError && <p>Error: {error.message}</p>}
-          {isSuccess && <p>Registration successful!</p>}
+          {isTutorError && <p className="error">Error: {tutorError.message}</p>}
+          {isTutorSuccess && <p className="success">Registration successful!</p>}
         </form>
       )}
       {type === "TuitionCenter" && (
@@ -267,7 +267,6 @@ const SignupUser = () => {
               id="photo"
               name="photo"
               onChange={handleChange}
-              
             />
           </div>
           <div className="form-group">
@@ -324,11 +323,11 @@ const SignupUser = () => {
               required
             />
           </div>
-          <button type="submit" disabled={isLoading}>
-            {isLoading ? "Signing up..." : "Signup"}
+          <button type="submit" disabled={isTutorLoading}>
+            {isTutorLoading ? "Signing up..." : "Signup"}
           </button>
-          {isError && <p>Error: {error.message}</p>}
-          {isSuccess && <p>Registration successful!</p>}
+          {isTutorError && <p className="error">Error: {tutorError.message}</p>}
+          {isTutorSuccess && <p className="success">Registration successful!</p>}
         </form>
       )}
     </div>

@@ -1,49 +1,97 @@
-.signup-container {
-    width: 80%;
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* General styling for the signup container */
+.signup-user {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Styling for the heading */
+.signup-user h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Styling for form group containers */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* Styling for labels */
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Styling for inputs, textareas, and selects */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Styling for file input */
+.form-group input[type="file"] {
+  padding: 0;
+}
+
+/* Styling for buttons */
+button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #ff6347;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Styling for error and success messages */
+p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+p.error {
+  color: #d9534f;
+}
+
+p.success {
+  color: #5cb85c;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .signup-user {
+    padding: 1rem;
+    margin: 1rem;
   }
-  
-  .signup-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 0.9rem;
   }
-  
-  .signup-container form {
-    display: flex;
-    flex-direction: column;
+
+  button {
+    font-size: 0.9rem;
   }
-  
-  .signup-container input,
-  .signup-container select,
-  .signup-container button {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-  }
-  
-  .signup-container button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .signup-container button:hover {
-    background-color: #0056b3;
-  }
-  
-  .error {
-    color: red;
-    text-align: center;
-  }
-  
-  .success {
-    color: green;
-    text-align: center;
-  }
-  
+}

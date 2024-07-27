@@ -7,7 +7,7 @@ import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Footer from "./components/Footer";
 // import Signup from './pages/signup';
-import Signup from "./pages/Signup";
+import Signup from "./pages/signup";
 
 function App() {
   return (
