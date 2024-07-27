@@ -1,14 +1,27 @@
+.main-signup{
+  margin: 2rem;
+}
 .signup {
-  max-width: 400px;
-  margin: 5rem auto;
+  display: flex;
+  flex-direction: row;
+  margin: 1rem auto;
   padding: 1.5rem;
   background-color: #f9f9f9;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px rgb(230, 229, 229);
   font-family: 'Poppins', sans-serif;
 }
+.signup-img{
+  display: flex;
+  flex: 0.5;
+  max-height: 90vh;
+}
+.signup-content{
+  display: flex;
+  flex-direction: column;
+  flex: 0.5;
+}
 
-/* Styling for the heading */
 .signup h2 {
   text-align: center;
   margin-bottom: 1rem;
@@ -20,7 +33,7 @@
 .signup input,
 .signup textarea {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.5rem;
   margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;

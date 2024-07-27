@@ -4,7 +4,9 @@ import { useLoginMutation } from '../redux/api/userApi';
 import { useDispatch } from 'react-redux';
 import { userExist } from '../redux/reducers/userReducer'; 
 import {toast} from "react-hot-toast"
+import {Link} from "react-router-dom"
 import '../style/login.css'; 
+import img from "../assets/login/img.webp"
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -39,8 +41,13 @@ const LoginPage = () => {
   };
   
   return (
-    <div className="login-container">
-      <h2>Login</h2>
+    <div className="main-container">
+      <div className="login-container">
+      <div className="login-image">
+        <img src={img} alt="login " />
+      </div>
+      <div className='login-content'>
+        <h1>Login</h1>
       {error && <p className="error">{error.message || 'An error occurred'}</p>}
       {isSuccess && <p className="success">Login successful!</p>}
       <form onSubmit={handleSubmit}>
@@ -62,6 +69,8 @@ const LoginPage = () => {
           {isLoading ? 'Loading...' : 'Login'}
         </button>
       </form>
+      </div>
+      </div>
     </div>
   );
 };
