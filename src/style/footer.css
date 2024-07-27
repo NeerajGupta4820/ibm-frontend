@@ -14,7 +14,7 @@
 .section-p1 .col {
   flex: 1;
   margin: 1rem;
-  min-width: 200px; /* Ensure columns don't get too narrow */
+  min-width: 150px; /* Ensure columns have a minimum width */
 }
 
 .logofooter {
@@ -23,7 +23,7 @@
 }
 
 h4 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   font-size: 1.2rem;
 }
 
@@ -39,7 +39,7 @@ p strong {
 }
 
 a {
-  color: #ff6347; 
+  color: #ccc; 
 }
 
 a:hover {
@@ -50,14 +50,49 @@ a:hover {
   margin-top: 1rem;
 }
 
-.follow .icon i {
-  font-size: 1.5rem;
-  margin-right: 0.5rem;
+.follow .icon svg {
+  font-size: 1.5rem; /* Adjust size as needed */
+  margin-right: 1rem;
   color: #fff;
 }
 
-.icon i:hover {
+.follow .icon svg:hover {
   color: #ff6347; /* Change color on hover */
+}
+
+.payment-icons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.payment-icons svg, .payment-icons img {
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Ensure consistent height */
+  margin-right: 1rem;
+  transition: color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+.payment-icons img {
+  max-height: 40px; /* Ensure consistent height */
+}
+
+.payment-icons .visa:hover {
+  color: #1a1f71; /* Blue color for Visa */
+}
+
+.payment-icons .mastercard:hover {
+  color: #ec1c24; /* Red color for MasterCard */
+}
+
+.payment-icons .paypal:hover {
+  color: #003087; /* Blue color for PayPal */
+}
+
+
+.payment-icons img:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
 }
 
 /* Styling for My Account and About links to be vertical */
@@ -96,5 +131,9 @@ a:hover {
   .section-p1 .col {
     margin-bottom: 1.5rem;
     text-align: center;
+  }
+
+  .payment-icons {
+    justify-content: center; /* Center icons on smaller screens */
   }
 }
