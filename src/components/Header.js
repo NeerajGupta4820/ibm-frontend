@@ -2,21 +2,16 @@ import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import { userNotExist } from '../redux/reducers/userReducer'; 
+
 import {toast} from "react-hot-toast";
+import { FcBusinessman } from "react-icons/fc";
+import { Tooltip } from 'react-tooltip';
 import "../style/header.css";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const user = useSelector((state) => state.user.user); 
-  const dispatch = useDispatch();
-
-  const handleLogout = () => {
-    localStorage.removeItem('token'); 
-    localStorage.removeItem('user');
-    dispatch(userNotExist()); 
-    toast.success("User logout successfully")
-  };
+  
 
   return (
     <nav className="header">
@@ -66,12 +61,12 @@ const Header = () => {
           </>
         ) : (
           <>
-            <button onClick={handleLogout}>
-              LOGOUT
-            </button>
             <Link onClick={() => setIsMobileMenuOpen(false)} to={"/profile"}>
-              {user.name}
+            <FcBusinessman style={{ fontSize: '28px' }} data-tooltip-id="tooltip" data-tooltip-content={user.user.name}/>
+            <Tooltip id="tooltip" place="top" style={{ zIndex: 1000 }} />
+              {/* {user.user.name} */}
             </Link>
+            
           </>
         )}
       </div>
