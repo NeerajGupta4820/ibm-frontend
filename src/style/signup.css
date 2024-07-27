@@ -1,7 +1,6 @@
-/* General styling for the signup container */
-.signup-user {
-  max-width: 600px;
-  margin: 2rem auto;
+.signup {
+  max-width: 400px;
+  margin: 5rem auto;
   padding: 1.5rem;
   background-color: #f9f9f9;
   border-radius: 8px;
@@ -10,44 +9,27 @@
 }
 
 /* Styling for the heading */
-.signup-user h2 {
+.signup h2 {
   text-align: center;
   margin-bottom: 1rem;
   color: #333;
 }
 
-/* Styling for form group containers */
-.form-group {
-  margin-bottom: 1rem;
-}
-
-/* Styling for labels */
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: #333;
-}
-
-/* Styling for inputs, textareas, and selects */
-.form-group input,
-.form-group textarea,
-.form-group select {
+/* Styling for select and inputs */
+.signup select,
+.signup input,
+.signup textarea {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
   font-family: 'Poppins', sans-serif;
 }
 
-/* Styling for file input */
-.form-group input[type="file"] {
-  padding: 0;
-}
-
 /* Styling for buttons */
-button {
+.signup button {
   width: 100%;
   padding: 0.75rem;
   background-color: #ff6347;
@@ -59,39 +41,39 @@ button {
   cursor: pointer;
 }
 
-button:disabled {
+.signup button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
 
 /* Styling for error and success messages */
-p {
+.signup p {
   margin-top: 1rem;
   font-size: 0.9rem;
 }
 
-p.error {
+.signup p.error {
   color: #d9534f;
 }
 
-p.success {
+.signup p.success {
   color: #5cb85c;
 }
 
 /* Responsive styling */
 @media (max-width: 768px) {
-  .signup-user {
+  .signup {
     padding: 1rem;
     margin: 1rem;
   }
 
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
+  .signup select,
+  .signup input,
+  .signup textarea {
     font-size: 0.9rem;
   }
 
-  button {
+  .signup button {
     font-size: 0.9rem;
   }
 }
