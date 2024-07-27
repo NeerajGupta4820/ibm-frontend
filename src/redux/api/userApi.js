@@ -31,6 +31,14 @@ export const userAPI = createApi({
         method: 'DELETE',
       }),
     }),
+    updatePassword: builder.mutation({
+      query:({userFormData})=>({
+        url:`/forgot-password`,
+        method:`POST`,
+        body:userFormData,
+      })
+    })
+    ,
     allUsers: builder.query({
       query: (id) => `/all?id=${id}`, 
     }),
@@ -46,4 +54,4 @@ export const getUser = async (id) => {
   }
 };
 
-export const { useRegisterMutation, useLoginMutation, useDeleteUserMutation, useAllUsersQuery } = userAPI;
+export const { useRegisterMutation, useLoginMutation, useUpdatePasswordMutation,useDeleteUserMutation, useAllUsersQuery } = userAPI;
