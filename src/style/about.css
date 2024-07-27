@@ -43,8 +43,9 @@
 }
 .main-step{
   display: flex;
-  margin: 2rem;
-  flex-direction: row;
+  margin: 2rem auto;
+  flex-wrap: wrap;
+  gap: 22px;
   justify-content: space-between;
 }
 .step {
@@ -174,4 +175,12 @@
 
 .accordion-icon.open {
   transform: rotate(45deg); 
+}
+/* Responsive styling */
+@media (max-width: 768px) {
+  .main-step {
+    margin: 1rem;
+    justify-content: center;
+  }
+  
 }
