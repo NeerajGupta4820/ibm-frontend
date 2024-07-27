@@ -1,16 +1,16 @@
-<<<<<<< HEAD
-import React from 'react'
+// HEAD
+// import React from 'react'
 
-const Footer = () => {
-  return (
-    <div>
+// const Footer = () => {
+//   return (
+//     <div>
       
-    </div>
-  )
-}
+//     </div>
+//   )
+// }
 
-export default Footer
-=======
+// export default Footer
+
 import React from 'react';
 import '../style/footer.css'; 
 
@@ -68,4 +68,4 @@ const Footer = () => {
 };
 
 export default Footer;
->>>>>>> 6865b8062abbe92df5d2e07fc2792a3c16e1e434
+// >>>>>>> 6865b8062abbe92df5d2e07fc2792a3c16e1e434
