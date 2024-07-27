@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import axios from 'axios';
 
 const baseUrl = process.env.REACT_APP_SERVER;
-
+console.log(baseUrl)
 export const userAPI = createApi({
   reducerPath: 'userApi',
   baseQuery: fetchBaseQuery({ baseUrl: `${baseUrl}/api/user` }), 
@@ -13,6 +13,10 @@ export const userAPI = createApi({
         method: 'POST',
         body: user,
       }),
+      transformResponse: (response) => {
+        // Ensure the response has the expected shape
+        return response;
+      },
     }),
     login: builder.mutation({
       query: (user) => ({

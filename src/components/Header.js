@@ -1,11 +1,20 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import "../style/header.css"
+import { useSelector, useDispatch } from 'react-redux';
+import { userNotExist } from '../redux/reducers/userReducer'; // Import the action
+import { logout } from '../redux/actions/userAction'; // Ensure you have an action for logout
+import "../style/header.css";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const user = useSelector((state) => state.user.user); 
+  const dispatch = useDispatch();
 
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove token from localStorage
+    dispatch(userNotExist()); // Update Redux store to reflect logout
+  };
 
   return (
     <nav className="header">
@@ -13,10 +22,10 @@ const Header = () => {
         <h1>LOGO</h1>
       </div>
       <div className="search-bar">
-        <form  className="search-form">
+        <form className="search-form">
           <input
             type="text"
-            placeholder="Search for products ...."
+            placeholder="Search for tutors ...."
           />
           <button type="submit">
             <FaSearch />
@@ -27,17 +36,16 @@ const Header = () => {
         <Link onClick={() => setIsMobileMenuOpen(false)} to={"/"}>
           HOME
         </Link>
-        <div className="dropdown" >
-          <button >
+        <div className="dropdown">
+          <button>
             CATEGORIES
           </button>
-            <div className="dropdown-menu">
-                <Link>
-                <option>tutor</option>
-                <option>tuitioncenter</option>
-                </Link>
-
-            </div>
+          <div className="dropdown-menu">
+            <Link>
+              <option>tutor</option>
+              <option>tuitioncenter</option>
+            </Link>
+          </div>
         </div>
         <Link onClick={() => setIsMobileMenuOpen(false)} to={"/about"}>
           ABOUT
@@ -45,44 +53,26 @@ const Header = () => {
         <Link onClick={() => setIsMobileMenuOpen(false)} to={"/contact"}>
           CONTACT
         </Link>
-        <Link onClick={() => setIsMobileMenuOpen(false)} to={"/login"}>
-          LOGIN
-        </Link>
-        <Link onClick={() => setIsMobileMenuOpen(false)} to={"/signup"}>
-          Join US
-        </Link>
-      </div>
-
-      {/* <div className="header-right">
-        <Link onClick={() => setIsMobileMenuOpen(false)} to={"/cart"}>
-          <FaShoppingBag />
-        </Link>
+        {!user ? (
           <>
-            <button onClick={() => setIsOpen((prev) => !prev)}>
-              <FaUser />
-            </button>
-            <dialog open={isOpen} className={`user-menu ${isMobileMenuOpen ? 'mobile-menu-dialog' : ''}`}>
-              <div>
-                  <Link onClick={() => setIsOpen(false)} to="/admin/dashboard">
-                    Admin
-                  </Link>
-
-                <Link onClick={() => setIsOpen(false)} to="/orders">
-                  Orders
-                </Link>
-                <button>
-                  <FaSignOutAlt />
-                </button>
-              </div>
-            </dialog>
+            <Link onClick={() => setIsMobileMenuOpen(false)} to={"/login"}>
+              LOGIN
+            </Link>
+            <Link onClick={() => setIsMobileMenuOpen(false)} to={"/signup"}>
+              Join US
+            </Link>
           </>
-          <Link to={"/login"}>
-            <FaSignInAlt />
-          </Link>
-        <button className="mobile-menu-toggle" onClick={() => setIsMobileMenuOpen((prev) => !prev)}>
-          <FaBars />
-        </button>
-      </div> */}
+        ) : (
+          <>
+            <button onClick={handleLogout}>
+              LOGOUT
+            </button>
+            <Link onClick={() => setIsMobileMenuOpen(false)} to={"/profile"}>
+              {user.name}
+            </Link>
+          </>
+        )}
+      </div>
     </nav>
   );
 };

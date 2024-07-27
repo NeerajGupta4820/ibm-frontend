@@ -58,14 +58,13 @@ const Home = () => {
                 
               )}
               <h3>{tutor.name}</h3>
-              <p>{tutor.bio}</p>
-              <p><strong>Availability:</strong> {tutor.availability}</p>
-              <p><strong>Ratings:</strong> {tutor.ratings}</p>
+              <p className="avaliability">Availability: {tutor.availability}</p>
+              <p className="ratings">Ratings:{tutor.ratings}</p>
               <div className="tutor-fees">
                 <strong>Fees:</strong>
                 <ul>
                   {Object.entries(tutor.fees).map(([subject, fee]) => (
-                    <li key={subject}>{subject}: ${fee}</li>
+                    <li key={subject}>{subject}: Rs.{fee}</li>
                   ))}
                 </ul>
               </div>

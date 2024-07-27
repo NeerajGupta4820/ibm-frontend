@@ -54,15 +54,34 @@
   font-size: 1.2em;
   text-align: center;
 }
-
+.tutors-section{
+  /* display: flex; */
+  padding: 2rem;
+}
+.tutors-list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 .tutor-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
   padding: 16px;
+  min-width: 15rem;
+  background-color: #ddd;
+  border: 1px solid #ddd;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+  border-radius: 8px;
   margin: 16px;
   text-align: center;
 }
-
+.tutor-card .avaliability{
+  color: green;
+  font-weight: 800;
+}
+.tutor-card .ratings{
+  color: rgb(243, 181, 25);
+  font-size: 17px;
+}
 .tutor-photo {
   width: 100px;
   height: 100px;
