@@ -25,28 +25,28 @@ const Card = ({ classname, href, iconname, title, description }) => {
 const Hiringlist = () => {
   const cardData = [
     {
-      classname: '',
+      classname: 'purple',
       href: "I'm a Tutor",
       iconname: "I",
       title: "I'm a Tutor",
       description: 'Perfect Tutor connects Students with the Home Tutors and Online Tutors. We provide full-time & part-time Home Tuition Jobs and Online Tuition Jobs. You can teach the students of all Classes from KG to XII. You can also teach the students of Colleges, Universities, Competitive Exams, Hobby & Languages, etc. Interested Tutors can Sign Up for Free to get Online and Home Tutoring Jobs. '
     },
     {
-      classname: '',
+      classname: 'green',
       href: "",
       iconname: 'public',
       title: "I'm a Student",
       description: 'If you are looking for the top-qualified Home Tutor or Online Tutor for tuition classes at your Home or Online. You can simply post your learning requirement for Free on our Perfect Tutor Platform and get an instant response from experienced and the best-qualified tutors & teachers of your home area or nearest location. Students can Sign Up to join us and our teacher’s community. '
     },
     {
-      classname: '',
+      classname: 'purple',
       href: "",
       iconname: 'train',
       title: "I'm a Tution Center",
       description: "Are you looking for admission enquiries of students in your school or college? We are here to provide you with all the support your college or school needs. We can help you with relevant leads, hiring faculty for you, and branding & promoting your school or college. So don't think so much just sign up and get all the benefits from today."
     },
     {
-      classname: "",
+      classname: "green",
       href: 'androidupdate',
       iconname: "",
       title:  "I'M A SCHOOL OR COLLEGE",
