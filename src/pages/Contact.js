@@ -7,13 +7,22 @@ import '../style/contact.css';
 const Contact = () => {
   return (
     <div>
-      <section id="page-header" className="about-header">
-        <div className="content">
-          <h1>#Let's Talk</h1>
-          <h3>Here you can leave your message, We love to hear from you</h3>
+      <section className="form-details">
+        <div className="form-content">
+          <form>
+            <span>LEAVE A MESSAGE</span>
+            <h2>We love to hear from you</h2>
+            <input type="text" placeholder="Your Good Name" />
+            <input type="text" placeholder="E-mail" />
+            <input type="text" placeholder="Subject" />
+            <textarea cols="30" rows="10" placeholder="Your message"></textarea>
+            <button className="normal">Submit</button>
+          </form>
+        </div>
+        <div className="svg-container">
+          <img src={svg} alt="Contact SVG" />
         </div>
       </section>
-
       <section className="contact-details">
         <div className="details">
           <span>Get in touch</span>
@@ -48,23 +57,6 @@ const Contact = () => {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
-        </div>
-      </section>
-
-      <section className="form-details">
-        <div className="form-content">
-          <form>
-            <span>LEAVE A MESSAGE</span>
-            <h2>We love to hear from you</h2>
-            <input type="text" placeholder="Your Good Name" />
-            <input type="text" placeholder="E-mail" />
-            <input type="text" placeholder="Subject" />
-            <textarea cols="30" rows="10" placeholder="Your message"></textarea>
-            <button className="normal">Submit</button>
-          </form>
-        </div>
-        <div className="svg-container">
-          <img src={svg} alt="Contact SVG" />
         </div>
       </section>
     </div>
