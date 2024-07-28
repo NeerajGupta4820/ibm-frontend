@@ -1,92 +1,108 @@
-import React from "react";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+import React, { useState, useEffect } from "react";
+import "../style/perfecttutor.css"; // Make sure to create and import the CSS file
+import img1 from "../assets/home/perfectTutor/one.png";
+import img2 from "../assets/home/perfectTutor/personal.png";
+import img3 from "../assets/home/perfectTutor/flexible.png";
+import img4 from "../assets/home/perfectTutor/student2.png";
+import img5 from "../assets/home/perfectTutor/teacher2.png";
 
 function PerfectTutor() {
+  const [current, setCurrent] = useState(0);
+  const testimonials = [
+    {
+      img: img4,
+      name: "Ayush Bajwan",
+      text:
+        "Thank you for your dedication and support. Your guidance and encouragement have made a significant impact on my learning journey. I appreciate the time and effort you invest in helping us understand and excel. Your passion for teaching truly inspires me. Thank you for being an exceptional teacher!",
+    },
+    {
+      img: img4,
+      name: "Anuj Srivastav",
+      text:
+        "Thank you for your dedication and support. Your guidance and encouragement have made a significant impact on my learning journey. I appreciate the time and effort you invest in helping us understand and excel. Your passion for teaching truly inspires me. Thank you for being an exceptional teacher!",
+    },
+    {
+      img: img5,
+      name: "Prena Rana",
+      text:
+        "Thank you for your dedication and support. Your guidance and encouragement have made a significant impact on my learning journey. I appreciate the time and effort you invest in helping us understand and excel. Your passion for teaching truly inspires me. Thank you for being an exceptional teacher!",
+    },
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+    }, 5000); 
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
   return (
-    <>
-      <h1>Why Perfect Tutor</h1>
-
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src="../assets/home/perfectTutor/one.png" />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-        </Card.Body>
-      </Card>
-
-      <Card style={{ width: "18rem" }}>
-        <Card.Img
-          variant="top"
-          src="../assets/home/perfectTutor/personal.png"
-        />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-        </Card.Body>
-      </Card>
-
-      <Card style={{ width: "18rem" }}>
-        <Card.Img
-          variant="top"
-          src="../assets/home/perfectTutor/flexible.png"
-        />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-        </Card.Body>
-      </Card>
-
-      <h2>
-        When you choose Perfect Tutor, you can be confident for investing in the
-        most reliable tutoring services available in your area
-      </h2>
-
-      <Button variant="primary">Know more..</Button>
-
-
-      {/* testimonials */}
-    <h1>Testimonials</h1>
-
-      <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="../assets/home/perfectTutor/student2.png" />
-      <Card.Body>
-        <Card.Title>Ayush Bajwan</Card.Title>
-        <Card.Text>
-        Thank you for your dedication and support. Your guidance and encouragement have made a significant impact on my learning journey. I appreciate the time and effort you invest in helping us understand and excel. Your passion for teaching truly inspires me. Thank you for being an exceptional teacher!
-        </Card.Text>
-      </Card.Body>
-    </Card>
-
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="../assets/home/perfectTutor/student2.png" />
-      <Card.Body>
-        <Card.Title>Anuj Srivastav</Card.Title>
-        <Card.Text>
-        Thank you for your dedication and support. Your guidance and encouragement have made a significant impact on my learning journey. I appreciate the time and effort you invest in helping us understand and excel. Your passion for teaching truly inspires me. Thank you for being an exceptional teacher!
-        </Card.Text>
-      </Card.Body>
-    </Card>
-
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="../assets/home/perfectTutor/teacher2.png" />
-      <Card.Body>
-        <Card.Title>Prena Rana</Card.Title>
-        <Card.Text>
-        Thank you for your dedication and support. Your guidance and encouragement have made a significant impact on my learning journey. I appreciate the time and effort you invest in helping us understand and excel. Your passion for teaching truly inspires me. Thank you for being an exceptional teacher!
-        </Card.Text>
-      </Card.Body>
-    </Card>
-    </>
+    <div className="main-perfect">
+      <div className="perfect-cards-container">
+        <h1>Why Perfect Tutor</h1>
+        <div className="perfect-cards">
+          <div className="perfect-card" style={{ width: "18rem" }}>
+            <img src={img1} className="card-img-top" alt="Card image cap" />
+            <div className="card-body">
+              <h5 className="card-title">One-On-One Learning</h5>
+              <p className="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+          <div className="perfect-card" style={{ width: "18rem" }}>
+            <img src={img2} className="card-img-top" alt="Card image cap" />
+            <div className="card-body">
+              <h5 className="card-title">100% verified profiles</h5>
+              <p className="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+          <div className="perfect-card" style={{ width: "18rem" }}>
+            <img src={img3} className="card-img-top" alt="Card image cap" />
+            <div className="card-body">
+              <h5 className="card-title">Get the best Online Platform</h5>
+              <p className="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Testimonials */}
+      <section className="testimonials">
+        <h1>Testimonials</h1>
+        <div className="testimonial-container">
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className={`testimonial-card ${
+                index === current
+                  ? "middle"
+                  : index === (current + 1) % testimonials.length
+                  ? "right"
+                  : "left"
+              }`}
+              style={{ width: "22rem" }}
+            >
+              <img
+                src={testimonial.img}
+                className="card-img-top"
+                alt={testimonial.name}
+              />
+              <div className="card-body">
+                <h5 className="card-title">{testimonial.name}</h5>
+                <p className="card-text">{testimonial.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }
 
