@@ -9,6 +9,7 @@ import LatestTuitioncenter from "../components/LatestTuitioncenter";
 import LatestTutor from "../components/LatestTutor";
 import '../style/home.css';
 import Hiringlist from "../components/Hiringlist";
+import PerfectTutor from "../components/PerfectTutor";
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -50,6 +51,9 @@ const Home = () => {
       </section>
       <section>
         <LatestTuitioncenter />
+      </section>
+      <section>
+        <PerfectTutor/>
       </section>
     </div>
   );
