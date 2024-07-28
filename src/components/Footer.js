@@ -1,27 +1,15 @@
-// HEAD
-// import React from 'react'
-
-// const Footer = () => {
-//   return (
-//     <div>
-      
-//     </div>
-//   )
-// }
-
-// export default Footer
-
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaInstagram, FaPinterestP, FaYoutube } from 'react-icons/fa';
-import { SiVisa, SiMastercard, SiPaypal } from 'react-icons/si'
-
-import '../style/footer.css'; 
+import { FaFacebookF, FaInstagram, FaPinterestP, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { SiMastercard, SiPaypal, SiVisa } from 'react-icons/si';
+import logo from "../assets/logo/logo.jpg";
+import '../style/footer.css';
 
 const Footer = () => {
   return (
-    <footer className="section-p1">
-      <div className="col">
-        <img className="logofooter" src="img/logo.png" alt="Logo" />
+    <footer className="main-footer">
+      <div className="section-p1">
+        <div className="col">
+        <img className="logofooter" src={logo} alt="Logo" />
         <h4>Contact</h4>
         <p>Maharshi dayanand university rohtak</p>
         <p><strong>Phone:</strong> +01 2222 365/(+91) 01 2345 6789</p>
@@ -36,24 +24,24 @@ const Footer = () => {
             <FaYoutube />
           </div>
         </div>
-      </div>
-      <div className="col">
+        </div>
+        <div className="col">
         <h4>About</h4>
         <a href="#">About us</a>
         <a href="#">Delivery Information</a>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms & condition</a>
         <a href="#">Contact us</a>
-      </div>
-      <div className="col">
+        </div>
+        <div className="col">
         <h4>My Account</h4>
         <a href="#">Sign In</a>
         <a href="#">View cart</a>
         <a href="#">My wishlist</a>
         <a href="#">Track my order</a>
         <a href="#">Help</a>
-      </div>
-      <div className="col" id="install">
+        </div>
+        <div className="col" id="install">
         <h4>Install app</h4>
         <p>From App Store or Google Play</p>
         <div className="row">
@@ -66,8 +54,8 @@ const Footer = () => {
           <SiMastercard className="mastercard" />
           <SiPaypal className="paypal" />
       </div>
+        </div>
       </div>
-     
       <div className="copyright">
         <p>@ 2021, Tech2 etc - HTML CSS Ecommerce Template</p>
       </div>
@@ -76,4 +64,3 @@ const Footer = () => {
 };
 
 export default Footer;
-// >>>>>>> 6865b8062abbe92df5d2e07fc2792a3c16e1e434
