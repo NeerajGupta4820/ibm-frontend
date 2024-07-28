@@ -1,0 +1,96 @@
+.hiringlist {
+    margin: 5rem 0;
+  }
+  
+  .card-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .card-container {
+    flex: 0 1 280px;
+    margin: 10px;
+  }
+  
+  .card {
+    font-weight: bold;
+    position: relative;
+    width: 100%;
+  }
+  
+  .card a {
+    padding: 30px;
+    width: 100%;
+    height: 450px;
+    border: 2px solid black;
+    background: white;
+    text-decoration: none;
+    color: black;
+    display: block;
+    transition: 0.25s ease;
+  }
+  
+  .card a:hover {
+    transform: translate(-30px, -30px);
+    border-color: #5bc0eb;
+  }
+  
+  .card a:hover .card--display {
+    display: none;
+  }
+  
+  .card a:hover .card--hover {
+    display: block;
+  }
+  
+  .card--display i {
+    font-size: 60px;
+    margin-top: 200px;
+  }
+  
+  .card--display h2 {
+    margin: 20px 0 0;
+  }
+  
+  .card--hover {
+    display: none;
+  }
+  
+  .card--hover h2 {
+    margin: 20px 0;
+  }
+  
+  .card--hover p {
+    font-weight: normal;
+    line-height: 1.5;
+    text-decoration: none;
+    color: black;
+}
+
+.card--hover p.link {
+    margin: 20px 0 0;
+    font-weight: bold;
+    color: #5bc0eb;
+  }
+  
+  .card--border {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      border: 2px dashed black;
+      z-index: -1;
+    }
+    
+  .card--dark a {
+    color: white;
+    background-color: black;
+    border-color: black;
+}
+
+.card--dark .card--hover .link {
+    color: #fde74c;
+  }
+  

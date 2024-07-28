@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import axios from 'axios';
 
 const baseUrl = process.env.REACT_APP_SERVER;
 
@@ -29,9 +28,17 @@ export const tuitionCenterAPI = createApi({
         url: `delete/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['tuitionCenters'],
+    }),
+    getLatestTuitionCenters: builder.query({
+      query: () => 'latest',
+    }),
+    getAllTuitionCenters: builder.query({
+      query: () => 'all',
     }),
   }),
 });
 
-export const { useCreateTuitionCenterProfileMutation, useGetTuitionCenterProfileQuery, useUpdateTuitionCenterProfileMutation, useDeleteTuitionCenterProfileMutation } = tuitionCenterAPI;
+export const { useCreateTuitionCenterProfileMutation, useGetTuitionCenterProfileQuery,
+   useUpdateTuitionCenterProfileMutation, useDeleteTuitionCenterProfileMutation,
+   useGetLatestTuitionCentersQuery,
+   useGetAllTuitionCentersQuery, } = tuitionCenterAPI;
