@@ -1,32 +1,39 @@
 .hiringlist {
     margin: 5rem 0;
+    
+   
   }
   
   .card-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    
   }
   
   .card-container {
     flex: 0 1 280px;
     margin: 10px;
+    background: linear-gradient(150deg, #39ef74, #4600f1 100%);
+    border-radius: 20px;
   }
   
   .card {
     font-weight: bold;
     position: relative;
     width: 100%;
+
   }
   
   .card a {
     padding: 30px;
     width: 100%;
     height: 450px;
-    border: 2px solid black;
-    background: white;
+    border:none;
+    border-radius: 20px;
+    background: linear-gradient(150deg, #39ef74, #4600f1 100%);
     text-decoration: none;
-    color: black;
+    color: #fff;
     display: block;
     transition: 0.25s ease;
   }
@@ -34,6 +41,9 @@
   .card a:hover {
     transform: translate(-30px, -30px);
     border-color: #5bc0eb;
+    border: 2px solid #5bc0eb;
+    text-decoration: none;
+    list-style: none;
   }
   
   .card a:hover .card--display {
@@ -65,13 +75,21 @@
     font-weight: normal;
     line-height: 1.5;
     text-decoration: none;
-    color: black;
+    color: #fff;
 }
 
-.card--hover p.link {
-    margin: 20px 0 0;
-    font-weight: bold;
-    color: #5bc0eb;
+.card--hover button {
+  text-transform: uppercase;
+  overflow: hidden;
+  width: 100%;
+  display: block;
+  margin-bottom:4px;
+  color: #4600f1;
+  border-radius: 50px;
+  padding: 1rem;
+  background: white;
+  border: none;
+  font-weight: bold;
   }
   
   .card--border {
@@ -80,7 +98,7 @@
       height: 100%;
       left: 0;
       top: 0;
-      border: 2px dashed black;
+      border: none;
       z-index: -1;
     }
     
@@ -91,5 +109,5 @@
 }
 
 .card--dark .card--hover .link {
-    color: #fde74c;
+    color: #64cae7;
   }

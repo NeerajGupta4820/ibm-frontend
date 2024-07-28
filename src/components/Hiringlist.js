@@ -13,7 +13,7 @@ const Card = ({ classname, href, iconname, title, description }) => {
           <div className="card--hover">
             <h2>{title}</h2>
             <p>{description}</p>
-            <p className="link">Click to see project</p>
+            <button className="link">Click to see project</button>
           </div>
         </a>
         <div className="card--border"></div>
