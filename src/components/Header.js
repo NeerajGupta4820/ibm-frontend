@@ -1,22 +1,35 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
-import logoimg from "../assets/logo/logo.jpg"
-import {toast} from "react-hot-toast";
+import { useSelector } from 'react-redux';
+import logoimg from "../assets/logo/logo.jpg";
 import { FcBusinessman } from "react-icons/fc";
 import { Tooltip } from 'react-tooltip';
 import "../style/header.css";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const user = useSelector((state) => state.user.user); 
-  
+  const user = useSelector((state) => state.user.user);
+
+  const getProfileLink = () => {
+    if (user.role === 'Tutor') {
+      return '/tutor-profile';
+    }
+    else if (user.role === 'Tuition Center') {
+      return '/tuition-center-profile';
+    }
+    else if (user.role === 'Admin') {
+      return '/admin-dashboard';
+    }
+    else {
+      return '/user-profile';
+    }
+  };
 
   return (
     <nav className="header">
       <div className="logo">
-        <img src={logoimg} />
+        <img src={logoimg} alt="logo" />
       </div>
       <div className="search-bar">
         <form className="search-form">
@@ -35,13 +48,11 @@ const Header = () => {
         </Link>
         <div className="dropdown">
           <button>
-            SERVECIES
+            SERVICES
           </button>
           <div className="dropdown-menu">
-            <Link>
-              <option>tutor</option>
-              <option>tuitioncenter</option>
-            </Link>
+            <Link to="/tutors">Tutors</Link>
+            <Link to="/tuition-centers">Tuition Centers</Link>
           </div>
         </div>
         <Link onClick={() => setIsMobileMenuOpen(false)} to={"/about"}>
@@ -61,12 +72,10 @@ const Header = () => {
           </>
         ) : (
           <>
-            <Link onClick={() => setIsMobileMenuOpen(false)} to={"/profile"}>
-            <FcBusinessman style={{ fontSize: '28px' }} data-tooltip-id="tooltip" data-tooltip-content={user.user.name}/>
-            <Tooltip id="tooltip" place="top" style={{ zIndex: 1000 }} />
-              {/* {user.user.name} */}
+            <Link onClick={() => setIsMobileMenuOpen(false)} to={getProfileLink()}>
+              <FcBusinessman style={{ fontSize: '28px' }} data-tooltip-id="tooltip" data-tooltip-content={user.name}/>
+              <Tooltip id="tooltip" place="top" style={{ zIndex: 1000 }} />
             </Link>
-            
           </>
         )}
       </div>

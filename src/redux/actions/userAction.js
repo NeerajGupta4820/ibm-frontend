@@ -1,9 +1,9 @@
-import { userExist, userNotExist } from '../reducers/userReducer'; // Adjust path as necessary
-import { useLoginMutation } from '../api/userApi'; // Adjust path as necessary
+import { userExist, userNotExist } from '../reducers/userReducer'; 
+import { useLoginMutation } from '../api/userApi'; 
 
 export const login = (user) => async (dispatch) => {
   try {
-    const { data } = await useLoginMutation(user); // Call the login mutation
+    const { data } = await useLoginMutation(user);
     dispatch(userExist(data));
   } catch (error) {
     console.error('Login failed:', error);
@@ -11,6 +11,5 @@ export const login = (user) => async (dispatch) => {
 };
 
 export const logout = () => (dispatch) => {
-  // Perform any logout logic here, such as clearing tokens or sessions
   dispatch(userNotExist());
 };

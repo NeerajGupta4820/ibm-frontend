@@ -11,7 +11,10 @@ import Login from './pages/Login';
 import Footer from "./components/Footer";
 import Signup from './pages/signup';
 import { userExist } from './redux/reducers/userReducer';
-import Profile from './pages/Profile';
+import UserProfile from './components/profile/UserProfile';
+import TuitionCenterProfile from './components/profile/TuitionCenterProfile';
+import TutorProfile from './components/profile/TutorProfile';
+import AdminDashboard from './components/profile/AdminDashboard';
 import Payments from './pages/Payments';
 
 function App() {
@@ -36,7 +39,10 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path='/profile' element={<Profile/>}/>
+          <Route path="/user-profile" element={<UserProfile />} />
+        <Route path="/tutor-profile" element={<TutorProfile />} />
+        <Route path="/tuition-center-profile" element={<TuitionCenterProfile />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path='/payments' element={<Payments/>}/>
         </Routes>
       </div>   
