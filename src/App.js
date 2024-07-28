@@ -40,9 +40,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/user-profile" element={<UserProfile />} />
-        <Route path="/tutor-profile" element={<TutorProfile />} />
-        <Route path="/tuition-center-profile" element={<TuitionCenterProfile />} />
-        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/tutor-profile" element={<TutorProfile />} />
+          <Route path="/tuition-center-profile" element={<TuitionCenterProfile />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path='/payments' element={<Payments/>}/>
         </Routes>
       </div>   
