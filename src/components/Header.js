@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-
+import logoimg from "../assets/logo/logo.jpg"
 import {toast} from "react-hot-toast";
 import { FcBusinessman } from "react-icons/fc";
 import { Tooltip } from 'react-tooltip';
@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <nav className="header">
       <div className="logo">
-        <h1>LOGO</h1>
+        <img src={logoimg} />
       </div>
       <div className="search-bar">
         <form className="search-form">
@@ -35,7 +35,7 @@ const Header = () => {
         </Link>
         <div className="dropdown">
           <button>
-            CATEGORIES
+            SERVECIES
           </button>
           <div className="dropdown-menu">
             <Link>

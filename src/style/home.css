@@ -67,7 +67,7 @@
 .tutor-card {
   padding: 16px;
   min-width: 15rem;
-  height: 23rem;
+  height: 25rem;
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
   box-shadow: 3px 3px 10px rgba(10, 10, 10, 0.8), -1px -1px 3px rgba(5, 5, 5, 0.8);
