@@ -12,7 +12,6 @@ import Footer from "./components/Footer";
 import Signup from './pages/signup';
 import { userExist } from './redux/reducers/userReducer';
 import Profile from './pages/Profile';
-import Payments from './pages/Payments';
 
 function App() {
   const dispatch = useDispatch();
@@ -37,7 +36,6 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path='/profile' element={<Profile/>}/>
-          <Route path='/payments' element={ <Payments />} />
         </Routes>
       </div>   
       <Footer/>
