@@ -45,6 +45,7 @@
   display: flex;
   width: 100%;
   padding-left: 1rem;
+  transition:cubic-bezier(0.19, 1, 0.22, 1);
   align-items: center;
 }
 

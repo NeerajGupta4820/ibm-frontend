@@ -1,15 +1,51 @@
 import React, { useState, useEffect } from "react";
 import { useGetLatestTutorsQuery } from "../redux/api/tutorApi";
 import { useNavigate } from "react-router-dom";
+import { RiDeleteBin5Line } from "react-icons/ri";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import "../style/admind.css";
 
 const LatestTutor = () => {
   const navigate = useNavigate();
-
+  const baseURL = process.env.REACT_APP_SERVER;
+  const user = useSelector((state) => state.user.user);
   const [currentTutorIndex, setCurrentTutorIndex] = useState(0);
-  const { data: tutorsData, error: tutorsError, isLoading: tutorsLoading } = useGetLatestTutorsQuery();
-  
-  const tutors = tutorsData?.latestTutors  || [];
-  
+  const {
+    data: tutorsData,
+    error: tutorsError,
+    isLoading: tutorsLoading,
+  } = useGetLatestTutorsQuery();
+
+  const tutors = tutorsData?.latestTutors || [];
+
+  const handleDelete = async (tutor) => {
+    try {
+      const confirmDelete = window.confirm(
+        "Are you sure you want to delete this tutor?"
+      );
+      if (confirmDelete) {
+        const token = localStorage.getItem("token");
+
+        
+          console.log(token);
+
+          const response = await axios.delete(
+            `${baseURL}/api/admin/user/${tutor._id}`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          console.log(response);
+        
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTutorIndex((prevIndex) => (prevIndex + 1) % tutors.length);
@@ -19,7 +55,9 @@ const LatestTutor = () => {
   }, [tutors.length]);
 
   const handlePrevTutor = () => {
-    setCurrentTutorIndex((prevIndex) => (prevIndex - 1 + tutors.length) % tutors.length);
+    setCurrentTutorIndex(
+      (prevIndex) => (prevIndex - 1 + tutors.length) % tutors.length
+    );
   };
 
   const handleNextTutor = () => {
@@ -30,14 +68,15 @@ const LatestTutor = () => {
     navigate(`/tutor/${id}`);
   };
 
-  const displayedTutors = tutors.length > 0
-    ? [
-        tutors[currentTutorIndex % tutors.length],
-        tutors[(currentTutorIndex + 1) % tutors.length],
-        tutors[(currentTutorIndex + 2) % tutors.length],
-        tutors[(currentTutorIndex + 3) % tutors.length],
-      ]
-    : [];
+  const displayedTutors =
+    tutors.length > 0
+      ? [
+          tutors[currentTutorIndex % tutors.length],
+          tutors[(currentTutorIndex + 1) % tutors.length],
+          tutors[(currentTutorIndex + 2) % tutors.length],
+          tutors[(currentTutorIndex + 3) % tutors.length],
+        ]
+      : [];
 
   return (
     <div className="tutor-page">
@@ -50,7 +89,20 @@ const LatestTutor = () => {
         </button>
         <div className="tutors-list">
           {displayedTutors.map((tutor, index) => (
-            <div key={tutor?._id || index} className="tutor-card" onClick={() => handleTutorClick(tutor?._id)}>
+            <div
+              key={tutor?._id || index}
+              className="tutor-card"
+              onClick={() => handleTutorClick(tutor?._id)}
+            >
+              {user && user.role === "Admin" ? (
+                <RiDeleteBin5Line
+                  className="deletebtn"
+                  onClick={() => handleDelete(tutor)}
+                  id={tutor._id}
+                />
+              ) : (
+                ""
+              )}
               {tutor?.photo && (
                 <img
                   src={`${process.env.REACT_APP_SERVER}/${tutor.photo}`}

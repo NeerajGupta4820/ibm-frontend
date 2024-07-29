@@ -27,7 +27,7 @@ const LoginPage = () => {
     try {
       const response = await login(formData).unwrap();
       if (response && response.token) {
-        localStorage.setItem('token', response.token);
+        localStorage.setItem('token', JSON.stringify(response.token));
         localStorage.setItem('user', JSON.stringify(response.user)); 
         dispatch(userExist({ user: response.user, token: response.token }));
         toast.success("user Registered Successfully")
