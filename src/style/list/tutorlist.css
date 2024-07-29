@@ -1,0 +1,41 @@
+.tutor-list {
+    padding: 2rem;
+    background: #f4f4f4;
+  }
+  
+  .tutors-list-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .tutor-list-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    max-width: 300px;
+    flex: 1 1 calc(33.333% - 2rem);
+  }
+  
+  .tutor-list-photo {
+    width: 13rem;
+    height: 14rem;
+    border-radius: 8px;
+  }
+  
+  .tutor-list-card h3 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .tutor-list-card p {
+    margin: 0.5rem 0;
+    color: #666;
+  }
+  
