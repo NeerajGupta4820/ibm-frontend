@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-const UserProfile = () => {
+const TutorDashboard = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.user);
 
@@ -21,4 +21,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default TutorDashboard;

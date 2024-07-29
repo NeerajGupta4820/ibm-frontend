@@ -5,7 +5,8 @@ import { FaUser } from 'react-icons/fa';
 import { toast } from "react-hot-toast";
 import { userNotExist } from "../../redux/reducers/userReducer";
 
-const UserProfile = () => {
+const UserDashboard
+ = () => {
   const user = useSelector((state) => state.user.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -50,4 +51,5 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default UserDashboard
+;

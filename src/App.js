@@ -11,10 +11,10 @@ import Login from './pages/Login';
 import Footer from "./components/Footer";
 import Signup from './pages/signup';
 import { userExist } from './redux/reducers/userReducer';
-import UserProfile from './components/profile/UserProfile';
-import TuitionCenterProfile from './components/profile/TuitionCenterProfile';
-import TutorProfile from './components/profile/TutorProfile';
-import AdminDashboard from './components/profile/AdminDashboard';
+import UserDashboard from './components/dashboard/UserDashboard';
+import TuitionCenterDashboard from './components/dashboard/TuitionCenterDashboard';
+import TutorDashboard from './components/dashboard/TutorDashboard';
+import AdminDashboard from './components/dashboard/AdminDashboard';
 import Payments from './pages/Payments';
 
 function App() {
@@ -39,9 +39,9 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/user-profile" element={<UserProfile />} />
-          <Route path="/tutor-profile" element={<TutorProfile />} />
-          <Route path="/tuition-center-profile" element={<TuitionCenterProfile />} />
+          <Route path="/user-dashboard" element={<UserDashboard />} />
+          <Route path="/tutor-dashboard" element={<TutorDashboard />} />
+          <Route path="/tuition-center-dashboard" element={<TuitionCenterDashboard />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path='/payments' element={<Payments/>}/>
         </Routes>

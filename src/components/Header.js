@@ -13,16 +13,16 @@ const Header = () => {
 
   const getProfileLink = () => {
     if (user.role === 'Tutor') {
-      return '/tutor-profile';
+      return '/tutor-dashboard';
     }
     else if (user.role === 'Tuition Center') {
-      return '/tuition-center-profile';
+      return '/tuition-center-dashboard';
     }
     else if (user.role === 'Admin') {
       return '/admin-dashboard';
     }
     else {
-      return '/user-profile';
+      return '/user-dashboard';
     }
   };
 
