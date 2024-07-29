@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import image2 from '../assets/home/header/image2.webp';
-import image3 from '../assets/home/header/image3.jpg';
-import image4 from '../assets/home/header/image4.jpg';
-import image5 from '../assets/home/header/image5.jpg';
-import image6 from '../assets/home/header/image6.jpg';
-import image7 from '../assets/home/header/image7.jpg';
+import image2 from "../assets/home/header/image2.jpg";
+import image3 from "../assets/home/header/image3.jpg";
+import image4 from "../assets/home/header/image4.jpg";
+import image5 from "../assets/home/header/image5.jpg";
+import image6 from "../assets/home/header/image6.jpg";
+import image7 from "../assets/home/header/image7.jpg";
 import LatestTuitioncenter from "../components/LatestTuitioncenter";
 import LatestTutor from "../components/LatestTutor";
-import '../style/home.css';
+import "../style/home.css";
 import Hiringlist from "../components/Hiringlist";
 import PerfectTutor from "../components/PerfectTutor";
 
@@ -34,14 +34,19 @@ const Home = () => {
               key={index}
               src={image}
               alt={`Slide ${index + 1}`}
-              className={`header-image ${index === currentImageIndex ? "active" : ""}`}
+              className={`header-image ${
+                index === currentImageIndex ? "active" : ""
+              }`}
             />
           ))}
         </div>
       </section>
       <section className="intro-section">
         <h1>Welcome to Our Platform</h1>
-        <p>We provide detailed information about tuition centers and tutors. You can hire the best home tutors here.</p>
+        <p>
+          We provide detailed information about tuition centers and tutors. You
+          can hire the best home tutors here.
+        </p>
       </section>
       <section>
         <LatestTutor />
@@ -53,7 +58,7 @@ const Home = () => {
         <LatestTuitioncenter />
       </section>
       <section>
-        <PerfectTutor/>
+        <PerfectTutor />
       </section>
     </div>
   );

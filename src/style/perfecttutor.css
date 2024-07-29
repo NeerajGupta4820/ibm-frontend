@@ -115,16 +115,16 @@
   
   /* email part */
   .subscribe-section {
-    background-image: url('../assets/home/perfectTutor/simple-blue-gradient-background-vector-business_53876-169287.avif');
+    background-image: url('../assets/home/perfectTutor/yellow-envelope-gray-background-top-view-copy-space_93675-99786.jpg');
     background-size: cover;
     background-position: center;
     text-align: center;
     padding: 50px 20px;
     border-radius: 0;
-    color: #045D5D; /* Adjust text color for contrast */
-    width: 100%; /* Full width */
+    color: black; /* Adjust text color for contrast */
+    max-width: 100%; /* Full width */
     margin-top:60px;
-    margin-bottom:0px;
+    margin-bottom:0;
   }
   
   .subscribe-image {
@@ -141,7 +141,7 @@
   .subscribe-paragraph {
     font-size: 1.2em;
     margin-bottom: 20px;
-    color:#36454F ;
+    color:black ;
   }
   
   .subscribe-form {
@@ -170,3 +170,4 @@
   .subscribe-button:hover {
     background-color: #22CE83; /* Slightly darker shade on hover */
   }
+
