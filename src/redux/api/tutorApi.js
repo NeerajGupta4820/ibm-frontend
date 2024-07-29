@@ -33,7 +33,11 @@ export const tutorAPI = createApi({
     getAllTutors: builder.query({
       query: () => 'all-tutors',
     }),
+    getLatestTutors: builder.query({
+      query: () => 'latest-tutors',
+    }),
   }),
 });
 
-export const { useCreateTutorProfileMutation, useGetTutorProfileQuery, useUpdateTutorProfileMutation, useDeleteTutorProfileMutation,useGetAllTutorsQuery  } = tutorAPI;
+export const { useCreateTutorProfileMutation, useGetTutorProfileQuery, useUpdateTutorProfileMutation,
+   useDeleteTutorProfileMutation,useGetAllTutorsQuery,useGetLatestTutorsQuery   } = tutorAPI;

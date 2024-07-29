@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useGetAllTutorsQuery } from "../redux/api/tutorApi";
+import { useGetLatestTutorsQuery } from "../redux/api/tutorApi";
 
 const TutorPage = () => {
   const [currentTutorIndex, setCurrentTutorIndex] = useState(0);
-  const { data: tutorsData, error: tutorsError, isLoading: tutorsLoading } = useGetAllTutorsQuery();
+  const { data: tutorsData, error: tutorsError, isLoading: tutorsLoading } = useGetLatestTutorsQuery();
   
-  const tutors = tutorsData?.tutors || [];
+  const tutors = tutorsData?.latestTutors  || [];
   
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,7 +34,7 @@ const TutorPage = () => {
 
   return (
     <div className="tutor-page">
-      <h1>Our Tutors</h1>
+      <h1>Our Latest Tutors</h1>
       {tutorsLoading && <p>Loading...</p>}
       {tutorsError && <p>Error loading tutors</p>}
       <div className="tutors-slider">

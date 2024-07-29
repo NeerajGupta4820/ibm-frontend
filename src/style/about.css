@@ -1,6 +1,7 @@
 .about-container {
   padding: 20px;
-  margin: 0 1rem;
+  background-color: #e2e1e1;
+  /* margin: 0 1rem; */
   font-family: Arial, sans-serif;
 }
 

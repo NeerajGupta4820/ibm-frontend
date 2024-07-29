@@ -37,6 +37,7 @@
   background: Linear-gradient(180deg, #545555 26.71%,#070707 99.36%);
 }
 .tutor-page h1{
+  color: white;
   display: flex;
   justify-content: center;
 }
