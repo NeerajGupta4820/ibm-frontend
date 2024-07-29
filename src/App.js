@@ -3,19 +3,23 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
 import './App.css';
-import Header from './components/Header';
+import { userExist } from './redux/reducers/userReducer';
+/*******************pages*******************************/
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Footer from "./components/Footer";
 import Signup from './pages/signup';
-import { userExist } from './redux/reducers/userReducer';
+import Payments from './pages/Payments';
+import TutorList from './pages/list/TutorList';
+import TuitionCenterList from './pages/list/TuitionCenterList';
+/***********************************components */
+import Header from './components/Header';
 import UserDashboard from './components/dashboard/UserDashboard';
 import TuitionCenterDashboard from './components/dashboard/TuitionCenterDashboard';
 import TutorDashboard from './components/dashboard/TutorDashboard';
 import AdminDashboard from './components/dashboard/AdminDashboard';
-import Payments from './pages/Payments';
 import TutorProfile from './components/profile/TutorProfile';
 import TuitionCenterProfile from './components/profile/TuitionCenterProfile';
 
@@ -47,6 +51,9 @@ function App() {
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/tutor/:id" element={<TutorProfile />} />
           <Route path="/tuition-center/:id" element={<TuitionCenterProfile />} />
+          <Route path="/tuition-center/:id" element={<TuitionCenterProfile />} />
+          <Route path="/all-tutors" element={<TutorList />} />
+          <Route path="/all-tuition-centers" element={<TuitionCenterList />} />
           <Route path='/payments' element={<Payments/>}/>
         </Routes>
       </div>   

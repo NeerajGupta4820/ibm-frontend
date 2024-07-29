@@ -51,8 +51,8 @@ const Header = () => {
             SERVICES
           </button>
           <div className="dropdown-menu">
-            <Link to="/tutors">Tutors</Link>
-            <Link to="/tuition-centers">Tuition Centers</Link>
+          <Link to="/all-tutors">Tutors</Link>
+          <Link to="/all-tuition-centers">Tuition Centers</Link>
           </div>
         </div>
         <Link onClick={() => setIsMobileMenuOpen(false)} to={"/about"}>
