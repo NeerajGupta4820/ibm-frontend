@@ -8,7 +8,7 @@ const SignupTutor = () => {
     name: "",
     email: "",
     password: "",
-    photo: null,
+    photo: `${process.env.REACT_APP_DEFAULT_PHOTO}`,
     bio: "",
     subjects: "",
     availability: "",

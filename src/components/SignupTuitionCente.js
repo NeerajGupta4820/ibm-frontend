@@ -8,7 +8,7 @@ const SignupTuitionCenter = () => {
     name: "",
     email: "",
     password: "",
-    photo: null,
+    photo: `${process.env.REACT_APP_DEFAULT_PHOTO}`,
     location: "",
     courses: "",
     fees: "",
