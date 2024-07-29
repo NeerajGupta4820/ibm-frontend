@@ -33,7 +33,7 @@ const AdminDashboard = () => {
       <h1>Admin Dashboard</h1>
       <p>Welcome, {user.name}!</p>
       {console.log(user)}
-      
+      <div></div>
       <button onClick={handleLogout} className="logout">
             LOGOUT
           </button>

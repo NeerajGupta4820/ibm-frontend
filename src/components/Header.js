@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import logoimg from "../assets/logo/logo.png";
-import { GrUserSettings } from "react-icons/gr";
+import { MdOutlineManageAccounts } from "react-icons/md";
 import { Tooltip } from 'react-tooltip';
 import "../style/header.css";
 
@@ -73,7 +73,7 @@ const Header = () => {
         ) : (
           <>
             <Link onClick={() => setIsMobileMenuOpen(false)} to={getProfileLink()}>
-              <GrUserSettings style={{ fontSize: '24px' }} data-tooltip-id="tooltip" data-tooltip-content={user.name}/>
+              <MdOutlineManageAccounts style={{ fontSize: '24px' }} data-tooltip-id="tooltip" data-tooltip-content={user.name}/>
               <Tooltip id="tooltip" place="bottom" effect="solid" style={{ zIndex: 1000 }} />
             </Link>
           </>
