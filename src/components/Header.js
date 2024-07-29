@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import logoimg from "../assets/logo/logo.png";
-import { FcBusinessman } from "react-icons/fc";
+import { GrUserSettings } from "react-icons/gr";
 import { Tooltip } from 'react-tooltip';
 import "../style/header.css";
 
@@ -73,8 +73,8 @@ const Header = () => {
         ) : (
           <>
             <Link onClick={() => setIsMobileMenuOpen(false)} to={getProfileLink()}>
-              <FcBusinessman style={{ fontSize: '28px' }} data-tooltip-id="tooltip" data-tooltip-content={user.name}/>
-              <Tooltip id="tooltip" place="top" style={{ zIndex: 1000 }} />
+              <GrUserSettings style={{ fontSize: '24px' }} data-tooltip-id="tooltip" data-tooltip-content={user.name}/>
+              <Tooltip id="tooltip" place="bottom" effect="solid" style={{ zIndex: 1000 }} />
             </Link>
           </>
         )}

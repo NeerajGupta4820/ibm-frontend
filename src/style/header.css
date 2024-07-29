@@ -49,16 +49,21 @@
   
   .header-center {
     display: flex;
-    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    margin-right: 30px;
   }
   
   .header-center a {
     color: #fff;
     text-decoration: none;
+    font-size: 14px;
   }
   
   .header-center a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    color:#efc725 ;
   }
   
   .dropdown {
@@ -66,7 +71,7 @@
   }
   
   .dropdown button {
-    font-size: 0.95rem;
+    font-size: 14px;
     background: none;
     border: none;
     color: #fff;
