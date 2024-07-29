@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
-import logoimg from "../assets/logo/logo.jpg";
+import logoimg from "../assets/logo/logo.png";
 import { FcBusinessman } from "react-icons/fc";
 import { Tooltip } from 'react-tooltip';
 import "../style/header.css";

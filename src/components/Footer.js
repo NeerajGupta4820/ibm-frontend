@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaPinterestP, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { SiMastercard, SiPaypal, SiVisa } from 'react-icons/si';
-import logo from "../assets/logo/logo.jpg";
+import logo from "../assets/logo/logo.png";
 import '../style/footer.css';
 
 const Footer = () => {
