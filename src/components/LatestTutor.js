@@ -57,9 +57,7 @@ const LatestTutor = () => {
   }, [tutors.length]);
 
   const handlePrevTutor = () => {
-    setCurrentTutorIndex(
-      (prevIndex) => (prevIndex - 1 + tutors.length) % tutors.length
-    );
+    setCurrentTutorIndex((prevIndex) => (prevIndex - 1 + tutors.length) % tutors.length);
   };
 
   const handleNextTutor = () => {
@@ -70,15 +68,14 @@ const LatestTutor = () => {
     navigate(`/tutor/${id}`);
   };
 
-  const displayedTutors =
-    tutors.length > 0
-      ? [
-          tutors[currentTutorIndex % tutors.length],
-          tutors[(currentTutorIndex + 1) % tutors.length],
-          tutors[(currentTutorIndex + 2) % tutors.length],
-          tutors[(currentTutorIndex + 3) % tutors.length],
-        ]
-      : [];
+  const displayedTutors = tutors.length > 0
+    ? [
+        tutors[currentTutorIndex % tutors.length],
+        tutors[(currentTutorIndex + 1) % tutors.length],
+        tutors[(currentTutorIndex + 2) % tutors.length],
+        tutors[(currentTutorIndex + 3) % tutors.length],
+      ]
+    : [];
 
   return (
     <div className="tutor-page">

@@ -3,17 +3,3 @@
     flex-wrap: wrap;
     flex-direction: column;
 }
-
-.tutor-card{
-    position: relative;
-}
-
-.tutor-card > .deletebtn{
-    position: absolute;
-    transform: translate(-1rem,-0.8rem);
-    color: white;
-}
-.deletebtn:hover{
-    color: #e4f80c;
-    cursor: pointer;
-}
