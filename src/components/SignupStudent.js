@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { toast } from 'react-hot-toast';
 import { useRegisterMutation } from "../redux/api/userApi";
+import axios from "axios";
 
 const SignupStudent = () => {
   const [registerUser, { isLoading, isError, isSuccess, error }] = useRegisterMutation();
@@ -12,10 +13,36 @@ const SignupStudent = () => {
     profileInfo: ""
   });
 
+  const handleUpload = async () => {
+    const cname = process.env.REACT_APP_CLOUDNAME;
+    if (!formData.photo) {
+      alert("Please select an image to upload.");
+      return;
+    }
+
+    const fData = new FormData();
+    fData.append('file', formData.photo);
+    fData.append('upload_preset', 'IBM_Project'); 
+    fData.append('cloud_name', `dxt2i61hy`); 
+
+    try {
+      const response = await axios.post(
+        `https://api.cloudinary.com/v1_1/dxt2i61hy/image/upload`, 
+        fData
+      );
+      console.log(response);
+      alert('Image uploaded successfully!');
+    } catch (error) {
+      console.error("Error uploading image", error);
+      alert('Failed to upload image.');
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
     if (type === "file") {
-      setFormData((prevState) => ({ ...prevState, [name]: files[0] }));
+      handleUpload();
+      //setFormData((prevState) => ({ ...prevState, [name]: files[0] }));
     } else {
       setFormData((prevState) => ({ ...prevState, [name]: value }));
     }
