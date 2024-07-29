@@ -1,0 +1,66 @@
+.tuition-center-profile {
+    background: #f4f4f4;
+}  
+.center-profile {
+      padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .center-profile-img {
+    flex: 1;
+    max-width: 300px;
+  }
+  .center-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .center-profile-content {
+    flex: 2;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .center-profile-content h1 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #333;
+  }
+  .center-profile-content p {
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+  .center-fees {
+    margin-top: 1rem;
+  }
+  
+  .center-fees strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .center-fees ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .center-fees li {
+    margin-bottom: 0.5rem;
+    color: #666;
+  }
+  .latest-tuition-centers {
+    margin-top: 2rem;
+  }
+  .center-profile-content h2 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  .tuition-center-profile-latest{
+    margin-bottom: 5rem;
+  }

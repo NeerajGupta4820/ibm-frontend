@@ -16,6 +16,8 @@ import TuitionCenterDashboard from './components/dashboard/TuitionCenterDashboar
 import TutorDashboard from './components/dashboard/TutorDashboard';
 import AdminDashboard from './components/dashboard/AdminDashboard';
 import Payments from './pages/Payments';
+import TutorProfile from './components/profile/TutorProfile';
+import TuitionCenterProfile from './components/profile/TuitionCenterProfile';
 
 function App() {
   const dispatch = useDispatch();
@@ -43,6 +45,8 @@ function App() {
           <Route path="/tutor-dashboard" element={<TutorDashboard />} />
           <Route path="/tuition-center-dashboard" element={<TuitionCenterDashboard />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/tutor/:id" element={<TutorProfile />} />
+          <Route path="/tuition-center/:id" element={<TuitionCenterProfile />} />
           <Route path='/payments' element={<Payments/>}/>
         </Routes>
       </div>   
