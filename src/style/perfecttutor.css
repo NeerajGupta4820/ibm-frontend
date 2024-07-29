@@ -120,8 +120,11 @@
     background-position: center;
     text-align: center;
     padding: 50px 20px;
-    border-radius: 10px;
+    border-radius: 0;
     color: #045D5D; /* Adjust text color for contrast */
+    width: 100%; /* Full width */
+    margin-top:60px;
+    margin-bottom:0px;
   }
   
   .subscribe-image {

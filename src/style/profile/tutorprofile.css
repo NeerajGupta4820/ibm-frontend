@@ -1,0 +1,64 @@
+.main-tutor-profile {
+  background: #f4f4f4;
+}
+.tutor-profile {
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.tutor-profile-img {
+  flex: 1;
+  max-width: 300px;
+}
+.tutor-profile-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.tutor-profile-content {
+  flex: 2;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.tutor-profile-content h1 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #333;
+}
+.tutor-profile-content p {
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+.tutor-fees {
+  margin-top: 1rem;
+}
+.tutor-fees strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+.tutor-fees ul {
+  list-style: none;
+  padding: 0;
+}
+.tutor-fees li {
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+.tutor-profile-latest{
+  margin-bottom: 5rem;
+}
+@media (max-width: 768px) {
+  .tutor-profile {
+    flex-direction: column;
+  }
+
+  .tutor-profile-img, .tutor-profile-content {
+    max-width: 100%;
+  }
+}

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useGetLatestTutorsQuery } from "../redux/api/tutorApi";
+import { useNavigate } from "react-router-dom";
 
-const TutorPage = () => {
+const LatestTutor = () => {
+  const navigate = useNavigate();
+
   const [currentTutorIndex, setCurrentTutorIndex] = useState(0);
   const { data: tutorsData, error: tutorsError, isLoading: tutorsLoading } = useGetLatestTutorsQuery();
   
@@ -21,6 +24,10 @@ const TutorPage = () => {
 
   const handleNextTutor = () => {
     setCurrentTutorIndex((prevIndex) => (prevIndex + 1) % tutors.length);
+  };
+
+  const handleTutorClick = (id) => {
+    navigate(`/tutor/${id}`);
   };
 
   const displayedTutors = tutors.length > 0
@@ -43,7 +50,7 @@ const TutorPage = () => {
         </button>
         <div className="tutors-list">
           {displayedTutors.map((tutor, index) => (
-            <div key={tutor?._id || index} className="tutor-card">
+            <div key={tutor?._id || index} className="tutor-card" onClick={() => handleTutorClick(tutor?._id)}>
               {tutor?.photo && (
                 <img
                   src={`${process.env.REACT_APP_SERVER}/${tutor.photo}`}
@@ -78,4 +85,4 @@ const TutorPage = () => {
   );
 };
 
-export default TutorPage;
+export default LatestTutor;

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useGetLatestTuitionCentersQuery } from '../redux/api/tuitioncenterApi';
+import { useNavigate } from 'react-router-dom';
 
 const LatestTuitioncenter = () => {
+  const navigate=useNavigate();
   const [currentCenterIndex, setCurrentCenterIndex] = useState(0);
   const { data: centersData, error: centersError, isLoading: centersLoading } = useGetLatestTuitionCentersQuery();
   
@@ -21,6 +23,10 @@ const LatestTuitioncenter = () => {
 
   const handleNextCenter = () => {
     setCurrentCenterIndex((prevIndex) => (prevIndex + 1) % centers.length);
+  };
+
+  const handleCardClick = (id) => {
+    navigate(`/tuition-center/${id}`);
   };
 
   const displayedCenters = centers.length > 0
@@ -43,7 +49,8 @@ const LatestTuitioncenter = () => {
         </button>
         <div className="centers-list">
           {displayedCenters.map((center, index) => (
-            <div key={center?._id || index} className="tuition-center-card">
+            <div key={center?._id || index} className="tuition-center-card"
+            onClick={() => handleCardClick(center._id)}>
               {center?.photo && (
                 <img 
                   src={`${process.env.REACT_APP_SERVER}/${center.photo}`} 
