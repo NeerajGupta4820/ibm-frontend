@@ -9,19 +9,19 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
-import Footer from "./components/Footer";
 import Signup from './pages/signup';
 import Payments from './pages/Payments';
 import TutorList from './pages/list/TutorList';
 import TuitionCenterList from './pages/list/TuitionCenterList';
+import UserDashboard from './pages/dashboard/UserDashboard';
+import TuitionCenterDashboard from './pages/dashboard/TuitionCenterDashboard';
+import TutorDashboard from './pages/dashboard/TutorDashboard';
+import AdminDashboard from './pages/dashboard/AdminDashboard';
+import TuitionCenterProfile from './pages/profile/TuitionCenterProfile';
+import TutorProfile from './pages/profile/TutorProfile';
 /***********************************components */
 import Header from './components/Header';
-import UserDashboard from './components/dashboard/UserDashboard';
-import TuitionCenterDashboard from './components/dashboard/TuitionCenterDashboard';
-import TutorDashboard from './components/dashboard/TutorDashboard';
-import AdminDashboard from './components/dashboard/AdminDashboard';
-import TutorProfile from './components/profile/TutorProfile';
-import TuitionCenterProfile from './components/profile/TuitionCenterProfile';
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();

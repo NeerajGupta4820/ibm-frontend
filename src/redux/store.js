@@ -2,11 +2,13 @@ import { configureStore } from '@reduxjs/toolkit';
 import { userAPI } from './api/userApi';
 import { tutorAPI } from './api/tutorApi';
 import { tuitionCenterAPI } from './api/tuitioncenterApi';
+import { adminApi } from './api/adminApi';
 import userReducer from './reducers/userReducer';
 export const server = process.env.REACT_APP_SERVER;
 
 const store = configureStore({
   reducer: {
+    [adminApi.reducerPath]: adminApi.reducer,
     [userAPI.reducerPath]: userAPI.reducer,
     [tutorAPI.reducerPath]: tutorAPI.reducer,
     [tuitionCenterAPI.reducerPath]: tuitionCenterAPI.reducer,
@@ -15,6 +17,7 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
       userAPI.middleware,
+      adminApi.middleware,
       tutorAPI.middleware,
       tuitionCenterAPI.middleware 
     ),

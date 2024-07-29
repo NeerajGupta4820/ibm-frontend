@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useGetTutorProfileQuery } from "../../redux/api/tutorApi";
-import LatestTutor from "../LatestTutor";
+import LatestTutor from "../../components/LatestTutor";
 import "../../style/profile/tutorprofile.css"
 
 const TutorProfile = () => {
