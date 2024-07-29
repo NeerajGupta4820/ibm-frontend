@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from "react-hot-toast";
 import { userNotExist } from "../../redux/reducers/userReducer";
 import "../../style/admind.css";
+import LatestTutor from '../LatestTutor';
 
 
 const AdminDashboard = () => {
@@ -33,7 +34,7 @@ const AdminDashboard = () => {
       <h1>Admin Dashboard</h1>
       <p>Welcome, {user.name}!</p>
       {console.log(user)}
-      <div></div>
+      <div><LatestTutor/></div>
       <button onClick={handleLogout} className="logout">
             LOGOUT
           </button>
