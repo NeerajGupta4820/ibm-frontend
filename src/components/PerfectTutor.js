@@ -118,7 +118,7 @@ const [email, setEmail] = useState('');
       {/* email part */}
       <section>
       <div className="subscribe-section">
-      <img src={require('../assets/home/perfectTutor/student2.png').default} alt="Subscribe" className="subscribe-image" />
+      
 
         <h2 className="subscribe-heading">Stay Updated</h2>
         <p className="subscribe-paragraph" color="#045D5D">
