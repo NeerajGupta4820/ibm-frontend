@@ -36,6 +36,19 @@ function PerfectTutor() {
     return () => clearInterval(interval);
   }, [testimonials.length]);
 
+// email part 
+const [email, setEmail] = useState('');
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleEmailSubmit = (e) => {
+    e.preventDefault();
+    // Handle email submission logic here
+    console.log('Email submitted:', email);
+  };
+
   return (
     <div className="main-perfect">
       <div className="perfect-cards-container">
@@ -101,6 +114,28 @@ function PerfectTutor() {
             </div>
           ))}
         </div>
+      </section>
+      {/* email part */}
+      <section>
+      <div className="subscribe-section">
+      <img src={require('../assets/home/perfectTutor/student2.png').default} alt="Subscribe" className="subscribe-image" />
+
+        <h2 className="subscribe-heading">Stay Updated</h2>
+        <p className="subscribe-paragraph" color="#045D5D">
+          Subscribe to our newsletter to get the latest updates and offers.
+        </p>
+        <form className="subscribe-form" onSubmit={handleEmailSubmit}>
+          <input
+            type="email"
+            value={email}
+            onChange={handleEmailChange}
+            className="subscribe-input"
+            placeholder="Enter your email"
+            required
+          />
+          <button type="submit" className="subscribe-button">Subscribe</button>
+        </form>
+      </div>
       </section>
     </div>
   );

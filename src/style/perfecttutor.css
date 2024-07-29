@@ -113,3 +113,57 @@
     color: black;
   }
   
+  /* email part */
+  .subscribe-section {
+    background-image: url('../assets/home/perfectTutor/simple-blue-gradient-background-vector-business_53876-169287.avif');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 50px 20px;
+    border-radius: 10px;
+    color: #045D5D; /* Adjust text color for contrast */
+  }
+  
+  .subscribe-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .subscribe-heading {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .subscribe-paragraph {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color:#36454F ;
+  }
+  
+  .subscribe-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .subscribe-input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  .subscribe-button {
+    padding: 10px 20px;
+    background-color: #00BFFF; /* Adjust button color as needed */
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  .subscribe-button:hover {
+    background-color: #22CE83; /* Slightly darker shade on hover */
+  }
