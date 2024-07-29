@@ -1,131 +1,147 @@
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #333;
-    font-family: 'Varela Round', sans-serif;
-    color: #fff;
-  }
-  
-  .logo img {
-    margin: -1rem 0;
-    height: 50px;
-  }
-  
-  .search-bar {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .search-form {
-    display: flex;
-    align-items: center;
-  }
-  
-  .search-form input {
-    padding: 0.5rem;
-    width: 20rem;
-    border: none;
-    border-radius: 0.25rem 0 0 0.25rem;
-    outline: none;
-  }
-  
-  .search-form button {
-    padding: 0.5rem;
-    border: none;
-    background-color: #555;
-    color: #fff;
-    border-radius: 0 0.25rem 0.25rem 0;
-    cursor: pointer;
-  }
-  
-  .search-form button:hover {
-    background-color: #777;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #333;
+  font-family: 'Varela Round', sans-serif;
+  color: #fff;
+}
+
+.logo img {
+  margin: -1rem 0;
+  height: 50px;
+}
+
+.search-bar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-form input {
+  padding: 0.5rem;
+  width: 15rem;
+  border: none;
+  border-radius: 0.25rem 0 0 0.25rem;
+  outline: none;
+}
+
+.search-form button {
+  padding: 0.5rem;
+  border: none;
+  background-color: #555;
+  color: #fff;
+  border-radius: 0 0.25rem 0.25rem 0;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background-color: #777;
+}
+
+.header-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  font-weight: 600;
+  margin-right: 30px;
+}
+
+.header-center a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.header-center a:hover {
+  text-decoration: none;
+  color: #efc725;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown button {
+  font-size: 14px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  z-index: 200;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 10;
+  background-color: #444;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  width: 8rem;
+}
+
+.dropdown-menu a {
+  color: #fff;
+  padding-top: 0.5rem;
+  cursor: pointer;
+}
+
+.dropdown-menu option:hover {
+  background-color: #555;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
   .header-center {
+    flex-direction: column;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 50vw;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 2rem;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+  }
+
+  .header-center.open {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2.5rem;
-    font-weight: 600;
-    margin-right: 30px;
+    transform: translateX(0);
   }
-  
-  .header-center a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  
-  .header-center a:hover {
-    text-decoration: none;
-    color:#efc725 ;
-  }
-  
-  .dropdown {
-    position: relative;
-  }
-  
-  .dropdown button {
-    font-size: 14px;
+
+  .mobile-menu-toggle {
+    display: block;
     background: none;
     border: none;
     color: #fff;
-    font-weight: 600;
+    font-size: 1.5rem;
     cursor: pointer;
   }
-  
-  .dropdown-menu {
-    z-index: 200;
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 10;
-    background-color: #444;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    width: 8rem;
+
+  .search-form input {
+    width: 10rem;
   }
-  
-  .dropdown-menu a {
-    color: #fff;
-    padding-top: 0.5rem;
-    cursor: pointer;
-  }
-  
-  .dropdown-menu option:hover {
-    background-color: #555;
-  }
-  
-  .dropdown:hover .dropdown-menu {
-    display: block;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  @media (max-width: 768px) {
-    .header-center {
-      flex-direction: column;
-      display: none;
-    }
-  
-    .header-center.open {
-      display: flex;
-    }
-  
-    .mobile-menu-toggle {
-      display: block;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-  }
-  
+}
