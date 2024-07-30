@@ -4,7 +4,6 @@
     background-size: cover;
   }
   .tutor-page h1 {
-    color: white;
     display: flex;
     justify-content: center;
   }
@@ -32,7 +31,7 @@
   }
   .tutor-card {
     padding: 16px;
-    min-width: 15rem;
+    min-width: 18rem;
     height: 25rem;
     background: rgba(160, 158, 158, 0.7);
     backdrop-filter: blur(10px);

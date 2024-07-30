@@ -35,7 +35,7 @@
   
   .tuition-center-card {
     padding: 16px;
-    min-width: 16rem;
+    min-width: 18rem;
     height: 23rem;
     background: rgba(19, 18, 18, 0.3);
     backdrop-filter: blur(10px);
