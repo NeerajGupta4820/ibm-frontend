@@ -29,6 +29,7 @@
 .intro-section {
   text-align: center;
   padding: 40px 20px;
+  margin: 2rem;
   background-color: #f9f9f9;
 }
 
@@ -171,19 +172,19 @@
 /* src/pages/About.css */
 
 .intro-section {
-  background-color: white; /* Light blue background */
+  background-color: white; 
   background-image: linear-gradient(
     135deg,
     #FFFFC2 0%,
     #F8B88B 100%
-  ); /* Gradient effect */
-  color: black; /* White text color for contrast */
-  text-align: center; /* Center align text */
-  padding: 50px 20px; /* Padding around the section */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-  margin: 0; /* Center the section with margin */
-  max-width: 100%; /* Optional: max-width for larger screens */
+  ); 
+  color: black; 
+  text-align: center; 
+  padding: 50px 20px; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  margin: 2rem  0;
+  max-width: 100%; 
 }
 
 .intro-section h1 {

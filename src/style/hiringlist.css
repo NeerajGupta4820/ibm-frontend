@@ -1,113 +1,136 @@
 .hiringlist {
-    margin: 5rem 0;
-    
-   
-  }
-  
-  .card-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
-  }
-  
-  .card-container {
-    flex: 0 1 280px;
-    margin: 10px;
-    background: linear-gradient(150deg, #39ef74, #4600f1 100%);
-    border-radius: 20px;
-  }
-  
-  .card {
-    font-weight: bold;
-    position: relative;
-    width: 100%;
-
-  }
-  
-  .card a {
-    padding: 30px;
-    width: 100%;
-    height: 450px;
-    border:none;
-    border-radius: 20px;
-    background: linear-gradient(150deg, #39ef74, #4600f1 100%);
-    text-decoration: none;
-    color: #fff;
-    display: block;
-    transition: 0.25s ease;
-  }
-  
-  .card a:hover {
-    transform: translate(-30px, -30px);
-    border-color: #5bc0eb;
-    border: 2px solid #5bc0eb;
-    text-decoration: none;
-    list-style: none;
-  }
-  
-  .card a:hover .card--display {
-    display: none;
-  }
-  
-  .card a:hover .card--hover {
-    display: block;
-  }
-  
-  .card--display i {
-    font-size: 60px;
-    margin-top: 200px;
-  }
-  
-  .card--display h2 {
-    margin: 20px 0 0;
-  }
-  
-  .card--hover {
-    display: none;
-  }
-  
-  .card--hover h2 {
-    margin: 20px 0;
-  }
-  
-  .card--hover p {
-    font-weight: normal;
-    line-height: 1.5;
-    text-decoration: none;
-    color: #fff;
+  margin: 5rem 0;
 }
 
-.card--hover button {
-  text-transform: uppercase;
-  overflow: hidden;
-  width: 100%;
-  display: block;
-  margin-bottom:4px;
-  color: #4600f1;
-  border-radius: 50px;
-  padding: 1rem;
-  background: white;
-  border: none;
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-container {
+  flex: 0 1 280px;
+  margin: 10px;
+}
+
+.card {
   font-weight: bold;
-  }
-  
-  .card--border {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-      border: none;
-      z-index: -1;
-    }
-    
-  .card--dark a {
-    color: white;
-    background-color: black;
-    border-color: black;
+  position: relative;
+  width: 100%;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card a {
+  padding: 30px;
+  width: 100%;
+  height: 450px;
+  border: 2px solid #ccc;
+  background: #f9f9f9;
+  text-decoration: none;
+  color: #333;
+  display: block;
+  transition: 0.25s ease;
+  border-radius: 10px;
+}
+
+.card a:hover {
+  transform: translate(-30px, -30px);
+  text-decoration: none;
+  list-style: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card a:hover .card--display {
+  display: none;
+}
+
+.card a:hover .card--hover {
+  display: block;
+}
+
+.card--display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.card--display i {
+  font-size: 60px;
+  margin-top: 200px;
+}
+
+.card--display h2 {
+  margin: 20px 0 0;
+  color: #333;
+}
+
+.card--hover {
+  display: none;
+  border-radius: 10px;
+}
+
+.card--hover h2 {
+  margin: 20px 0;
+}
+
+.card--hover p {
+  font-weight: normal;
+  line-height: 1.5;
+  text-decoration: none;
+  color: #333;
+}
+
+.card--hover p.link {
+  margin: 20px 0 0;
+  font-weight: bold;
+}
+
+.card--border {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border: 2px dashed black;
+  z-index: -1;
+  border-radius: 10px;
+}
+
+.card--dark a {
+  color: white;
+  background-color: #333;
+  border-color: #333;
 }
 
 .card--dark .card--hover .link {
-    color: #64cae7;
-  }
+  color: #fde74c;
+}
+
+.card-icon {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1rem;
+  display: block;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #5bc0eb;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+  background-color: #3a9bcf;
+  transform: translateY(-3px);
+}
