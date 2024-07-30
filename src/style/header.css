@@ -1,13 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #333;
-    font-family: 'Varela Round', sans-serif;
-    color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(15, 15, 15, 0.75); 
+  font-family: 'Varela Round', sans-serif;
+  color: #fff;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;  
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   }
   
   .logo img {

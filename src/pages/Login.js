@@ -41,6 +41,7 @@ const LoginPage = () => {
   };
   
   return (
+    <div className="login-page">
     <div className="main-container">
       <div className="login-container">
       <div className="login-image">
@@ -71,6 +72,7 @@ const LoginPage = () => {
       </form>
       </div>
       </div>
+    </div>
     </div>
   );
 };
