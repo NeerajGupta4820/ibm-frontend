@@ -6,6 +6,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
 }
+
 .contact-details {
   margin: 0 1rem;
   padding: 1rem;
@@ -15,6 +16,7 @@ body {
   border-radius: 20px;
   background: Linear-gradient(180deg, #7bafeb 26.71%,#063970 99.36%);
   margin-bottom: 5rem;
+  overflow: hidden; /* Prevent content overflow */
 }
 
 .contact-details .details {
@@ -92,6 +94,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.form-details .svg-container img {
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: for a sleek border effect */
 }
 
 .form-details form {
@@ -186,5 +194,36 @@ body {
 
   .form-details .svg-container {
     margin-left: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .form-details {
+    padding: 1rem; /* Adjust padding for very small screens */
+  }
+  
+  .contact-details {
+    margin: 0.5rem;
+    padding: 1rem; /* Adjust padding for very small screens */
+  }
+
+  .form-details .svg-container {
+    margin: 0; /* Remove margin for small screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-details {
+    flex-direction: column;
+  }
+
+  .contact-details .details,
+  .contact-details .map {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .contact-details .map {
+    height: 300px; /* Adjust map height for smaller screens */
   }
 }
