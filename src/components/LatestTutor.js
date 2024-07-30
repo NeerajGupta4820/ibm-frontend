@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useGetLatestTutorsQuery } from "../redux/api/tutorApi";
 import { useNavigate } from "react-router-dom";
-import { RiDeleteBin5Line } from "react-icons/ri";
-import axios from "axios";
-import {toast} from "react-hot-toast"
 import { useSelector } from "react-redux";
-import "../style/admind.css";
 
 const LatestTutor = () => {
   const navigate = useNavigate();
@@ -20,33 +16,7 @@ const LatestTutor = () => {
 
   const tutors = tutorsData?.latestTutors || [];
 
-  const handleDelete = async (tutor) => {
-    try {
-      const confirmDelete = window.confirm(
-        "Are you sure you want to delete this tutor?"
-      );
-      if (confirmDelete) {
-        const token = localStorage.getItem("token");
-
-        
-          console.log(token);
-
-          const response = await axios.delete(
-            `${baseURL}/api/admin/user/${tutor._id}?id=${user.id}`,
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
-          toast.success("Deleted Successfully");
-          navigate("/admin-dashboard");
-        
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -92,15 +62,6 @@ const LatestTutor = () => {
               key={tutor?._id || index}
               className="tutor-card"
             >
-              {user && user.role === "Admin" ? (
-                <RiDeleteBin5Line
-                  className="deletebtn"
-                  onClick={() => handleDelete(tutor)}
-                  id={tutor._id}
-                />
-              ) : (
-                ""
-              )}
               {tutor?.photo && (
                 <img
                   src={`${process.env.REACT_APP_SERVER}/${tutor.photo}`}
