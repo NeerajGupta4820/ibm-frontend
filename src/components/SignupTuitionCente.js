@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { toast } from 'react-hot-toast';
 import { useCreateTuitionCenterProfileMutation } from "../redux/api/tuitioncenterApi";
+import axios from "axios";
+import Spinner from "./Spinner";
 
 const SignupTuitionCenter = () => {
-  const [createTuitionCenterProfile, { isLoading, isError, error }] = useCreateTuitionCenterProfileMutation();
+  const [createTuitionCenterProfile, { isLoading }] = useCreateTuitionCenterProfileMutation();
+  const [upload, setUpload] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
-    photo: `${process.env.REACT_APP_DEFAULT_PHOTO}`,
+    photo: "",
     location: "",
     courses: "",
     fees: "",
@@ -16,10 +19,42 @@ const SignupTuitionCenter = () => {
     contactNumber: ""
   });
 
+  const handleUpload = async (file) => {
+    const cname = process.env.REACT_APP_CLOUDNAME;
+    if (!file) {
+      toast.error("Please select an image to upload.");
+      return;
+    }
+
+    const fData = new FormData();
+    fData.append('file', file);
+    fData.append('upload_preset', 'IBM_Project');
+
+    setUpload(true);
+    try {
+      const response = await axios.post(
+        `https://api.cloudinary.com/v1_1/${cname}/image/upload`,
+        fData
+      );
+      console.log(response);
+      setFormData((prevState) => ({
+        ...prevState,
+        photo: response.data.secure_url
+      }));
+      toast.success('Image uploaded successfully!');
+    } catch (error) {
+      console.error("Error uploading image", error);
+      toast.error('Failed to upload image.');
+    } finally {
+      setUpload(false);
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
-    if (type === "file") {
-      setFormData((prevState) => ({ ...prevState, [name]: files[0] }));
+    if (type === "file" && files[0]) {
+      setUpload(true);
+      handleUpload(files[0]);
     } else {
       setFormData((prevState) => ({ ...prevState, [name]: value }));
     }
@@ -27,24 +62,24 @@ const SignupTuitionCenter = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Default photo URL
+    const defaultPhotoUrl = `${process.env.REACT_APP_DEFAULT_PHOTO}`;
+    
     try {
       const tuitionCenterFormData = new FormData();
       for (const key in formData) {
-        tuitionCenterFormData.append(key, formData[key]);
+        tuitionCenterFormData.append(key, formData[key] || (key === "photo" && defaultPhotoUrl));
       }
-      
-      // Make API request
+      console.log(tuitionCenterFormData);
       const response = await createTuitionCenterProfile(tuitionCenterFormData).unwrap();
-      
-      // Log the successful response
-      console.log('Response:', response);
-
-      // Show success message
-      toast.success(response.message || "Tuition Center registered successfully");
+      if (response.success) {
+        toast.success(response.message || "Tuition Center registered successfully");
+      } else {
+        toast.error(response.message || "Failed to register");
+      }
     } catch (err) {
       console.error("Failed to register tuition center:", err);
-      
-      // Extract and show error message
       const errorMessage = err?.data?.message || "Failed to register tuition center";
       toast.error(errorMessage);
     }
@@ -92,8 +127,8 @@ const SignupTuitionCenter = () => {
           id="photo"
           name="photo"
           onChange={handleChange}
-          required
         />
+        {upload && <Spinner />}
       </div>
       <div className="form-group">
         <label htmlFor="location">Location</label>
@@ -149,8 +184,8 @@ const SignupTuitionCenter = () => {
           required
         />
       </div>
-      <button type="submit" disabled={isLoading}>
-        {isLoading ? "Registering..." : "Register"}
+      <button type="submit" disabled={isLoading || upload}>
+        {isLoading || upload ? "Registering..." : "Register"}
       </button>
     </form>
   );

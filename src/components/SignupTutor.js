@@ -1,24 +1,58 @@
 import React, { useState } from "react";
 import { toast } from 'react-hot-toast';
 import { useCreateTutorProfileMutation } from "../redux/api/tutorApi";
+import axios from "axios";
+import Spinner from "./Spinner";
 
 const SignupTutor = () => {
-  const [createTutorProfile, { isLoading, isError, isSuccess, error }] = useCreateTutorProfileMutation();
+  const [createTutorProfile, { isLoading }] = useCreateTutorProfileMutation();
+  const [upload, setUpload] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
-    photo: `${process.env.REACT_APP_DEFAULT_PHOTO}`,
+    photo: "",
     bio: "",
     subjects: "",
     availability: "",
     fees: ""
   });
 
+  const handleUpload = async (file) => {
+    const cname = process.env.REACT_APP_CLOUDNAME;
+    if (!file) {
+      toast.error("Please select an image to upload.");
+      return;
+    }
+
+    const fData = new FormData();
+    fData.append('file', file);
+    fData.append('upload_preset', 'IBM_Project');
+
+    setUpload(true);
+    try {
+      const response = await axios.post(
+        `https://api.cloudinary.com/v1_1/${cname}/image/upload`,
+        fData
+      );
+      console.log(response);
+      setFormData((prevState) => ({
+        ...prevState,
+        photo: response.data.secure_url
+      }));
+      toast.success('Image uploaded successfully!');
+    } catch (error) {
+      console.error("Error uploading image", error);
+      toast.error('Failed to upload image.');
+    } finally {
+      setUpload(false);
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
-    if (type === "file") {
-      setFormData((prevState) => ({ ...prevState, [name]: files[0] }));
+    if (type === "file" && files[0]) {
+      handleUpload(files[0]);
     } else {
       setFormData((prevState) => ({ ...prevState, [name]: value }));
     }
@@ -26,20 +60,26 @@ const SignupTutor = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Default photo URL
+    const defaultPhotoUrl = `${process.env.REACT_APP_DEFAULT_PHOTO}`;
+    
     try {
       const tutorFormData = new FormData();
       for (const key in formData) {
-        tutorFormData.append(key, formData[key]);
+        tutorFormData.append(key, formData[key] || (key === "photo" && defaultPhotoUrl));
       }
+      console.log(tutorFormData);
       const response = await createTutorProfile(tutorFormData).unwrap();
       if (response.success) {
-        toast.success(response.message);
+        toast.success(response.message || "Tutor registered successfully");
       } else {
-        toast.error(response.message);
+        toast.error(response.message || "Failed to register");
       }
-      console.log('Response:', response);
     } catch (err) {
-      toast.error(err?.data?.message || "Failed to register tutor");
+      console.error("Failed to register tutor:", err);
+      const errorMessage = err?.data?.message || "Failed to register tutor";
+      toast.error(errorMessage);
     }
   };
 
@@ -85,8 +125,8 @@ const SignupTutor = () => {
           id="photo"
           name="photo"
           onChange={handleChange}
-          required
         />
+        {upload && <Spinner />}
       </div>
       <div className="form-group">
         <label htmlFor="bio">Bio</label>
@@ -131,8 +171,8 @@ const SignupTutor = () => {
           required
         />
       </div>
-      <button type="submit" disabled={isLoading}>
-        {isLoading ? "Signing up..." : "Signup"}
+      <button type="submit" disabled={isLoading || upload}>
+        {isLoading || upload ? "Signing up..." : "Signup"}
       </button>
     </form>
   );

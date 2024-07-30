@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { toast } from 'react-hot-toast';
 import { useRegisterMutation } from "../redux/api/userApi";
 import axios from "axios";
+import Spinner from "./Spinner";
 
 const SignupStudent = () => {
   const [registerUser, { isLoading, isError, isSuccess, error }] = useRegisterMutation();
+  const [upload,setUpload] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -34,16 +36,18 @@ const SignupStudent = () => {
         ...prevState,
         photo: response.data.secure_url
       }));
-      alert('Image uploaded successfully!');
+      toast.success('Image uploaded successfully!');
     } catch (error) {
       console.error("Error uploading image", error);
-      alert('Failed to upload image.');
+      toast.error('Failed to upload image.');
     }
+    setUpload(false);
   };
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
     if (type === "file" && files[0]) {
+      setUpload(true);
       handleUpload(files[0]);
     } else {
       setFormData((prevState) => ({ ...prevState, [name]: value }));
@@ -61,7 +65,7 @@ const SignupStudent = () => {
       for (const key in formData) {
         userFormData.append(key, formData[key] || (key === "photo" && defaultPhotoUrl));
       }
-
+      console.log(userFormData);
       const response = await registerUser(userFormData).unwrap();
       if (response.success) {
         toast.success(response.message || "Student registered successfully");
@@ -118,6 +122,7 @@ const SignupStudent = () => {
           onChange={handleChange}
         />
       </div>
+      {upload && <Spinner/>}
       <div className="form-group">
         <label htmlFor="profileInfo">Profile Info</label>
         <textarea
