@@ -26,12 +26,14 @@
   
   .tutors-list {
     display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
     padding: 2rem;
   }
   .tutor-card {
     padding: 16px;
-    min-width: 18rem;
+    min-width: 15rem;
     height: 25rem;
     background: rgba(160, 158, 158, 0.7);
     backdrop-filter: blur(10px);
