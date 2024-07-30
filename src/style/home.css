@@ -1,4 +1,3 @@
-/* Header section */
 .header-section {
   position: relative;
   height: 400px;
@@ -24,8 +23,6 @@
 .header-image.active {
   opacity: 1;
 }
-
-/* Intro section */
 .intro-section {
   text-align: center;
   padding: 40px 20px;
@@ -62,10 +59,8 @@
 .tutors-list {
   display: flex;
   overflow: hidden;
-  /* width: 100%; */
   padding: 2rem;
 }
-
 .tutor-card {
   padding: 16px;
   min-width: 15rem;
@@ -167,10 +162,6 @@
   display: block;
   margin: 0.2rem 0;
 }
-
-/* intro section */
-/* src/pages/About.css */
-
 .intro-section {
   background-color: white; 
   background-image: linear-gradient(
@@ -188,14 +179,14 @@
 }
 
 .intro-section h1 {
-  font-size: 2.5em; /* Larger font size for heading */
-  font-family: "Poppins", sans-serif; /* Font family */
-  margin-bottom: 20px; /* Space below heading */
+  font-size: 2.5em;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 20px; 
 }
 
 .intro-section p {
-  font-size: 1.4em; /* Larger font size for paragraph */
-  font-family: "Varela Round", sans-serif; /* Font family */
-  line-height: 1.5; /* Line height for better readability */
+  font-size: 1.4em;
+  font-family: "Varela Round", sans-serif; 
+  line-height: 1.5;
   color:#808080;
 }

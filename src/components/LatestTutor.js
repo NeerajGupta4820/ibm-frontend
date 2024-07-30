@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useGetLatestTutorsQuery } from "../redux/api/tutorApi";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useGetLatestTutorsQuery } from "../redux/api/tutorApi";
 
 const LatestTutor = () => {
   const navigate = useNavigate();
-  const baseURL = process.env.REACT_APP_SERVER;
-  const user = useSelector((state) => state.user.user);
   const [currentTutorIndex, setCurrentTutorIndex] = useState(0);
   const {
     data: tutorsData,
@@ -15,9 +12,7 @@ const LatestTutor = () => {
   } = useGetLatestTutorsQuery();
 
   const tutors = tutorsData?.latestTutors || [];
-
   
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTutorIndex((prevIndex) => (prevIndex + 1) % tutors.length);
