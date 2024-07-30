@@ -1,0 +1,84 @@
+.latest-tuition-centers {
+    padding: 2rem;
+    background: Linear-gradient(180deg, #545555 26.71%, #070707 99.36%);
+    background-image: url("../../assets/home/latesttuitioncenter/img.png");
+  }
+  
+  .latest-tuition-centers h1 {
+    display: flex;
+    justify-content: center;
+    /* color: white; */
+  }
+  
+  .centers-slider {
+    display: flex;
+    width: 100%;
+    /* padding-left: 1rem; */
+    align-items: center;
+  }
+  
+  .slider-button {
+    background-color: #2b2a2a;
+    border: none;
+    color: white;
+    padding: 16px 20px;
+    border-radius: 80px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .centers-list {
+    display: flex;
+    overflow: hidden;
+    padding: 1rem;
+  }
+  
+  .tuition-center-card {
+    padding: 16px;
+    min-width: 16rem;
+    height: 23rem;
+    background: rgba(19, 18, 18, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 3px 3px 10px rgba(10, 10, 10, 0.8),
+      -1px -1px 3px rgba(5, 5, 5, 0.8);
+    border-radius: 8px;
+    margin: 16px;
+    text-align: center;
+  }
+  
+  .tuition-center-card h3 {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .tuition-center-photo {
+    width: 200px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .tuition-center-card p {
+    color: black;
+    margin: 0.5rem 0;
+  }
+  
+  .tuition-center-card span {
+    display: block;
+    margin: 0.2rem 0;
+  }
+  .intro-section {
+    background-color: white; 
+    background-image: linear-gradient(
+      135deg,
+      #FFFFC2 0%,
+      #F8B88B 100%
+    ); 
+    color: black; 
+    text-align: center; 
+    padding: 50px 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin: 2rem  0 0 0;
+    max-width: 100%; 
+  }

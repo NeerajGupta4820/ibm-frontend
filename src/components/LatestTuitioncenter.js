@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useGetLatestTuitionCentersQuery } from '../redux/api/tuitioncenterApi';
 import { useNavigate } from 'react-router-dom';
+import "../style/cards/tuitioncentercard.css"
 
 const LatestTuitioncenter = () => {
   const navigate=useNavigate();
