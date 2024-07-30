@@ -34,7 +34,7 @@
 }
 
 .card a:hover {
-  transform: translate(-30px, -30px);
+  transform: translate(-15px, -15px);
   text-decoration: none;
   list-style: none;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
