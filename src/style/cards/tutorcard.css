@@ -1,0 +1,64 @@
+.tutor-page {
+    padding: 2rem;
+    background-image: url("../../assets/home/latesttutor/img.jpg");
+    background-size: cover;
+  }
+  .tutor-page h1 {
+    color: white;
+    display: flex;
+    justify-content: center;
+  }
+  .tutors-slider {
+    display: flex;
+    width: 100%;
+    padding-left: 1rem;
+    align-items: center;
+  }
+  
+  .slider-button {
+    background-color: #2b2a2a;
+    border: none;
+    color: white;
+    padding: 16px 20px;
+    border-radius: 80px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .tutors-list {
+    display: flex;
+    overflow: hidden;
+    padding: 2rem;
+  }
+  .tutor-card {
+    padding: 16px;
+    min-width: 15rem;
+    height: 25rem;
+    background: rgba(160, 158, 158, 0.7);
+    backdrop-filter: blur(10px);
+    box-shadow: 3px 3px 10px rgba(10, 10, 10, 0.8),
+      -1px -1px 3px rgba(5, 5, 5, 0.8);
+    border-radius: 8px;
+    margin: 16px;
+    text-align: center;
+  }
+  
+  .tutor-card .availability {
+    color: white;
+    font-weight: 800;
+  }
+  
+  .tutor-card .ratings {
+    color: rgb(243, 181, 25);
+  }
+  
+  .tutor-photo {
+    width: 200px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .tutor-fees {
+    text-align: left;
+  }
