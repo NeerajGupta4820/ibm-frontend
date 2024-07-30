@@ -5,7 +5,7 @@ import AllUserList from '../../components/dashboard/AllUserList';
 import AllTutorList from '../../components/dashboard/AllTutorList';
 
 const AdminDashboard = () => {
-  const [activeComponent, setActiveComponent] = useState(null);
+  const [activeComponent, setActiveComponent] = useState("profile");
 
   return (
     <div className="admin-dashboard">

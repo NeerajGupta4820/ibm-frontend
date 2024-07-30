@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import { toast } from "react-hot-toast";
 import { userNotExist } from "../../redux/reducers/userReducer";
+import "../../style/dashboard/userdasboard.css"
 
 const UserDashboard
  = () => {
@@ -32,9 +33,9 @@ const UserDashboard
   };
 
   return (
-    <div className="user-profile">
-      <div className="profile-header">
-        <img src={photo} alt={name} className="profile-photo" />
+    <div className="user-dashboard">
+      <div className="dashboard-header">
+        <img src={photo} alt={name} className="dashboard-photo" />
         <h1>{name}</h1>
         <p>{email}</p>
         <p>{role}</p>
@@ -51,5 +52,4 @@ const UserDashboard
   );
 };
 
-export default UserDashboard
-;
+export default UserDashboard;

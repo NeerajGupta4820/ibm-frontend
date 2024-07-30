@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';  // Import useNavigate
 import { useGetAllTutorsQuery } from '../../redux/api/tutorApi';
 import '../../style/list/tutorlist.css';
 
 const TutorList = () => {
+  const navigate = useNavigate();  // Initialize useNavigate
   const { data, error, isLoading } = useGetAllTutorsQuery();
 
   if (isLoading) {
@@ -15,12 +17,20 @@ const TutorList = () => {
 
   const tutors = data?.tutors || [];
 
+  const handleCardClick = (id) => {
+    navigate(`/tutor/${id}`);  // Navigate to tutor profile
+  };
+
   return (
     <div className="tutor-list">
       <h1>All Tutors</h1>
       <div className="tutors-list-container">
         {tutors.map((tutor) => (
-          <div key={tutor._id} className="tutor-list-card">
+          <div
+            key={tutor._id}
+            className="tutor-list-card"
+            onClick={() => handleCardClick(tutor._id)}  // Add onClick handler
+          >
             {tutor.photo && (
               <img
                 src={`${process.env.REACT_APP_SERVER}/${tutor.photo}`}

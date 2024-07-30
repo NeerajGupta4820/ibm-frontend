@@ -1,0 +1,41 @@
+.tutor-dashboard {
+    background-color: #f4f4f4;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 2rem auto;
+    font-family: Arial, sans-serif;
+  }
+  .tutor-dashboard h1 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .tutor-dashboard p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    color: #555;
+  }
+  .tutor-dashboard button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 1rem auto;
+  }
+  
+  .tutor-dashboard button:hover {
+    background-color: #0056b3;
+  }
+  
+  .tutor-dashboard button:focus {
+    outline: none;
+  }
+  

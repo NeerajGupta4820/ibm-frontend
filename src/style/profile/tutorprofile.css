@@ -1,61 +1,87 @@
 .main-tutor-profile {
-  background: #f4f4f4;
+  background: #f9f9f9;
+  min-height: 100vh;
 }
+
 .tutor-profile {
-  padding: 2rem;
   display: flex;
   flex-direction: row;
   gap: 2rem;
   margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 2rem;
+  background-color: gainsboro;
 }
 .tutor-profile-img {
   flex: 1;
   max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .tutor-profile-photo {
   width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border: 4px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 .tutor-profile-content {
   flex: 2;
-  background: #fff;
+  background: #ffffff;
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .tutor-profile-content h1 {
   margin-bottom: 1rem;
-  font-size: 2rem;
-  color: #333;
+  font-size: 2.2rem;
+  color:black;
+  font-weight: 600;
+  border-bottom: 2px solid #4dbdd6;
+  padding-bottom: 0.5rem;
 }
 .tutor-profile-content p {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   color: #555;
+  font-size: 1rem;
+}
+.tutor-profile-content .profile-availability {
+  color: #11ee48;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 .tutor-fees {
   margin-top: 1rem;
 }
+
 .tutor-fees strong {
   display: block;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #080808;
+  font-size: 1.1rem;
 }
 .tutor-fees ul {
   list-style: none;
   padding: 0;
 }
+
 .tutor-fees li {
   margin-bottom: 0.5rem;
-  color: #666;
 }
-.tutor-profile-latest{
-  margin-bottom: 5rem;
+.tutor-profile-latest {
+  margin-top: 2rem;
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 @media (max-width: 768px) {
   .tutor-profile {
     flex-direction: column;
+    padding: 1rem;
   }
 
   .tutor-profile-img, .tutor-profile-content {
