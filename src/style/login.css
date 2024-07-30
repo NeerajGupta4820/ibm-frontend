@@ -1,15 +1,14 @@
 .main-container{
-  margin: 2rem;
+  padding: 2rem;
+  background: Linear-gradient(180deg, #7bafeb 26.71%,#063970 99.36%);
 }
 .login-container {
-  margin: 2rem auto;
-
+  margin: 4rem auto 1rem auto;
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: 'Poppins', sans-serif;
-  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px #cbced1 ;
-  background: Linear-gradient(180deg, #7bafeb 26.71%,#063970 99.36%);
+  box-shadow: 0 2px 10px 1px #0f0f0f;
   display: flex;
   flex-direction: row;
 }
