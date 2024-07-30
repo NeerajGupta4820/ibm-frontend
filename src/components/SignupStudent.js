@@ -9,28 +9,31 @@ const SignupStudent = () => {
     name: "",
     email: "",
     password: "",
-    photo: `${process.env.REACT_APP_DEFAULT_PHOTO}`,
+    photo: "",
     profileInfo: ""
   });
 
-  const handleUpload = async () => {
+  const handleUpload = async (file) => {
     const cname = process.env.REACT_APP_CLOUDNAME;
-    if (!formData.photo) {
+    if (!file) {
       alert("Please select an image to upload.");
       return;
     }
 
     const fData = new FormData();
-    fData.append('file', formData.photo);
-    fData.append('upload_preset', 'IBM_Project'); 
-    fData.append('cloud_name', `dxt2i61hy`); 
+    fData.append('file', file);
+    fData.append('upload_preset', 'IBM_Project');
 
     try {
       const response = await axios.post(
-        `https://api.cloudinary.com/v1_1/dxt2i61hy/image/upload`, 
+        `https://api.cloudinary.com/v1_1/dxt2i61hy/image/upload`,
         fData
       );
       console.log(response);
+      setFormData((prevState) => ({
+        ...prevState,
+        photo: response.data.secure_url
+      }));
       alert('Image uploaded successfully!');
     } catch (error) {
       console.error("Error uploading image", error);
@@ -40,9 +43,8 @@ const SignupStudent = () => {
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
-    if (type === "file") {
-      handleUpload();
-      //setFormData((prevState) => ({ ...prevState, [name]: files[0] }));
+    if (type === "file" && files[0]) {
+      handleUpload(files[0]);
     } else {
       setFormData((prevState) => ({ ...prevState, [name]: value }));
     }
@@ -50,11 +52,16 @@ const SignupStudent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Default photo URL
+    const defaultPhotoUrl = `${process.env.REACT_APP_DEFAULT_PHOTO}`;
+    
     try {
       const userFormData = new FormData();
       for (const key in formData) {
-        userFormData.append(key, formData[key]);
+        userFormData.append(key, formData[key] || (key === "photo" && defaultPhotoUrl));
       }
+
       const response = await registerUser(userFormData).unwrap();
       if (response.success) {
         toast.success(response.message || "Student registered successfully");
@@ -109,7 +116,6 @@ const SignupStudent = () => {
           id="photo"
           name="photo"
           onChange={handleChange}
-          required
         />
       </div>
       <div className="form-group">
