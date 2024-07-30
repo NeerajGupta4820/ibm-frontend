@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
@@ -9,7 +9,6 @@ import "../style/header.css";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isOverflowing, setIsOverflowing] = useState(false);
   const user = useSelector((state) => state.user.user);
 
   const getProfileLink = () => {
@@ -18,21 +17,6 @@ const Header = () => {
     if (user.role === 'Admin') return '/admin-dashboard';
     return '/user-dashboard';
   };
-
-  useEffect(() => {
-    const handleResize = () => {
-      const headerCenter = document.querySelector('.header-center');
-      if (headerCenter) {
-        const rect = headerCenter.getBoundingClientRect();
-        setIsOverflowing(rect.right > window.innerWidth);
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    handleResize(); // Initial check
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   return (
     <nav className="header">
@@ -50,7 +34,7 @@ const Header = () => {
           </button>
         </form>
       </div>
-      <div className={`header-center ${isOverflowing ? 'hidden' : ''}`}>
+      <div className="header-center">
         <Link to="/">HOME</Link>
         <div className="dropdown">
           <button>SERVICES</button>

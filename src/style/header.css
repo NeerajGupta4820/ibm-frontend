@@ -9,7 +9,6 @@
   position: relative;
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-  overflow: hidden; /* Prevents overflow issues */
 }
 
 .logo img {
@@ -54,7 +53,6 @@
   display: flex;
   align-items: center;
   gap: 2.5rem;
-  overflow: hidden; /* Ensures proper alignment */
 }
 
 .header-center a {
@@ -148,7 +146,6 @@
   cursor: pointer;
   z-index: 1002; /* Above overlay and mobile menu */
 }
-
 .mobile-menu a {
   text-transform: uppercase;    /* Capitalize letters */
   color: #fff;                  /* Text color */
@@ -173,11 +170,11 @@
   .header-center {
     display: none;
   }
-  
   .search-bar input {
     width: 60%; /* Adjust width for smaller screens */
   }
 }
+ 
 
 @media (max-width: 500px) {
   .mobile-menu {
@@ -188,7 +185,6 @@
     width: 50%; /* Further adjust width for smaller screens */
   }
 }
-
 /* CSS for handling content overflow */
 @media (max-width: 1000px) {
   .header-center {
