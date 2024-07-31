@@ -5,6 +5,7 @@ import { tuitionCenterAPI } from './api/tuitioncenterApi';
 import { adminApi } from './api/adminApi';
 import { reviewApi } from './api/reviewApi';
 import userReducer from './reducers/userReducer';
+import watchlistReducer from './reducers/watchlistReducer';
 export const server = process.env.REACT_APP_SERVER;
 
 const store = configureStore({
@@ -15,6 +16,7 @@ const store = configureStore({
     [tutorAPI.reducerPath]: tutorAPI.reducer,
     [tuitionCenterAPI.reducerPath]: tuitionCenterAPI.reducer,
     user: userReducer,
+    watchlist: watchlistReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(

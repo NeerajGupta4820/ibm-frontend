@@ -1,16 +1,19 @@
-import React from 'react';
-import { useSelector,useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import { toast } from "react-hot-toast";
 import { userNotExist } from "../../redux/reducers/userReducer";
-import "../../style/dashboard/userdasboard.css"
+import UserProfile from '../../components/dashboard/UserProfile'; 
+import ManageAccount from '../../components/dashboard/Manageuseraccount'; 
+import Watchlist from '../../components/dashboard/WatchList'; 
+import "../../style/dashboard/userdasboard.css";
 
-const UserDashboard
- = () => {
+const UserDashboard = () => {
   const user = useSelector((state) => state.user.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [activeComponent, setActiveComponent] = useState('profile');
 
   React.useEffect(() => {
     if (!user) {
@@ -22,8 +25,6 @@ const UserDashboard
     return <div>Loading...</div>; 
   }
 
-  const { name, email, photo, role, profileInfo } = user;
-
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -34,19 +35,21 @@ const UserDashboard
 
   return (
     <div className="user-dashboard">
-      <div className="dashboard-header">
-        <img src={photo} alt={name} className="dashboard-photo" />
-        <h1>{name}</h1>
-        <p>{email}</p>
-        <p>{role}</p>
-      </div>
-      <div className="user-details">
-        <FaUser size={50} />
-        <p>Welcome, {name}! You are registered as a {role}.</p>
-        <p><strong>Profile Info:</strong> {profileInfo}</p>
-        <button onClick={handleLogout} className="logout">
-            LOGOUT
-          </button>
+      <div className="dashboard-content">
+        <div className="dashboard-left">
+          <h1>user Dashboard</h1>
+          <ul className="dashboard-menu">
+            <li><button onClick={() => setActiveComponent('profile')}>Profile</button></li>
+            <li><button onClick={() => setActiveComponent('manage-account')}>Manage Account</button></li>
+            <li><button onClick={() => setActiveComponent('watchlist')}>Watchlist</button></li>
+            <li><button onClick={handleLogout} className="logout">LOGOUT</button></li>
+          </ul>
+        </div>
+        <div className="dashboard-right">
+          {activeComponent === 'profile' && <UserProfile />}
+          {activeComponent === 'manage-account' && <ManageAccount />}
+          {activeComponent === 'watchlist' && <Watchlist />}
+        </div>
       </div>
     </div>
   );
