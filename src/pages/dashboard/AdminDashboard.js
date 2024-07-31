@@ -10,6 +10,7 @@ import { CiSliderVertical } from "react-icons/ci";
 import AllTutorList from "../../components/dashboard/AllTutorList";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { FaTimes } from "react-icons/fa";
+import AllTutionCenterList from "../../components/dashboard/AllTutionCenterList";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -121,7 +122,7 @@ const AdminDashboard = () => {
           </div>
         )}
         {activeComponent === "all-tuition-centers" && (
-          <div>All Tuition Centers Component</div>
+          <div><AllTutionCenterList/></div>
         )}
       </div>
     </div>
