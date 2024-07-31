@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UserDashboard from './UserDashboard'; // Make sure the path is correct
+import UserProfile from '../../components/dashboard/UserProfile'; 
 import '../../style/dashboard/admindashboard.css';
 import AllUserList from '../../components/dashboard/AllUserList';
 import AllTutorList from '../../components/dashboard/AllTutorList';
@@ -19,7 +19,7 @@ const AdminDashboard = () => {
         </ul>
       </div>
       <div className="admin-dashboard-right">
-        {activeComponent === 'profile' && <UserDashboard />}
+        {activeComponent === 'profile' && <UserProfile />}
         {activeComponent === 'all-users' && <div><AllUserList/></div>}
         {activeComponent === 'all-tutors' && <div><AllTutorList/></div>}
         {activeComponent === 'all-tuition-centers' && <div>All Tuition Centers Component</div>}
