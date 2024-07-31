@@ -1,8 +1,13 @@
-import React from 'react';
-import { useLocation, Navigate, useNavigate } from 'react-router-dom';
-import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
-import toast from 'react-hot-toast';
+import React from "react";
+import { useLocation, Navigate, useNavigate } from "react-router-dom";
+import {
+  Elements,
+  CardElement,
+  useStripe,
+  useElements,
+} from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import toast from "react-hot-toast";
 import "../style/checkout.css";
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
@@ -34,21 +39,24 @@ const CheckoutForm = ({ clientSecret, navigate }) => {
     event.preventDefault();
 
     if (!stripe || !elements) {
-      toast.error('Stripe.js has not yet loaded.');
+      toast.error("Stripe.js has not yet loaded.");
       return;
     }
 
-    const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: {
-        card: elements.getElement(CardElement),
-      },
-    });
+    const { error, paymentIntent } = await stripe.confirmCardPayment(
+      clientSecret,
+      {
+        payment_method: {
+          card: elements.getElement(CardElement),
+        },
+      }
+    );
 
     if (error) {
       toast.error(`Payment failed: ${error.message}`);
-    } else if (paymentIntent.status === 'succeeded') {
-      toast.success('Payment succeeded! Thank you for your purchase.');
-      navigate('/user-dashboard');
+    } else if (paymentIntent.status === "succeeded") {
+      toast.success("Payment succeeded! Thank you for your purchase.");
+      navigate("/user-dashboard");
     }
   };
 
