@@ -43,13 +43,13 @@ const About = () => {
     },
     {
       image: 'path_to_image2',
-      name: 'Anuj Srivastav',
+      name: 'Prerna Rana',
       role: 'Science Tutor',
       description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
     },
     {
       image: 'path_to_image2',
-      name: 'Prerna Rana',
+      name: 'Anuj Srivastav',
       role: 'Science Tutor',
       description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
     },
