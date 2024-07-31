@@ -58,3 +58,82 @@
   flex: 1;
   padding: 20px;
 }
+
+.imobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.ioverlay {
+  position: fixed;
+  top: 0px;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 1000; /* Below mobile menu but above other content */
+}
+
+.imobile-menu {
+  position: fixed;
+  margin-top: 50px;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  padding-top: 5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1001; /* Above overlay */
+}
+
+.imobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1002; /* Above overlay and mobile menu */
+}
+.imobile-menu a {
+  text-transform: uppercase;    /* Capitalize letters */
+  color: #fff;                  /* Text color */
+  text-decoration: none;        /* Remove underline */
+  padding: 1rem 0;              /* Space above and below each item */
+  display: block;               /* Make each link take up full width */
+  font-family: 'Poppins', sans-serif; /* Improved font style */
+  font-size: 1.1rem;            /* Adjust font size */
+  font-weight: 500;             /* Font weight */
+  letter-spacing: 1px;          /* Spacing between letters */
+}
+
+.imobile-menu a:not(:last-child) {
+  margin-bottom: 0.5rem; /* Add gap between items */
+}
+
+.tempo{
+  background-color: black;
+}
+
+@media screen and (max-width:1000px) {
+  .admin-dashboard{
+    flex-direction: column;
+  }
+  .admin-dashboard-left{
+    display: none;
+  }
+  .imobile-menu-toggle{
+    display: block;
+  }
+}
