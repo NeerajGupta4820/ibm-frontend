@@ -48,6 +48,8 @@
   padding: 40px 20px;
   background-color: #f9f9f9;
   margin-top: 2rem;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .testimonials h1 {
@@ -167,4 +169,24 @@
 
 .subscribe-button:hover {
   background-color: #22ce83; /* Slightly darker shade on hover */
+}
+
+
+@media screen and (max-width:800px) {
+  .main-perfect{
+    margin: 0%;
+  }
+  .perfect-cards-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .perfect-cards{
+    display: flex;
+    justify-content: center;
+  }
+  .testimonials{
+    width: 95vw;
+    margin: auto;
+  }
 }
