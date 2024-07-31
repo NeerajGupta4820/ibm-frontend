@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "../style/about.css";
+import MemberCard from '../components/MemberCard';
 
 const About = () => {
 
@@ -8,6 +9,52 @@ const About = () => {
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
+
+  const members = [
+    {
+      image: 'path_to_image1',
+      name: 'Ganesh Sharma',
+      role: 'Math Tutor',
+      description: 'Expert in calculus and algebra with over 10 years of experience.'
+    },
+    {
+      image: 'Neeraj Gupta',
+      name: 'Neeraj Gupta',
+      role: 'Science Tutor',
+      description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
+    },
+    {
+      image: 'path_to_image2',
+      name: 'Sanjeev Thalod',
+      role: 'Science Tutor',
+      description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
+    },
+    {
+      image: 'path_to_image2',
+      name: 'Ayush Bajwan',
+      role: 'Science Tutor',
+      description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
+    },
+    {
+      image: 'path_to_image2',
+      name: 'Abhimanyu Bhat',
+      role: 'Science Tutor',
+      description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
+    },
+    {
+      image: 'path_to_image2',
+      name: 'Anuj Srivastav',
+      role: 'Science Tutor',
+      description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
+    },
+    {
+      image: 'path_to_image2',
+      name: 'Prerna Rana',
+      role: 'Science Tutor',
+      description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
+    },
+    // Add more members as needed
+  ];
 
   return (
     <div className="about-container">
@@ -70,6 +117,24 @@ const About = () => {
           <li>Our large staff of Teachers/mentors includes graduate and post-graduate professionals, high school teachers, and university faculty who teach in a wide range of subjects from elementary through college levels in a professional way with a personal touch, discovering the student’s strengths and challenges in learning. We are committed to helping students succeed in their education.</li>
         </ul>
       </div>
+
+     {/* Card Section */}
+     <div className="members-container">
+        <h2>Meet Our Team</h2>
+        <div className="members-grid">
+          {members.map((member, index) => (
+            <MemberCard
+              key={index}
+              image={member.image}
+              name={member.name}
+              role={member.role}
+              description={member.description}
+            />
+          ))}
+        </div>
+      </div>
+
+
     {/* FAQS */}
     <div className="faqs-container">
         <h2>FAQs</h2>
