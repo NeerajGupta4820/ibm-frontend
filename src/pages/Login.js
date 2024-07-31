@@ -30,7 +30,7 @@ const LoginPage = () => {
         localStorage.setItem('token', response.token);
         localStorage.setItem('user', JSON.stringify(response.user)); 
         dispatch(userExist({ user: response.user, token: response.token }));
-        toast.success("user Registered Successfully")
+        toast.success("Logged In");
         navigate('/');
       } else {
         console.error('Login failed: No token received');
@@ -49,7 +49,7 @@ const LoginPage = () => {
       </div>
       <div className='login-content'>
         <h1>Login</h1>
-      {error && <p className="error">{error.message || 'An error occurred'}</p>}
+      {error && toast.error("Error Occured")}
       {isSuccess && <p className="success">Login successful!</p>}
       <form onSubmit={handleSubmit}>
         <input

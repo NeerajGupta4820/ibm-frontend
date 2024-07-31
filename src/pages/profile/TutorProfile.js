@@ -32,6 +32,10 @@ const TutorProfile = () => {
       toast.error("Please select a subject.");
       return;
     }
+    if(!user){
+      toast.error("Please Sign up First");
+      return;
+    }
     const tutorDetails = {
       tutorId: id,
       userId: user.id,
