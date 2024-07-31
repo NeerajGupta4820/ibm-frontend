@@ -5,6 +5,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 800px;
     margin: 2rem auto;
+    overflow-x: scroll;
   }
   
   .tutor-list-container h1 {
@@ -55,5 +56,14 @@
   .tutor-delete-button {
     background-color: #f44336;
     color: #fff;
+  }
+
+  @media screen and (max-width:1000px){
+    .tutor-list-item{
+      flex-direction: column;
+    }
+    .tutor-name{
+      margin: 10px;
+    }
   }
   
