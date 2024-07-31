@@ -12,6 +12,7 @@ import Login from './pages/Login';
 import Signup from './pages/signup';
 import Payments from './pages/Payments';
 import TutorList from './pages/list/TutorList';
+import Checkout from "./pages/Chekout"
 import TuitionCenterList from './pages/list/TuitionCenterList';
 import UserDashboard from './pages/dashboard/UserDashboard';
 import TuitionCenterDashboard from './pages/dashboard/TuitionCenterDashboard';
@@ -53,6 +54,7 @@ function App() {
           <Route path="/tuition-center/:id" element={<TuitionCenterProfile />} />
           <Route path="/tuition-center/:id" element={<TuitionCenterProfile />} />
           <Route path="/all-tutors" element={<TutorList />} />
+          <Route path="/pay" element={<Checkout />} />
           <Route path="/all-tuition-centers" element={<TuitionCenterList />} />
           <Route path='/payments' element={<Payments/>}/>
         </Routes>

@@ -42,6 +42,13 @@ export const userAPI = createApi({
     allUsers: builder.query({
       query: (id) => `/all?id=${id}`, 
     }),
+    updateUser: builder.mutation({
+      query: ({ userId, userFormData }) => ({
+        url: `/update/${userId}`,
+        method: 'PUT',
+        body: userFormData,
+      }),
+    }),
   }),
 });
 
@@ -54,4 +61,5 @@ export const getUser = async (id) => {
   }
 };
 
-export const { useRegisterMutation, useLoginMutation, useUpdatePasswordMutation,useDeleteUserMutation, useAllUsersQuery } = userAPI;
+export const { useRegisterMutation, useLoginMutation, useUpdatePasswordMutation,
+  useDeleteUserMutation, useAllUsersQuery,useUpdateUserMutation  } = userAPI;
