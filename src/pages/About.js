@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import "../style/about.css";
 import MemberCard from '../components/MemberCard';
+import img1 from "../assets/about/img1.jpg"
+import img2 from "../assets/about/img2.jpg"
+import img3 from "../assets/about/img3.jpg"
+import img4 from "../assets/about/img4.jpg"
+import img5 from "../assets/about/img5.jpg"
+import img6 from "../assets/about/img6.jpg"
+import img7 from "../assets/about/img7.jpg"
 
 const About = () => {
 
@@ -12,48 +19,47 @@ const About = () => {
 
   const members = [
     {
-      image: 'path_to_image1',
-      name: 'Ganesh Sharma',
-      role: 'Math Tutor',
-      description: 'Expert in calculus and algebra with over 10 years of experience.'
-    },
-    {
-      image: 'Neeraj Gupta',
+      image: img1,
       name: 'Neeraj Gupta',
       role: 'Science Tutor',
       description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
     },
     {
-      image: 'path_to_image2',
+      image: img2,
+      name: 'Ganesh Sharma',
+      role: 'Math Tutor',
+      description: 'Expert in calculus and algebra with over 10 years of experience.'
+    },
+    {
+      image: img3,
       name: 'Sanjeev Thalod',
       role: 'Science Tutor',
       description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
     },
     {
-      image: 'path_to_image2',
+      image: img4,
       name: 'Ayush Bajwan',
       role: 'Science Tutor',
       description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
     },
     {
-      image: 'path_to_image2',
+      image: img5,
       name: 'Abhimanyu Bhat',
       role: 'Science Tutor',
       description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
     },
     {
-      image: 'path_to_image2',
-      name: 'Prerna Rana',
-      role: 'Science Tutor',
-      description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
-    },
-    {
-      image: 'path_to_image2',
+      image: img6,
       name: 'Anuj Srivastav',
       role: 'Science Tutor',
       description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
     },
-    // Add more members as needed
+    {
+      image: img7,
+      name: 'Prerna Rana',
+      role: 'Science Tutor',
+      description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
+    },
   ];
 
   return (

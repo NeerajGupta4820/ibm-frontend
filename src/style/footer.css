@@ -1,16 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 .main-footer{
-  background-color: #333;
   color: #fff;
   margin-top:0;
+  background-color: #9CAF88;
 }
 .section-p1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 2rem;
-  background-color: #333;
+  padding: 1rem;
   color: #fff;
   font-family: "Poppins", sans-serif;
   margin-top:0px;
@@ -18,13 +17,12 @@
 
 .section-p1 .col {
   flex: 1;
-  /* margin: 1rem; */
   min-width: 150px;
 }
 
 .logofooter {
   width: 80px;
-  /* margin-bottom: 1rem; */
+  margin-bottom: -15px;
 }
 
 h4 {
@@ -32,9 +30,8 @@ h4 {
 }
 
 p, a {
-  /* margin: 0.5rem 0; */
   font-size: 0.9rem;
-  color: #ccc;
+  color: white;
   text-decoration: none;
 }
 
@@ -49,13 +46,18 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
+.follow{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .follow .icon {
-  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .follow .icon svg {
-  font-size: 1.5rem; /* Adjust size as needed */
+  font-size: 1.5rem; 
   margin-right: 1rem;
   color: #fff;
 }
@@ -68,18 +70,20 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
 }
 
 .payment-icons svg, .payment-icons img {
-  width: 40px; /* Adjust size as needed */
-  height: 40px; /* Ensure consistent height */
-  margin-right: 1rem;
-  transition: color 0.3s, transform 0.3s; /* Smooth transition */
+  width: 20px; 
+  height: 20px;
+  margin-right: 8rem;
+  transition: color 0.3s, transform 0.3s;
 }
-
+#install p{
+  margin: -0.4rem 0;
+}
 .payment-icons img {
-  max-height: 40px; /* Ensure consistent height */
+  max-height: 40px;
 }
 
 .payment-icons .visa:hover {
@@ -106,6 +110,7 @@ a:hover {
 
 .section-p1 .col a {
   display: block;
+  color: white;
 }
 
 #install .row img {
@@ -122,10 +127,11 @@ a:hover {
   text-align: center;
   font-size: 0.8rem;
   padding-bottom: 2rem;
-  color: #ccc;
+}
+.copyright p{
+  color: white;
 }
 
-/* Responsive styling */
 @media (max-width: 768px) {
   .section-p1 {
     flex-direction: column;

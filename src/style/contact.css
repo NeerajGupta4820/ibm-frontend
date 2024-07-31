@@ -14,7 +14,7 @@ body {
   display: flex;
   flex-direction: column;
   border-radius: 20px;
-  background: Linear-gradient(180deg, #7bafeb 26.71%,#063970 99.36%);
+  background: Linear-gradient(180deg, #d6e7c4 26.71%,#9CAF88 99.36%);
   margin-bottom: 5rem;
   overflow: hidden; /* Prevent content overflow */
 }
@@ -118,7 +118,7 @@ body {
 }
 
 .form-details form button {
-  background-color: #088178;
+  background-color: #eb8471;
   padding: 0.75rem 1.5rem;
   border: none;
   color: white;

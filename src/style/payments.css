@@ -46,7 +46,7 @@
   }
   
   button {
-    background-color: orange;
+    background-color: #46769b;
     color: white;
     border: none;
     border-radius: 5px;
@@ -56,7 +56,7 @@
   }
   
   button:hover {
-    background-color: #e69500;
+    background-color: #456a86;
   }
   
   .payment-list {

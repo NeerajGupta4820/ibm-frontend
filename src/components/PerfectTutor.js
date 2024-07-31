@@ -86,7 +86,6 @@ const [email, setEmail] = useState('');
           </div>
         </div>
       </div>
-      {/* Testimonials */}
       <section className="testimonials">
         <h1>Testimonials</h1>
         <div className="testimonial-container">

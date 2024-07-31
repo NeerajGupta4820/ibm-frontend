@@ -1,11 +1,13 @@
 .tutor-page {
     padding: 2rem;
-    background-image: url("../../assets/home/latesttutor/img.jpg");
+    background-image: url("../../assets/home/latesttutor/img2.jpg");
     background-size: cover;
   }
   .tutor-page h1 {
     display: flex;
     justify-content: center;
+    font-size: 2.2rem;
+    color: white;
   }
   .tutors-slider {
     display: flex;
@@ -36,7 +38,7 @@
     padding: 16px;
     min-width: 15rem;
     height: 25rem;
-    background: rgba(160, 158, 158, 0.7);
+    background: rgba(156, 175, 136, 0.5);
     backdrop-filter: blur(10px);
     box-shadow: 3px 3px 10px rgba(10, 10, 10, 0.8),
       -1px -1px 3px rgba(5, 5, 5, 0.8);

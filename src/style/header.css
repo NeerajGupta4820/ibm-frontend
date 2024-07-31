@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: black;
+  background-color: #9CAF88;
   color: #fff;
   font-family: 'Varela Round', sans-serif;
   position: relative;
@@ -62,7 +62,7 @@
 }
 
 .header-center a:hover {
-  color: #efc725;
+  color: gray;
   text-decoration: none;
   font-family: 'Varela Round', sans-serif;
 }

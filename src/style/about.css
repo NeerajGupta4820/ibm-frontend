@@ -177,6 +177,7 @@
 .accordion-icon.open {
   transform: rotate(45deg); 
 }
+
 /* Responsive styling */
 @media (max-width: 768px) {
   .main-step {

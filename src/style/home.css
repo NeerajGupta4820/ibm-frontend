@@ -25,9 +25,10 @@
 }
 .intro-section {
   text-align: center;
-  padding: 40px 20px;
-  margin: 2rem;
-  background-color: #f9f9f9;
+  padding: 10px 20px;
+  /* margin: 2rem; */
+  background-color:white;
+
 }
 
 
@@ -35,11 +36,12 @@
   font-size: 2.5em;
   font-family: "Poppins", sans-serif;
   margin-bottom: 20px; 
+  color: #9CAF88;
 }
 
 .intro-section p {
   font-size: 1.4em;
   font-family: "Varela Round", sans-serif; 
   line-height: 1.5;
-  color:#808080;
+  color: #9CAF88;
 }

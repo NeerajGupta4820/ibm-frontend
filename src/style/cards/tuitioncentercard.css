@@ -6,14 +6,13 @@
   
   .latest-tuition-centers h1 {
     display: flex;
+    font-size: 2rem;
     justify-content: center;
-    /* color: white; */
   }
   
   .centers-slider {
     display: flex;
     width: 100%;
-    /* padding-left: 1rem; */
     align-items: center;
   }
   
@@ -38,13 +37,13 @@
     padding: 16px;
     min-width: 16rem;
     height: 23rem;
-    background: rgba(19, 18, 18, 0.3);
     backdrop-filter: blur(10px);
     box-shadow: 3px 3px 10px rgba(10, 10, 10, 0.8),
-      -1px -1px 3px rgba(5, 5, 5, 0.8);
+    -1px -1px 3px rgba(5, 5, 5, 0.8);
     border-radius: 8px;
     margin: 16px;
     text-align: center;
+    background: rgba(156, 175, 136, 0.5);
   }
   
   .tuition-center-card h3 {
@@ -68,18 +67,4 @@
     display: block;
     margin: 0.2rem 0;
   }
-  .intro-section {
-    background-color: white; 
-    background-image: linear-gradient(
-      135deg,
-      #FFFFC2 0%,
-      #F8B88B 100%
-    ); 
-    color: black; 
-    text-align: center; 
-    padding: 50px 20px; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    margin: 2rem  0 0 0;
-    max-width: 100%; 
-  }
+  

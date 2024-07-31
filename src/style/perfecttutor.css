@@ -1,8 +1,10 @@
 .main-perfect {
-  margin: 8rem 4rem;
+  padding: 8rem 4rem 0 4rem;
+  background: Linear-gradient(180deg, #c2ceb6 26.71%,#cddac6 99.36%);
 }
 .perfect-cards-container h1 {
   display: flex;
+  font-size: 2rem;
   justify-content: center;
 }
 
@@ -15,8 +17,9 @@
 
 .perfect-card {
   border-radius: 8px;
-  background-color: #0056b3;
-  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+  background-color: #6e7f62;
+  box-shadow: 10px 10px 5px #7f9e8e;
+  background: Linear-gradient(180deg, #9CAF88 26.71%,#919f88 99.36%);
   margin: 1rem;
   overflow: hidden;
   width: 18rem;
@@ -45,11 +48,12 @@
 
 .testimonials {
   text-align: center;
-  padding: 40px 20px;
+  padding: 40px 25px;
   background-color: #f9f9f9;
   margin-top: 2rem;
   overflow-x: hidden;
   overflow-y: hidden;
+  background-color: #ccd4c6;
 }
 
 .testimonials h1 {
@@ -71,7 +75,8 @@
   position: absolute;
   transition: transform 0.5s ease, opacity 0.5s ease;
   opacity: 0.5;
-  background: Linear-gradient(180deg, #3ca2f5 26.71%, #016fec 99.36%);
+  /* background: Linear-gradient(180deg, #cfcfc4 26.71%, #cfcfc4 99.36%); */
+  background-color: white;
   width: 20rem;
   z-index: 1;
 }
