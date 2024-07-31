@@ -4,12 +4,14 @@ import { tutorAPI } from './api/tutorApi';
 import { tuitionCenterAPI } from './api/tuitioncenterApi';
 import { adminApi } from './api/adminApi';
 import { reviewApi } from './api/reviewApi';
+import { paymentAPI } from './api/paymentApi';
 import userReducer from './reducers/userReducer';
 import watchlistReducer from './reducers/watchlistReducer';
 export const server = process.env.REACT_APP_SERVER;
 
 const store = configureStore({
   reducer: {
+    [paymentAPI.reducerPath]: paymentAPI.reducer,
     [reviewApi.reducerPath]: reviewApi.reducer,
     [adminApi.reducerPath]: adminApi.reducer,
     [userAPI.reducerPath]: userAPI.reducer,
@@ -24,7 +26,8 @@ const store = configureStore({
       adminApi.middleware,
       reviewApi.middleware,
       tutorAPI.middleware,
-      tuitionCenterAPI.middleware 
+      tuitionCenterAPI.middleware, 
+      paymentAPI.middleware
     ),
 });
 
