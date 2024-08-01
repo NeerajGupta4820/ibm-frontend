@@ -23,6 +23,7 @@ import TutorProfile from './pages/profile/TutorProfile';
 /***********************************components */
 import Header from './components/Header';
 import Footer from "./components/Footer";
+import SearchResults from './pages/SearchResults';
 
 function App() {
   const dispatch = useDispatch();
@@ -57,6 +58,7 @@ function App() {
           <Route path="/pay" element={<Checkout />} />
           <Route path="/all-tuition-centers" element={<TuitionCenterList />} />
           <Route path='/payments' element={<Payments/>}/>
+          <Route path= '/search' element = {<SearchResults />}/>
         </Routes>
       </div>   
       <Footer/>

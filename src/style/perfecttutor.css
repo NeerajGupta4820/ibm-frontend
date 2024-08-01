@@ -162,6 +162,8 @@
 
 .subscribe-form {
   display: flex;
+  flex-wrap: wrap;
+  gap:8px;
   justify-content: center;
   align-items: center;
   /* gap: 10px; */
