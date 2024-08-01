@@ -66,7 +66,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="copyright">
-        <p>@ 2024 Made with Love ❤️ by us</p>
+      <p>@ 2021, Tech2 etc - HTML CSS Ecommerce Template</p>
       </div>
     </footer>
   );

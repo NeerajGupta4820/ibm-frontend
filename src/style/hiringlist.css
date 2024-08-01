@@ -1,5 +1,5 @@
 .hiringlist {
-  background-color: #BBE9FF;
+  background-color: #d6e0cb;
   padding: 5rem 0;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .card a:hover {
-  background-color: #CCFFFF;
+  background-color: #9CAF88;
   transform: translate(-15px, -15px);
   text-decoration: none;
   list-style: none;

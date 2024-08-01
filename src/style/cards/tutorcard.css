@@ -41,7 +41,7 @@
   padding: 16px;
   min-width: 15rem;
   height: 25rem;
-  background: #faedce;
+  background: rgba(156, 175, 136, 0.5);
   backdrop-filter: blur(10px);
   box-shadow: 3px 3px 10px rgba(10, 10, 10, 0.8),
     -1px -1px 3px rgba(5, 5, 5, 0.8);

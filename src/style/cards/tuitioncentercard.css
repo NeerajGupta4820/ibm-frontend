@@ -43,7 +43,7 @@
     border-radius: 8px;
     margin: 16px;
     text-align: center;
-    background: #d9d1fa;
+    background: rgba(156, 175, 136, 0.5);
   }
   
   .tuition-center-card h3 {
