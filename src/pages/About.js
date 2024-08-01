@@ -1,15 +1,5 @@
 import React, { useState } from "react";
 import "../style/about.css";
-<<<<<<< HEAD
-import MemberCard from '../components/MemberCard';
-import img1 from "../assets/about/img1.jpg"
-import img2 from "../assets/about/img2.jpg"
-import img3 from "../assets/about/img3.jpg"
-import img4 from "../assets/about/img4.jpg"
-import img5 from "../assets/about/img5.jpg"
-import img6 from "../assets/about/img6.jpg"
-import img7 from "../assets/about/img7.jpg"
-=======
 import MemberCard from "../components/MemberCard";
 import member1 from "../assets/home/members/member1.jpg";
 import member2 from "../assets/home/members/member2.jpg";
@@ -18,7 +8,6 @@ import member4 from "../assets/home/members/member4.jpg";
 import member5 from "../assets/home/members/member5.jpg";
 import member6 from "../assets/home/members/member6.jpg";
 import member7 from "../assets/home/members/member7.jpg";
->>>>>>> 336f37801a8e7e939999f727c85df1654ec5be4b
 
 const About = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -29,42 +18,6 @@ const About = () => {
 
   const members = [
     {
-<<<<<<< HEAD
-      image: img1,
-      name: 'Neeraj Gupta',
-      role: 'Science Tutor',
-      description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
-    },
-    {
-      image: img2,
-      name: 'Ganesh Sharma',
-      role: 'Math Tutor',
-      description: 'Expert in calculus and algebra with over 10 years of experience.'
-    },
-    {
-      image: img3,
-      name: 'Sanjeev Thalod',
-      role: 'Science Tutor',
-      description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
-    },
-    {
-      image: img4,
-      name: 'Ayush Bajwan',
-      role: 'Science Tutor',
-      description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
-    },
-    {
-      image: img5,
-      name: 'Abhimanyu Bhat',
-      role: 'Science Tutor',
-      description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
-    },
-    {
-      image: img6,
-      name: 'Anuj Srivastav',
-      role: 'Science Tutor',
-      description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
-=======
       image: member1,
       name: "Ganesh Sharma",
       role: "Math Tutor",
@@ -112,13 +65,6 @@ const About = () => {
       role: "Science Tutor",
       description:
         "Specializes in physics and chemistry, making complex concepts easy to understand.",
->>>>>>> 336f37801a8e7e939999f727c85df1654ec5be4b
-    },
-    {
-      image: img7,
-      name: 'Prerna Rana',
-      role: 'Science Tutor',
-      description: 'Specializes in physics and chemistry, making complex concepts easy to understand.'
     },
   ];
 
@@ -337,9 +283,4 @@ const About = () => {
     </div>
   );
 };
-
-<<<<<<< HEAD
-export default About
-=======
 export default About;
->>>>>>> 336f37801a8e7e939999f727c85df1654ec5be4b
