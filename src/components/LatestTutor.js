@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGetLatestTutorsQuery } from "../redux/api/tutorApi";
-import "../style/cards/tutorcard.css"
+import "../style/cards/tutorcard.css";
 
 const LatestTutor = () => {
   const navigate = useNavigate();
   const [currentTutorIndex, setCurrentTutorIndex] = useState(0);
+  const [cardsToShow, setCardsToShow] = useState(4);
+
   const {
     data: tutorsData,
     error: tutorsError,
@@ -13,7 +15,7 @@ const LatestTutor = () => {
   } = useGetLatestTutorsQuery();
 
   const tutors = tutorsData?.latestTutors || [];
-  
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTutorIndex((prevIndex) => (prevIndex + 1) % tutors.length);
@@ -21,6 +23,24 @@ const LatestTutor = () => {
 
     return () => clearInterval(interval);
   }, [tutors.length]);
+
+  useEffect(() => {
+    const updateCardsToShow = () => {
+      const width = window.innerWidth;
+      if (width <= 996) {
+        setCardsToShow(2);
+      } else if (width <= 1310) {
+        setCardsToShow(3);
+      } else {
+        setCardsToShow(4);
+      }
+    };
+
+    window.addEventListener("resize", updateCardsToShow);
+    updateCardsToShow();
+
+    return () => window.removeEventListener("resize", updateCardsToShow);
+  }, []);
 
   const handlePrevTutor = () => {
     setCurrentTutorIndex((prevIndex) => (prevIndex - 1 + tutors.length) % tutors.length);
@@ -35,12 +55,7 @@ const LatestTutor = () => {
   };
 
   const displayedTutors = tutors.length > 0
-    ? [
-        tutors[currentTutorIndex % tutors.length],
-        tutors[(currentTutorIndex + 1) % tutors.length],
-        tutors[(currentTutorIndex + 2) % tutors.length],
-        tutors[(currentTutorIndex + 3) % tutors.length],
-      ]
+    ? Array.from({ length: cardsToShow }, (_, i) => tutors[(currentTutorIndex + i) % tutors.length])
     : [];
 
   return (
@@ -57,13 +72,13 @@ const LatestTutor = () => {
             <div
               key={tutor?._id || index}
               className="tutor-card"
+              onClick={() => handleTutorClick(tutor?._id)}
             >
               {tutor?.photo && (
                 <img
                   src={`${process.env.REACT_APP_SERVER}/${tutor.photo}`}
                   alt={`${tutor.name}'s photo`}
                   className="tutor-photo"
-                  onClick={() => handleTutorClick(tutor?._id)}
                 />
               )}
               <h3>{tutor?.name}</h3>

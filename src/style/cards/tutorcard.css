@@ -1,68 +1,214 @@
 .tutor-page {
-    padding: 2rem;
-    background-image: url("../../assets/home/latesttutor/img2.jpg");
-    background-size: cover;
-  }
-  .tutor-page h1 {
-    display: flex;
-    justify-content: center;
-    font-size: 2.2rem;
-    color: white;
-  }
-  .tutors-slider {
-    display: flex;
-    width: 100%;
-    padding-left: 1rem;
-    align-items: center;
-  }
-  
-  .slider-button {
-    background-color: #2b2a2a;
-    border: none;
-    color: white;
-    padding: 16px 20px;
-    border-radius: 80px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
+  padding: 2rem;
+  background-image: url("../../assets/home/latesttutor/img2.jpg");
+  background-size: cover;
+}
+
+.tutor-page h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 2.2rem;
+  color: white;
+}
+
+.tutors-slider {
+  display: flex;
+  width: 100%;
+  padding-left: 1rem;
+  align-items: center;
+}
+
+.slider-button {
+  background-color: #2b2a2a;
+  border: none;
+  color: white;
+  padding: 16px 20px;
+  border-radius: 80px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.tutors-list {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.tutor-card {
+  padding: 16px;
+  min-width: 15rem;
+  height: 25rem;
+  background: rgba(156, 175, 136, 0.5);
+  backdrop-filter: blur(10px);
+  box-shadow: 3px 3px 10px rgba(10, 10, 10, 0.8),
+    -1px -1px 3px rgba(5, 5, 5, 0.8);
+  border-radius: 8px;
+  margin: 16px;
+  text-align: center;
+}
+
+.tutor-card .availability {
+  color: white;
+  font-weight: 800;
+}
+
+.tutor-card .ratings {
+  color: rgb(243, 181, 25);
+}
+
+.tutor-photo {
+  width: 200px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.tutor-fees {
+  text-align: left;
+}
+@media (max-width: 1200px) {
   .tutors-list {
-    display: flex;
-    align-items: center;
-    margin: auto;
-    justify-content: space-between;
-    overflow: hidden;
-    padding: 2rem;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
+
   .tutor-card {
-    padding: 16px;
+    min-width: 16rem;
+    height: 23rem;
+  }
+
+  .tutor-photo {
+    width: 180px;
+    height: 120px;
+  }
+}
+@media (max-width: 1132px) {
+  .tutor-card {
     min-width: 15rem;
-    height: 25rem;
-    background: rgba(156, 175, 136, 0.5);
-    backdrop-filter: blur(10px);
-    box-shadow: 3px 3px 10px rgba(10, 10, 10, 0.8),
-      -1px -1px 3px rgba(5, 5, 5, 0.8);
-    border-radius: 8px;
-    margin: 16px;
-    text-align: center;
   }
-  
-  .tutor-card .availability {
-    color: white;
-    font-weight: 800;
+}
+@media (max-width: 1084px) {
+  .tutor-card {
+    min-width: 13rem;
   }
-  
-  .tutor-card .ratings {
-    color: rgb(243, 181, 25);
+}
+
+@media (max-width: 992px) {
+  .tutors-list {
+    padding: 1rem;
   }
-  
+
+  .tutor-card {
+    min-width: 16rem;
+    height: 22rem;
+  }
+
+  .tutor-photo {
+    width: 160px;
+    height: 110px;
+  }
+
+  .slider-button {
+    padding: 14px 18px;
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 800px) {
+  .tutor-card {
+    min-width: 15rem;
+    height: 22rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tutors-list {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .tutor-card {
+    min-width: 20rem;
+    height: 28rem;
+  }
+
+  .tutor-photo {
+    width: 220px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 576px) {
+  .tutors-list {
+    padding: 0.5rem;
+  }
+
+  .tutor-card {
+    min-width: 18rem;
+    height: 26rem;
+  }
+
   .tutor-photo {
     width: 200px;
     height: 140px;
-    object-fit: cover;
-    border-radius: 10px;
   }
-  
-  .tutor-fees {
-    text-align: left;
+
+  .slider-button {
+    padding: 12px 16px;
+    font-size: 0.8rem;
   }
+}
+@media (max-width: 513px) {
+  .tutor-card {
+    min-width: 16rem;
+    height: 22rem;
+  }
+}
+
+@media (max-width: 470px) {
+  .tutor-card {
+    min-width: 14rem;
+    height: 22rem;
+  }
+}
+@media (max-width: 448px) {
+  .tutor-page {
+    padding: 0.2rem;
+  }
+  .slider-button {
+   padding: 10px 12px;
+    border-radius: 80px;
+    font-size: 0.5rem;
+  }
+}
+@media (max-width: 373px) {
+  .tutor-page {
+    padding: 0;
+  }
+  .tutor-card {
+    min-width: 13rem;
+    height: 21rem;
+  }
+}
+@media (max-width: 373px) {
+  .tutor-page {
+    padding: 0;
+  }
+  .tutor-card {
+    min-width: 10rem;
+    height: 21rem;
+  }
+  .tutors-slider{
+    padding-left: 0;
+  }
+  .tutor-card{
+    margin: 16px 0;
+  }
+  .tutor-photo {
+    width: 150px;
+    height: 100px;
+  }
+}
