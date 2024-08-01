@@ -1,6 +1,8 @@
 // MemberCard.jsx
 import React from 'react';
 import '../style/memberCard.css'; 
+
+
 const MemberCard = ({ image, name, role, description }) => {
   return (
     <div className="member-card">

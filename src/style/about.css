@@ -1,6 +1,6 @@
 .about-container {
   padding: 20px;
-  background-color: #e2e1e1;
+  background-color: white ;
   /* margin: 0 1rem; */
   font-family: Arial, sans-serif;
 }
@@ -14,17 +14,42 @@
 .stat {
   text-align: center;
   margin: 5px;
+  text-align: center;
+  margin: 5px;
+  padding: 20px; /* Add padding for the box */
+  background-color: #f0f0f0; /* Background color of the box */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  max-width: 200px; /* Set a max width if needed */
 }
 
 .stat h2 {
   font-size: 2em;
-  color: #666;
+  color: black;
 }
 
 .stat p {
   font-size: 1.2em;
-  color: #666;
+  color: black;
 }
+
+/* Individual colors for each box */
+.stat-1 {
+  background-color: #baebcd; /* Blue */
+}
+
+.stat-2 {
+  background-color: #d9d1fa; /* Red */
+}
+
+.stat-3 {
+  background-color: #faedce; /* Green */
+}
+
+
+
+
+
 .how-it-works-container {
   margin-top: 60px;
   text-align: left;
@@ -58,6 +83,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center; 
+  background-color:#BBE9FF;
 }
 
 .step h3 {
@@ -67,10 +93,11 @@
 
 .step p {
   font-size: 1.2em;
-  color: #666;
+  color: black;
 }
 .cta-container {
   margin-top: 60px;
+  text-align:center;
 }
 
 .cta-container h2 {
@@ -79,8 +106,8 @@
 }
 
 .cta-button {
-  background-color: #FAEBD7; 
-  color: #333;
+  background-color: #f75023; 
+  color: white;
   border: none;
   border-radius: 8px;
   padding: 15px 30px;
@@ -90,7 +117,7 @@
 }
 
 .cta-button:hover {
-  background-color: #f5deb3; 
+  background-color: #22CE83; 
   transform: scale(1.05); 
 }
 
@@ -152,8 +179,8 @@
 
 .accordion-header {
   padding: 15px;
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #ddd;
+  background-color: #d9d1fa;
+  border-bottom: 1px solid black;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -162,7 +189,11 @@
 .accordion-content {
   padding: 15px;
   display: none; 
-  background-color: #fafafa;
+  background-color: #baebcd;
+}
+
+.accordion-content p {
+  color: black;
 }
 
 .accordion-content.open {
