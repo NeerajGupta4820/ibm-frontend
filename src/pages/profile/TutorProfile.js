@@ -7,23 +7,30 @@ import { useGetReviewsQuery } from "../../redux/api/reviewApi";
 import { addToWatchlist } from "../../redux/reducers/watchlistReducer";
 import LatestTutor from "../../components/LatestTutor";
 import TutorReview from "../../components/review/TutorReview";
+import emailjs from "emailjs-com";
 import "../../style/profile/tutorprofile.css";
 
 const TutorProfile = () => {
   const { id } = useParams();
   const { data: tutor, error: tutorError, isLoading: isTutorLoading } = useGetTutorProfileQuery(id);
   const { data: reviews, error: reviewsError, isLoading: isReviewsLoading } = useGetReviewsQuery(
-    { reviewedEntityId: id, reviewedEntityType: 'Tutor' }
+    { reviewedEntityId: id, reviewedEntityType: "Tutor" }
   );
   const [selectedSubject, setSelectedSubject] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
 
-  if (isTutorLoading) {
+  if (isTutorLoading || isReviewsLoading) {
     return <p>Loading...</p>;
   }
 
-  if (tutorError ) {
+  if (tutorError || reviewsError) {
     return <p>Error loading tutor profile or reviews</p>;
   }
 
@@ -32,7 +39,7 @@ const TutorProfile = () => {
       toast.error("Please select a subject.");
       return;
     }
-    if(!user){
+    if (!user) {
       toast.error("Please Sign up First");
       return;
     }
@@ -46,6 +53,51 @@ const TutorProfile = () => {
     };
     dispatch(addToWatchlist(tutorDetails));
     toast.success("Tutor added to watchlist.");
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    if (formData.name === "" || formData.email === "" || formData.message === "") {
+      toast.error("All fields are mandatory");
+      setLoading(false);
+      return;
+    }
+
+    emailjs
+      .send(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        formData,
+        process.env.REACT_APP_KEY
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          toast.success("Email sent successfully");
+          setFormData({
+            name: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          console.error("FAILED...", error);
+          toast.error("Failed to send email.");
+        }
+      )
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -98,20 +150,42 @@ const TutorProfile = () => {
       </div>
       <div className="contact-section">
         <h2>Contact {tutor?.name}</h2>
-        <form className="contact-form">
+        <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name:</label>
-            <input type="text" id="name" name="name" required />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              value={formData.name}
+              onChange={handleChange}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" required />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              value={formData.email}
+              onChange={handleChange}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
+            <textarea
+              id="message"
+              name="message"
+              required
+              value={formData.message}
+              onChange={handleChange}
+            ></textarea>
           </div>
-          <button type="submit" className="contact-submit">Send Message</button>
+          <button type="submit" className="contact-submit" disabled={loading}>
+            {loading ? "Sending..." : "Send Message"}
+          </button>
         </form>
       </div>
       <div className="tutor-profile-latest">

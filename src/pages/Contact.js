@@ -29,6 +29,7 @@ const Contact = () => {
     e.preventDefault();
     if(formData.name == "" || formData.email == "" || formData.message == ""){
       toast.error("All fields are mandatory");
+      setLoading(false);
       return;
     }
     emailjs
@@ -42,22 +43,24 @@ const Contact = () => {
         (response) => {
           console.log("SUCCESS!", response.status, response.text);
           toast.success("Email sent Successfully");
+          setFormData({
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+          });
         },
         (error) => {
           console.error("FAILED...", error);
           toast.error("Failed to send email.");
         }
+      ).finally(()=>
+
+        setLoading(false)
       );
 
-      setLoading(false);
 
-    // Reset form data after submission
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+    
   };
   return (
     <div>

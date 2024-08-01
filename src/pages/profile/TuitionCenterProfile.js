@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetTuitionCenterProfileQuery } from '../../redux/api/tuitioncenterApi';
-import LatestTuitioncenter from "../../components/LatestTuitioncenter"
+import LatestTuitioncenter from "../../components/LatestTuitioncenter";
+import emailjs from "emailjs-com";
+import { toast } from "react-hot-toast";
 import '../../style/profile/tuitioncenterprofile.css';
 
 const TuitionCenterProfile = () => {
   const { id } = useParams();
   const { data: center, error, isLoading } = useGetTuitionCenterProfileQuery(id);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -15,6 +23,51 @@ const TuitionCenterProfile = () => {
   if (error) {
     return <p>Error loading tuition center profile</p>;
   }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    if (formData.name === "" || formData.email === "" || formData.message === "") {
+      toast.error("All fields are mandatory");
+      setLoading(false);
+      return;
+    }
+
+    emailjs
+      .send(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        formData,
+        process.env.REACT_APP_KEY
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          toast.success("Email sent successfully");
+          setFormData({
+            name: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          console.error("FAILED...", error);
+          toast.error("Failed to send email.");
+        }
+      )
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   return (
     <div className="tuition-center-profile">
@@ -48,8 +101,48 @@ const TuitionCenterProfile = () => {
           </div>
         </div>
       </div>
+      <div className="contact-section">
+        <h2>Contact {center?.name}</h2>
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="message">Message:</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              value={formData.message}
+              onChange={handleChange}
+            ></textarea>
+          </div>
+          <button type="submit" className="contact-submit" disabled={loading}>
+            {loading ? "Sending..." : "Send Message"}
+          </button>
+        </form>
+      </div>
       <div className="tuition-center-profile-latest">
-        <LatestTuitioncenter/>
+        <LatestTuitioncenter />
       </div>
     </div>
   );
