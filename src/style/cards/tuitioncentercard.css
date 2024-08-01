@@ -1,8 +1,8 @@
 .latest-tuition-centers {
     padding: 2rem;
-    background: Linear-gradient(180deg, #545555 26.71%, #070707 99.36%);
-    background-image: url("../../assets/home/latesttuitioncenter/img.png");
-  }
+    background-image: url("../../assets/home/latesttuitioncenter/img3.jpg");
+    background-size: cover;
+    }
   
   .latest-tuition-centers h1 {
     display: flex;
@@ -14,6 +14,7 @@
     display: flex;
     width: 100%;
     align-items: center;
+    border: 5px solid white;
   }
   
   .slider-button {
@@ -44,6 +45,7 @@
     margin: 16px;
     text-align: center;
     background: rgba(156, 175, 136, 0.5);
+    background: rgba(236, 235, 235,0.3);
   }
   
   .tuition-center-card h3 {

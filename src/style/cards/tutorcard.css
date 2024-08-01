@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   font-size: 2.2rem;
-  color: white;
+  color: black;
 }
 
 .tutors-slider {
@@ -16,6 +16,7 @@
   width: 100%;
   padding-left: 1rem;
   align-items: center;
+  border: 5px solid white;
 }
 
 .slider-button {
@@ -41,7 +42,7 @@
   padding: 16px;
   min-width: 15rem;
   height: 25rem;
-  background: rgba(156, 175, 136, 0.5);
+  background: rgba(19, 19, 19, 0.6);
   backdrop-filter: blur(10px);
   box-shadow: 3px 3px 10px rgba(10, 10, 10, 0.8),
     -1px -1px 3px rgba(5, 5, 5, 0.8);
@@ -51,8 +52,8 @@
 }
 
 .tutor-card .availability {
-  color: black;
-  font-weight: 800;
+  color: white;
+  font-weight: 600;
 }
 
 .tutor-card .ratings {
@@ -68,6 +69,7 @@
 
 .tutor-fees {
   text-align: left;
+  color: white;
 }
 @media (max-width: 1200px) {
   .tutors-list {
