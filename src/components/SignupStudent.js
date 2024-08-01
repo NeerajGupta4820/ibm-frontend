@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import {useNavigate} from "react-router-dom"
 import { toast } from 'react-hot-toast';
 import { useRegisterMutation } from "../redux/api/userApi";
 import axios from "axios";
 import Spinner from "./Spinner";
 
 const SignupStudent = () => {
+  const navigate=useNavigate();
   const [registerUser, { isLoading, isError, isSuccess, error }] = useRegisterMutation();
   const [upload,setUpload] = useState(false);
   const [formData, setFormData] = useState({
@@ -69,6 +71,7 @@ const SignupStudent = () => {
       const response = await registerUser(userFormData).unwrap();
       if (response.success) {
         toast.success(response.message || "Student registered successfully");
+        navigate("/login")
       } else {
         toast.error(response.message || "Failed to register");
       }

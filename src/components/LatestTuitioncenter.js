@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useGetLatestTuitionCentersQuery } from '../redux/api/tuitioncenterApi';
 import { useNavigate } from 'react-router-dom';
-import "../style/cards/tuitioncentercard.css"
+import "../style/cards/tuitioncentercard.css";
 
 const LatestTuitioncenter = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [currentCenterIndex, setCurrentCenterIndex] = useState(0);
+  const [cardsToShow, setCardsToShow] = useState(4);
   const { data: centersData, error: centersError, isLoading: centersLoading } = useGetLatestTuitionCentersQuery();
   
   const centers = centersData || [];
@@ -17,6 +18,24 @@ const LatestTuitioncenter = () => {
 
     return () => clearInterval(interval);
   }, [centers.length]);
+
+  useEffect(() => {
+    const updateCardsToShow = () => {
+      const width = window.innerWidth;
+      if (width <= 996) {
+        setCardsToShow(2);
+      } else if (width <= 1310) {
+        setCardsToShow(3);
+      } else {
+        setCardsToShow(4);
+      }
+    };
+
+    window.addEventListener("resize", updateCardsToShow);
+    updateCardsToShow();
+
+    return () => window.removeEventListener("resize", updateCardsToShow);
+  }, []);
 
   const handlePrevCenter = () => {
     setCurrentCenterIndex((prevIndex) => (prevIndex - 1 + centers.length) % centers.length);
@@ -31,12 +50,7 @@ const LatestTuitioncenter = () => {
   };
 
   const displayedCenters = centers.length > 0
-    ? [
-        centers[currentCenterIndex % centers.length],
-        centers[(currentCenterIndex + 1) % centers.length],
-        centers[(currentCenterIndex + 2) % centers.length],
-        centers[(currentCenterIndex + 3) % centers.length],
-      ]
+    ? Array.from({ length: cardsToShow }, (_, i) => centers[(currentCenterIndex + i) % centers.length])
     : [];
 
   return (

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { toast } from 'react-hot-toast';
+import {useNavigate} from "react-router-dom"
 import { useCreateTuitionCenterProfileMutation } from "../redux/api/tuitioncenterApi";
 import axios from "axios";
 import Spinner from "./Spinner";
 
 const SignupTuitionCenter = () => {
+  const navigate=useNavigate();
   const [createTuitionCenterProfile, { isLoading }] = useCreateTuitionCenterProfileMutation();
   const [upload, setUpload] = useState(false);
   const [formData, setFormData] = useState({
@@ -13,11 +15,14 @@ const SignupTuitionCenter = () => {
     password: "",
     photo: "",
     location: "",
-    courses: "",
-    fees: "",
     description: "",
     contactNumber: ""
   });
+
+  const [courses, setCourses] = useState([]);
+  const [fees, setFees] = useState({});
+  const [currentCourse, setCurrentCourse] = useState("");
+  const [currentFee, setCurrentFee] = useState("");
 
   const handleUpload = async (file) => {
     const cname = process.env.REACT_APP_CLOUDNAME;
@@ -60,6 +65,17 @@ const SignupTuitionCenter = () => {
     }
   };
 
+  const handleAddCourse = () => {
+    if (currentCourse && currentFee) {
+      setCourses([...courses, currentCourse]);
+      setFees({ ...fees, [currentCourse]: currentFee });
+      setCurrentCourse("");
+      setCurrentFee("");
+    } else {
+      toast.error("Please enter both course name and fee.");
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -67,14 +83,17 @@ const SignupTuitionCenter = () => {
     const defaultPhotoUrl = `${process.env.REACT_APP_DEFAULT_PHOTO}`;
     
     try {
-      const tuitionCenterFormData = new FormData();
-      for (const key in formData) {
-        tuitionCenterFormData.append(key, formData[key] || (key === "photo" && defaultPhotoUrl));
-      }
-      console.log(tuitionCenterFormData);
+      const tuitionCenterFormData = {
+        ...formData,
+        photo: formData.photo || defaultPhotoUrl,
+        courses: JSON.stringify(courses),
+        fees: JSON.stringify(fees)
+      };
+
       const response = await createTuitionCenterProfile(tuitionCenterFormData).unwrap();
       if (response.success) {
         toast.success(response.message || "Tuition Center registered successfully");
+        navigate('/login')
       } else {
         toast.error(response.message || "Failed to register");
       }
@@ -142,28 +161,6 @@ const SignupTuitionCenter = () => {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="courses">Courses</label>
-        <input
-          type="text"
-          id="courses"
-          name="courses"
-          value={formData.courses}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="fees">Fees</label>
-        <input
-          type="text"
-          id="fees"
-          name="fees"
-          value={formData.fees}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="form-group">
         <label htmlFor="description">Description</label>
         <textarea
           id="description"
@@ -183,6 +180,34 @@ const SignupTuitionCenter = () => {
           onChange={handleChange}
           required
         />
+      </div>
+      <div className="form-group">
+        <label htmlFor="courses">Courses</label>
+        <input
+          type="text"
+          id="currentCourse"
+          name="currentCourse"
+          value={currentCourse}
+          onChange={(e) => setCurrentCourse(e.target.value)}
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="fees">Fees</label>
+        <input
+          type="text"
+          id="currentFee"
+          name="currentFee"
+          value={currentFee}
+          onChange={(e) => setCurrentFee(e.target.value)}
+        />
+        <button type="button" onClick={handleAddCourse}>Add Course</button>
+      </div>
+      <div className="form-group">
+        <ul>
+          {courses.map((course, index) => (
+            <li key={index}>{course}: {fees[course]}</li>
+          ))}
+        </ul>
       </div>
       <button type="submit" disabled={isLoading || upload}>
         {isLoading || upload ? "Registering..." : "Register"}
