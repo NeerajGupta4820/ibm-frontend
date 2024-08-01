@@ -85,7 +85,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #444;
+  background-color: #839670;
   padding: 0.5rem;
   border-radius: 0.25rem;
   width: 10rem;
@@ -93,7 +93,7 @@
 }
 
 .dropdown>button:hover{
-  color: #efc725;
+  color: #777;
 }
 
 .dropdown-menu a {
@@ -122,8 +122,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-  z-index: 1000; /* Below mobile menu but above other content */
+  background: rgba(0, 0, 0, 0.5); 
+  z-index: 1000; 
 }
 
 .mobile-menu {
@@ -141,7 +141,7 @@
   padding-right: 1rem;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease-in-out;
-  z-index: 1001; /* Above overlay */
+  z-index: 1001;
 }
 
 .mobile-menu-toggle {
@@ -151,22 +151,22 @@
   color: #fff;
   font-size: 1.5rem;
   cursor: pointer;
-  z-index: 1002; /* Above overlay and mobile menu */
+  z-index: 1002; 
 }
 .mobile-menu a {
-  text-transform: uppercase;    /* Capitalize letters */
-  color: #fff;                  /* Text color */
-  text-decoration: none;        /* Remove underline */
-  padding: 1rem 0;              /* Space above and below each item */
-  display: block;               /* Make each link take up full width */
-  font-family: 'Poppins', sans-serif; /* Improved font style */
-  font-size: 1.1rem;            /* Adjust font size */
-  font-weight: 500;             /* Font weight */
-  letter-spacing: 1px;          /* Spacing between letters */
+  text-transform: uppercase;    
+  color: #fff;                 
+  text-decoration: none;        
+  padding: 1rem 0;              
+  display: block;               
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;           
+  font-weight: 500;            
+  letter-spacing: 1px;         
 }
 
 .mobile-menu a:not(:last-child) {
-  margin-bottom: 0.5rem; /* Add gap between items */
+  margin-bottom: 0.5rem; 
 }
 
 @media (max-width: 768px) {
@@ -178,21 +178,20 @@
     display: none;
   }
   .search-bar input {
-    width: 60%; /* Adjust width for smaller screens */
+    width: 60%; 
   }
 }
  
 
 @media (max-width: 500px) {
   .mobile-menu {
-    width: 40%; /* Adjust width for even smaller screens if needed */
+    width: 40%; 
   }
 
   .search-bar input {
-    width: 50%; /* Further adjust width for smaller screens */
+    width: 50%; 
   }
 }
-/* CSS for handling content overflow */
 @media (max-width: 1000px) {
   .header-center {
     display: none;
