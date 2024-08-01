@@ -1,5 +1,5 @@
 .main-perfect {
-  padding: 8rem 4rem 0 4rem;
+  padding: 8rem 4rem 3rem 4rem;
   /* background: Linear-gradient(180deg, #c2ceb6 26.71%,#cddac6 99.36%); */
 }
 .perfect-cards-container h1 {
@@ -136,7 +136,7 @@
   background-size: cover;
   background-position: center;
   text-align: center;
-  padding: 50px 20px;
+  padding: 50px 20px 70px 20px;
   border-radius: 0;
   color: black; /* Adjust text color for contrast */
   max-width: 100%; /* Full width */
