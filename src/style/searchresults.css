@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #e6dee6; /* White background for each card */
+  background: #f2f2f2; /* White background for each card */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   padding: 1.5rem; /* Added some padding for better spacing */
