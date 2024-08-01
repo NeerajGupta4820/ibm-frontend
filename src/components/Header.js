@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import logoimg from "../assets/logo/logo.png";
 import { MdOutlineManageAccounts } from "react-icons/md";
@@ -9,7 +9,9 @@ import "../style/header.css";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const user = useSelector((state) => state.user.user);
+  const navigate = useNavigate();
 
   const getProfileLink = () => {
     if (user.role === 'Tutor') return '/tutor-dashboard';
@@ -18,16 +20,26 @@ const Header = () => {
     return '/user-dashboard';
   };
 
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    // Navigate to the search results page with the query
+    navigate(`/search?query=${searchQuery}`);
+  };
+
   return (
     <nav className="header">
       <div className="logo">
-        <img src={logoimg} alt="logo" />
+        <Link to="/">
+          <img src={logoimg} alt="logo" />
+        </Link>
       </div>
       <div className="search-bar">
-        <form className="search-form">
+        <form className="search-form" onSubmit={handleSearch}>
           <input
             type="text"
-            placeholder="Search for tutors ...."
+            placeholder="Search for tutors or centers ..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
           <button type="submit">
             <FaSearch />

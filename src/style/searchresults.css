@@ -1,0 +1,70 @@
+.search-results {
+  padding: 2rem;
+  background: #f0f0f0; /* Slightly lighter background for the overall section */
+}
+
+.search-results-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.search-results-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #e6dee6; /* White background for each card */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  padding: 1.5rem; /* Added some padding for better spacing */
+  max-width: 300px;
+  flex: 1 1 calc(33.333% - 2rem);
+  margin-bottom: 2rem;
+  border: 1px solid #e0e0e0; /* Light border for a sleek look */
+  cursor: pointer; /* Indicate that the card is clickable */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for hover effects */
+}
+
+.search-results-card:hover {
+  transform: scale(1.05); /* Slightly enlarge the card on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Enhance shadow on hover */
+}
+
+.search-results-photo {
+  width: 13rem;
+  height: 14rem;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid #f1f1f1; /* Light border around the image */
+}
+
+.search-results-card h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.6rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #333; /* Darker text for better readability */
+}
+
+.no-results{
+  color: #666;
+  font-size: 40px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.search-results-card p {
+  margin: 0.5rem 0;
+  color: #666; /* Slightly lighter text color */
+  font-family: 'Poppins', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .search-results-card {
+    flex: 1 1 100%;
+    max-width: none;
+    margin-bottom: 1rem;
+  }
+}
