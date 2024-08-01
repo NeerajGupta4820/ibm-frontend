@@ -15,6 +15,10 @@
   padding: 2rem;
   margin: 2rem;
   background-color: gainsboro;
+  background-size: cover;
+  text-transform: capitalize;
+  background: Linear-gradient(180deg, #388bbd 26.71%,#a4a5a5 99.36%);
+  background-color: #388bbd;
 }
 .tutor-profile-img {
   flex: 1;
@@ -22,6 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 .tutor-profile-photo {
   width: 100%;
@@ -41,6 +46,7 @@
   margin-bottom: 1rem;
   font-size: 2.2rem;
   color:black;
+  text-transform: capitalize;
   font-weight: 600;
   border-bottom: 2px solid #4dbdd6;
   padding-bottom: 0.5rem;
@@ -49,14 +55,15 @@
   margin-bottom: 1rem;
   color: #555;
   font-size: 1rem;
+  text-transform: capitalize;
 }
 .tutor-profile-content .profile-availability {
-  color: #11ee48;
   font-size: 1.2rem;
   font-weight: 700;
 }
 .tutor-fees {
   margin-top: 1rem;
+  color: #080808;
 }
 
 .tutor-fees strong {
@@ -75,8 +82,6 @@
 }
 .tutor-profile-latest {
   margin-top: 2rem;
-  background: #ffffff;
-  padding: 1rem;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -91,13 +96,24 @@
   }
 }
 .contact-section {
+  display: flex;
+  flex-direction: row;
   background: #ffffff;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 2rem;
+  background-color: #388bbd;
 }
-
+.tutor-profile-contactimg{
+  display: flex;
+  flex: 0.4;
+}
+.tutor-profile-contact-content{
+  display: flex;
+  flex-direction: column;
+  flex: 0.6;
+}
 .contact-section h2 {
   margin-bottom: 1.5rem;
   font-size: 1.8rem;
@@ -129,7 +145,7 @@
 
 .contact-section button {
   display: inline-block;
-  background: #4dbdd6;
+  background: #eb8471;
   color: #ffffff;
   padding: 0.75rem 1.5rem;
   border: none;
@@ -140,5 +156,5 @@
 }
 
 .contact-section button:hover {
-  background: #388bbd;
+  background: #c46f60;
 }

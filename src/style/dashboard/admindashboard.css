@@ -22,7 +22,7 @@
 }
 
 .admin-dashboard-menu button {
-  background-color: #9CAF88;
+  background-color: #38424B;
   color: #ffffff;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -46,12 +46,12 @@
 }
 
 .admin-dashboard-menu .logout {
-  background-color: #dc7835;
+  background-color: #f09f43 !important;
   color: #ffffff;
 }
 
 .admin-dashboard-menu .logout:hover {
-  background-color: #c82333;
+  background-color: #dc7835;
   background-color: #dc7835;
 }
 

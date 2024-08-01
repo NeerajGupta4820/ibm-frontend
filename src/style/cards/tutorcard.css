@@ -41,7 +41,7 @@
 .tutor-card {
   padding: 16px;
   min-width: 15rem;
-  height: 25rem;
+  min-height: 25rem;
   background: rgba(19, 19, 19, 0.6);
   backdrop-filter: blur(10px);
   box-shadow: 3px 3px 10px rgba(10, 10, 10, 0.8),
@@ -79,7 +79,7 @@
 
   .tutor-card {
     min-width: 16rem;
-    height: 23rem;
+    min-height: 23rem;
   }
 
   .tutor-photo {
@@ -105,7 +105,7 @@
 
   .tutor-card {
     min-width: 16rem;
-    height: 22rem;
+    /* height: 22rem; */
   }
 
   .tutor-photo {
@@ -121,7 +121,6 @@
 @media (max-width: 800px) {
   .tutor-card {
     min-width: 15rem;
-    height: 22rem;
   }
 }
 
@@ -134,7 +133,7 @@
 
   .tutor-card {
     min-width: 20rem;
-    height: 28rem;
+    min-height: 23rem;
   }
 
   .tutor-photo {
@@ -150,7 +149,6 @@
 
   .tutor-card {
     min-width: 18rem;
-    height: 26rem;
   }
 
   .tutor-photo {
@@ -166,14 +164,15 @@
 @media (max-width: 513px) {
   .tutor-card {
     min-width: 16rem;
-    height: 22rem;
   }
 }
 
 @media (max-width: 470px) {
+  .tutor-page h1 {
+    font-size: 1.5rem;
+  }
   .tutor-card {
     min-width: 14rem;
-    height: 22rem;
   }
 }
 @media (max-width: 448px) {
@@ -192,7 +191,6 @@
   }
   .tutor-card {
     min-width: 13rem;
-    height: 21rem;
   }
 }
 @media (max-width: 373px) {
@@ -201,7 +199,6 @@
   }
   .tutor-card {
     min-width: 10rem;
-    height: 21rem;
   }
   .tutors-slider{
     padding-left: 0;

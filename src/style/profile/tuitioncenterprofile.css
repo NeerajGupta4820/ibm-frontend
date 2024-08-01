@@ -2,11 +2,11 @@
     background: #f4f4f4;
 }  
 .center-profile {
-      padding: 2rem;
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    margin-bottom: 2rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin-bottom: 2rem;
   }
   .center-profile-img {
     flex: 1;
@@ -14,8 +14,8 @@
   }
   .center-photo {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
+    min-height  : 22rem;
+    border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   .center-profile-content {
@@ -29,6 +29,7 @@
     margin-bottom: 1rem;
     font-size: 2rem;
     color: #333;
+    text-transform: capitalize;
   }
   .center-profile-content p {
     margin-bottom: 0.5rem;

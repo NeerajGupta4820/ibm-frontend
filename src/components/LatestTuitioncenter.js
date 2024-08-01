@@ -54,7 +54,7 @@ const LatestTuitioncenter = () => {
             onClick={() => handleCardClick(center._id)}>
               {center?.photo && (
                 <img 
-                  src={`${process.env.REACT_APP_SERVER}/${center.photo}`} 
+                  src={center.photo}
                   alt={center.name} 
                   className="tuition-center-photo" 
                 />

@@ -1,7 +1,7 @@
 .tutor-reviews {
   margin-top: 3rem;
   padding: 2rem;
-  background-color: #f8f8f8;
+  background-color: white ;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -11,6 +11,7 @@
   text-align: center;
   margin-bottom: 1.5rem;
   text-decoration: underline;
+  color: #38424B;
 }
 
 .reviews-list {

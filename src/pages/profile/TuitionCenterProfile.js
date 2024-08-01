@@ -4,11 +4,17 @@ import { useGetTuitionCenterProfileQuery } from '../../redux/api/tuitioncenterAp
 import LatestTuitioncenter from "../../components/LatestTuitioncenter";
 import emailjs from "emailjs-com";
 import { toast } from "react-hot-toast";
+import img2 from "../../assets/contact/svg2.webp"
+import TutorReview from "../../components/review/TutorReview";
 import '../../style/profile/tuitioncenterprofile.css';
+import { useGetReviewsQuery } from "../../redux/api/reviewApi";
 
 const TuitionCenterProfile = () => {
   const { id } = useParams();
   const { data: center, error, isLoading } = useGetTuitionCenterProfileQuery(id);
+  const { data: reviews, error: reviewsError, isLoading: isReviewsLoading } = useGetReviewsQuery(
+    { reviewedEntityId: id, reviewedEntityType: "TuitionCenter" }
+  );
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -75,7 +81,7 @@ const TuitionCenterProfile = () => {
         <div className="center-profile-img">
           {center?.photo && (
             <img
-              src={`${process.env.REACT_APP_SERVER}/${center.photo}`}
+              src={center.photo}
               alt={`${center.name}'s photo`}
               className="center-photo"
             />
@@ -102,6 +108,7 @@ const TuitionCenterProfile = () => {
         </div>
       </div>
       <div className="contact-section">
+        <div className="tutor-profile-contact-content">
         <h2>Contact {center?.name}</h2>
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-group">
@@ -140,9 +147,16 @@ const TuitionCenterProfile = () => {
             {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
+        </div>
+        <div className="tutor-profile-contactimg">
+          <img src={img2} />
+        </div>
       </div>
       <div className="tuition-center-profile-latest">
         <LatestTuitioncenter />
+      </div>
+      <div>
+        <TutorReview reviews={reviews || []} reviewedEntityId={id} reviewedEntityType="TuitionCenter" />
       </div>
     </div>
   );

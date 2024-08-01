@@ -1,13 +1,14 @@
 .main-signup {
   padding: 2rem;
   /* background: Linear-gradient(180deg, #7bafeb 26.71%, #063970 99.36%); */
+  background-color: white;
 }
 .signup {
   display: flex;
   flex-direction: row;
   margin: 1rem auto;
   padding: 1.5rem;
-  background-color: #dde6d4; 
+  background: Linear-gradient(180deg, #708394 26.71%,#a4a5a5 99.36%); 
   border-radius: 8px;
   box-shadow: 0 2px 10px 1px #0d0d0e;
   font-family: "Poppins",  sans-serif;

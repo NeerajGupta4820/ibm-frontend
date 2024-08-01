@@ -8,6 +8,7 @@ import { addToWatchlist } from "../../redux/reducers/watchlistReducer";
 import LatestTutor from "../../components/LatestTutor";
 import TutorReview from "../../components/review/TutorReview";
 import emailjs from "emailjs-com";
+import img2 from "../../assets/tutorprofile/img2.webp"
 import "../../style/profile/tutorprofile.css";
 
 const TutorProfile = () => {
@@ -16,6 +17,7 @@ const TutorProfile = () => {
   const { data: reviews, error: reviewsError, isLoading: isReviewsLoading } = useGetReviewsQuery(
     { reviewedEntityId: id, reviewedEntityType: "Tutor" }
   );
+  console.log(tutor)
   const [selectedSubject, setSelectedSubject] = useState("");
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -26,11 +28,11 @@ const TutorProfile = () => {
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
 
-  if (isTutorLoading || isReviewsLoading) {
+  if (isTutorLoading ) {
     return <p>Loading...</p>;
   }
 
-  if (tutorError || reviewsError) {
+  if (tutorError ) {
     return <p>Error loading tutor profile or reviews</p>;
   }
 
@@ -106,7 +108,7 @@ const TutorProfile = () => {
         <div className="tutor-profile-img">
           {tutor?.photo && (
             <img
-              src={`${process.env.REACT_APP_SERVER}/${tutor.photo}`}
+              src={tutor.photo}
               alt={`${tutor.name}'s photo`}
               className="tutor-profile-photo"
             />
@@ -149,6 +151,7 @@ const TutorProfile = () => {
         </div>
       </div>
       <div className="contact-section">
+        <div className="tutor-profile-contact-content">
         <h2>Contact {tutor?.name}</h2>
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-group">
@@ -187,6 +190,10 @@ const TutorProfile = () => {
             {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
+        </div>
+        <div className="tutor-profile-contactimg">
+          <img src={img2} />
+        </div>
       </div>
       <div className="tutor-profile-latest">
         <LatestTutor />

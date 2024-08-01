@@ -76,7 +76,7 @@ const LatestTutor = () => {
             >
               {tutor?.photo && (
                 <img
-                  src={`${process.env.REACT_APP_SERVER}/${tutor.photo}`}
+                  src={tutor.photo}
                   alt={`${tutor.name}'s photo`}
                   className="tutor-photo"
                 />
