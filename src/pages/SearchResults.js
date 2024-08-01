@@ -18,7 +18,7 @@ const SearchResults = () => {
       setError(null); // Clear previous errors
 
       try {
-        const response = await axios.get(`http://localhost:8080/api/tutors/search?name=${encodeURIComponent(query)}`);
+        const response = await axios.get(`${process.env.REACT_APP_SERVER}/api/tutors/search?name=${encodeURIComponent(query)}`);
         if (response.data.length > 0) {
           setResults(response.data);
         } else {
