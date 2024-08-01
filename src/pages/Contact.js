@@ -1,10 +1,64 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import image1 from '../assets/1.jpeg';
-import svg from '../assets/contact/svg.webp';
-import '../style/contact.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import image1 from "../assets/1.jpeg";
+import emailjs from "emailjs-com";
+import svg from "../assets/contact/svg.webp";
+import {toast} from "react-hot-toast";
+import "../style/contact.css";
 
 const Contact = () => {
+  const serviceID = process.env.REACT_APP_SERVICE_ID;
+  const templateID = process.env.REACT_APP_TEMPLATE_ID;
+  const key = process.env.REACT_APP_KEY;
+  const [loading,setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    setLoading(true);
+    e.preventDefault();
+    if(formData.name == "" || formData.email == "" || formData.message == ""){
+      toast.error("All fields are mandatory");
+      return;
+    }
+    emailjs
+      .send(
+        `${serviceID}`, // Replace with your Service ID
+        `${templateID}`, // Replace with your Template ID
+        formData,
+        `${key}` // Replace with your User ID
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          toast.success("Email sent Successfully");
+        },
+        (error) => {
+          console.error("FAILED...", error);
+          toast.error("Failed to send email.");
+        }
+      );
+
+      setLoading(false);
+
+    // Reset form data after submission
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+  };
   return (
     <div>
       <section className="form-details">
@@ -12,11 +66,34 @@ const Contact = () => {
           <form>
             <span>LEAVE A MESSAGE</span>
             <h2>We love to hear from you</h2>
-            <input type="text" placeholder="Your Good Name" />
-            <input type="text" placeholder="E-mail" />
-            <input type="text" placeholder="Subject" />
-            <textarea cols="30" rows="10" placeholder="Your message"></textarea>
-            <button className="normal">Submit</button>
+            <input
+              type="text"
+              placeholder="Your Good Name"
+              name="name"
+              required
+              value={formData.name}
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              placeholder="E-mail"
+              name="email"
+              required
+              value={formData.email}
+              onChange={handleChange}
+            />
+            <textarea
+              cols="30"
+              rows="10"
+              placeholder="Your message"
+              name="message"
+              required
+              value={formData.message}
+              onChange={handleChange}
+            ></textarea>
+            <button className="normal" onClick={handleSubmit} disabled={loading}>
+              {loading === true? "Sending...":"Submit"}
+            </button>
           </form>
         </div>
         <div className="svg-container">
@@ -61,6 +138,6 @@ const Contact = () => {
       </section>
     </div>
   );
-}
+};
 
 export default Contact;
