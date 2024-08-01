@@ -1,6 +1,6 @@
 /* memberCard.css */
 .member-card {
-  background-color: #fff;
+  background-color: #8067f0eb;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 1rem;
@@ -25,13 +25,13 @@
 
 .member-role {
   font-size: 1rem;
-  color: #777;
+  color: white;
   margin-bottom: 0.5rem;
 }
 
 .member-description {
   font-size: 0.9rem;
-  color: #555;
+  color: white;
 }
 
 /* Members Container */
