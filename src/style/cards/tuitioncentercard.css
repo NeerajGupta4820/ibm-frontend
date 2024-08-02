@@ -1,23 +1,23 @@
-.latest-tuition-centers {
-  padding: 2rem;
+.i-latest-tuition-centers {
+  padding: 1.5rem;
   background-image: url("../../assets/home/latesttuitioncenter/img3.jpg");
   background-size: cover;
 }
 
-.latest-tuition-centers h1 {
+.i-latest-tuition-centers h1 {
   display: flex;
   font-size: 2rem;
   justify-content: center;
 }
 
-.centers-slider {
+.i-centers-slider {
   display: flex;
   width: 100%;
   align-items: center;
   border: 5px solid white;
 }
 
-.slider-button {
+.i-slider-button {
   background-color: #2b2a2a;
   border: none;
   color: white;
@@ -27,14 +27,14 @@
   font-size: 1rem;
 }
 
-.centers-list {
+.i-centers-list {
   display: flex;
   overflow: hidden;
   padding: 1rem;
   margin: auto;
 }
 
-.tuition-center-card {
+.i-tuition-center-card {
   padding: 16px;
   min-width: 16rem;
   height: 23rem;
@@ -48,144 +48,143 @@
   background: rgba(236, 235, 235,0.3);
 }
 
-.tuition-center-card h3 {
+.i-tuition-center-card h3 {
   margin-top: 1rem;
   font-size: 1.2rem;
 }
 
-.tuition-center-photo {
+.i-tuition-center-photo {
   width: 200px;
   height: 140px;
   object-fit: cover;
   border-radius: 10px;
 }
 
-.tuition-center-card p {
+.i-tuition-center-card p {
   color: black;
   margin: 0.5rem 0;
 }
 
-.tuition-center-card span {
+.i-tuition-center-card span {
   display: block;
   margin: 0.2rem 0;
 }
 
 /* Responsive styles */
 @media (max-width: 1200px) {
-  .centers-list {
+  .i-centers-list {
       flex-direction: row;
       flex-wrap: wrap;
   }
 
-  .tuition-center-card {
+  .i-tuition-center-card {
       min-width: 16rem;
       height: 23rem;
   }
 
-  .tuition-center-photo {
+  .i-tuition-center-photo {
       width: 180px;
       height: 120px;
   }
 }
 
 @media (max-width: 1132px) {
-  .tuition-center-card {
+  .i-tuition-center-card {
       min-width: 15rem;
   }
 }
 
 @media (max-width: 1084px) {
-  .tuition-center-card {
+  .i-tuition-center-card {
       min-width: 13rem;
   }
 }
 
 @media (max-width: 992px) {
-  .centers-list {
+  .i-centers-list {
       padding: 1rem;
   }
 
-  .tuition-center-card {
+  .i-tuition-center-card {
       min-width: 16rem;
   }
 
-  .tuition-center-photo {
+  .i-tuition-center-photo {
       width: 160px;
       height: 110px;
   }
 
-  .slider-button {
+  .i-slider-button {
       padding: 14px 18px;
       font-size: 0.9rem;
   }
 }
 
 @media (max-width: 800px) {
-  .tuition-center-card {
+  .i-tuition-center-card {
       min-width: 15rem;
   }
 }
 
 @media (max-width: 768px) {
-  .centers-list {
+  .i-centers-list {
       flex-direction: column;
       align-items: center;
       padding: 1rem;
   }
 
-  .tuition-center-card {
-      /* min-width: 20rem; */
+  .i-tuition-center-card {
       height: 23rem;
   }
 
-  .tuition-center-photo {
+  .i-tuition-center-photo {
       width: 220px;
       height: 160px;
   }
 }
 
 @media (max-width: 576px) {
-  .centers-list {
+  .i-centers-list {
       padding: 0.5rem;
   }
 
-  .tuition-center-card {
+  .i-tuition-center-card {
       min-width: 18rem;
   }
 
-  .tuition-center-photo {
+  .i-tuition-center-photo {
       width: 200px;
       height: 140px;
   }
 
-  .slider-button {
+  .i-slider-button {
       padding: 12px 16px;
       font-size: 0.8rem;
   }
 }
 
 @media (max-width: 513px) {
-  .tuition-center-card {
+  .i-tuition-center-card {
       min-width: 16rem;
   }
 }
 
 @media (max-width: 470px) {
-  .latest-tuition-centers h1 {
+  .i-latest-tuition-centers h1 {
       font-size: 1.5rem;
   }
 
-  .tuition-center-card {
+  .i-tuition-center-card {
       min-width: 14rem;
   }
 }
 
 @media (max-width: 448px) {
-  .latest-tuition-centers {
+  .i-latest-tuition-centers {
       padding: 0.2rem;
   }
 
-  .slider-button {
+  .i-slider-button {
       padding: 10px 12px;
       border-radius: 80px;
       font-size: 0.5rem;
@@ -193,33 +192,33 @@
 }
 
 @media (max-width: 373px) {
-  .latest-tuition-centers {
+  .i-latest-tuition-centers {
       padding: 0;
   }
 
-  .tuition-center-card {
+  .i-tuition-center-card {
       min-width: 13rem;
   }
 }
 
 @media (max-width: 373px) {
-  .latest-tuition-centers {
+  .i-latest-tuition-centers {
       padding: 0;
   }
 
-  .tuition-center-card {
+  .i-tuition-center-card {
       min-width: 10rem;
   }
 
-  .centers-slider {
+  .i-centers-slider {
       padding-left: 0;
   }
 
-  .tuition-center-card {
+  .i-tuition-center-card {
       margin: 16px 0;
   }
 
-  .tuition-center-photo {
+  .i-tuition-center-photo {
       width: 150px;
       height: 100px;
   }

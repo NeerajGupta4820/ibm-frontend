@@ -54,23 +54,23 @@ const LatestTuitioncenter = () => {
     : [];
 
   return (
-    <div className="latest-tuition-centers">
+    <div className="i-latest-tuition-centers">
       <h1>Latest Tuition Centers</h1>
       {centersLoading && <p>Loading...</p>}
       {centersError && <p>Error fetching latest tuition centers: {centersError.message}</p>}
-      <div className="centers-slider">
-        <button onClick={handlePrevCenter} className="slider-button prev">
+      <div className="i-centers-slider">
+        <button onClick={handlePrevCenter} className="i-slider-button prev">
           &lt;
         </button>
-        <div className="centers-list">
+        <div className="i-centers-list">
           {displayedCenters.map((center, index) => (
-            <div key={center?._id || index} className="tuition-center-card"
+            <div key={center?._id || index} className="i-tuition-center-card"
             onClick={() => handleCardClick(center._id)}>
               {center?.photo && (
                 <img 
                   src={center.photo}
                   alt={center.name} 
-                  className="tuition-center-photo" 
+                  className="i-tuition-center-photo" 
                 />
               )}
               <h3>{center?.name}</h3>
@@ -79,7 +79,7 @@ const LatestTuitioncenter = () => {
             </div>
           ))}
         </div>
-        <button onClick={handleNextCenter} className="slider-button">
+        <button onClick={handleNextCenter} className="i-slider-button">
           &gt;
         </button>
       </div>
