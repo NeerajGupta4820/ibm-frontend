@@ -78,7 +78,7 @@ const Watchlist = () => {
             <tr key={item.tutorId}>
               <td>
                 <img
-                  src={`${process.env.REACT_APP_SERVER}/${item.tutorPhoto}`}
+                  src={item.tutorPhoto}
                   alt={`${item.tutorName}'s photo`}
                   className="watchlist-card-photo"
                 />

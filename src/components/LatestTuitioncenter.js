@@ -12,7 +12,6 @@ const LatestTuitioncenter = () => {
     error: centersError, 
     isLoading: centersLoading 
     } = useGetLatestTuitionCentersQuery();
-  console.log(centersData)
   const centers = centersData?.latesttuitionCenters || [];
   
   useEffect(() => {
