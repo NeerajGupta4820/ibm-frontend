@@ -85,19 +85,9 @@
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-@media (max-width: 768px) {
-  .tutor-profile {
-    flex-direction: column;
-    padding: 1rem;
-  }
 
-  .tutor-profile-img, .tutor-profile-content {
-    max-width: 100%;
-  }
-}
 .contact-section {
   display: flex;
-  flex-direction: row;
   background: #ffffff;
   padding: 2rem;
   border-radius: 12px;
@@ -157,4 +147,25 @@
 
 .contact-section button:hover {
   background: #c46f60;
+}
+
+@media screen and (max-width: 768px) {
+  .tutor-profile {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .tutor-profile-img, .tutor-profile-content {
+    max-width: 100%;
+  }
+  .contact-section{
+    flex-direction:column-reverse;
+  }
+  .tutor-profile-contactimg{
+    align-items: center;
+    justify-content: center;
+  }
+  .center-profile{
+    flex-direction: column;
+  }
 }
