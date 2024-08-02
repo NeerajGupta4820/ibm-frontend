@@ -7,9 +7,13 @@ const LatestTuitioncenter = () => {
   const navigate = useNavigate();
   const [currentCenterIndex, setCurrentCenterIndex] = useState(0);
   const [cardsToShow, setCardsToShow] = useState(4);
-  const { data: centersData, error: centersError, isLoading: centersLoading } = useGetLatestTuitionCentersQuery();
-  
-  const centers = centersData || [];
+  const { 
+    data: centersData,
+    error: centersError, 
+    isLoading: centersLoading 
+    } = useGetLatestTuitionCentersQuery();
+  console.log(centersData)
+  const centers = centersData?.latesttuitionCenters || [];
   
   useEffect(() => {
     const interval = setInterval(() => {
@@ -64,8 +68,10 @@ const LatestTuitioncenter = () => {
         </button>
         <div className="i-centers-list">
           {displayedCenters.map((center, index) => (
-            <div key={center?._id || index} className="i-tuition-center-card"
-            onClick={() => handleCardClick(center._id)}>
+            <div
+              key={center?._id || index}
+              className="i-tuition-center-card"
+              onClick={() => handleCardClick(center?._id)}>
               {center?.photo && (
                 <img 
                   src={center.photo}

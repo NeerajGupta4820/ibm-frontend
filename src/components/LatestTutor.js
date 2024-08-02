@@ -13,7 +13,7 @@ const LatestTutor = () => {
     error: tutorsError,
     isLoading: tutorsLoading,
   } = useGetLatestTutorsQuery();
-
+  console.log(tutorsData)
   const tutors = tutorsData?.latestTutors || [];
 
   useEffect(() => {

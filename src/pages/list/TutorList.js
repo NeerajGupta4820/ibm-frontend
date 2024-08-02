@@ -145,13 +145,12 @@ const TutorList = () => {
             >
               {tutor.photo && (
                 <img
-                  src={`${process.env.REACT_APP_SERVER}/${tutor.photo}`}
+                  src={tutor.photo}
                   alt={`${tutor.name}'s photo`}
                   className="tutor-list-photo"
                 />
               )}
               <h3>{tutor.name}</h3>
-              <p>{tutor.bio}</p>
               <p>Availability: {tutor.availability}</p>
               <p>Ratings: {tutor.ratings}</p>
               <p>Fees: {Math.min(...Object.values(tutor.fees))}</p>

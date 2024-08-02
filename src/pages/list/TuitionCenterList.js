@@ -139,7 +139,7 @@ const TuitionCenterList = () => {
                 <div className="tuition-center-card-front">
                   {center.photo && (
                     <img
-                      src={`${process.env.REACT_APP_SERVER}/${center.photo}`}
+                      src={center.photo}
                       alt={center.name}
                       className="tuition-center-photo"
                     />
