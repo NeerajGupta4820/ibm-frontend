@@ -5,11 +5,11 @@ import image4 from "../assets/home/header/image4.jpg";
 import image5 from "../assets/home/header/image5.jpg";
 import image6 from "../assets/home/header/image6.jpg";
 import image7 from "../assets/home/header/image7.jpg";
-import LatestTuitioncenter from "../components/LatestTuitioncenter";
 import LatestTutor from "../components/LatestTutor";
 import "../style/home.css";
 import Hiringlist from "../components/Hiringlist";
 import PerfectTutor from "../components/PerfectTutor";
+import LatestTuitioncenter from "../components/LatestTuitioncenter";
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -55,7 +55,7 @@ const Home = () => {
         <Hiringlist />
       </section>
       <section>
-        <LatestTuitioncenter />
+        <LatestTuitioncenter/>
       </section>
       <section>
         <PerfectTutor />
